@@ -1,12 +1,12 @@
 <div class="container">
   <div class="users-form">
-    <h2>プロフィール編集</h2>
+    <h2>設定</h2>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= devise_error_messages! %>
 
       <div class="field">
-        <%= f.label :email, "メールアドレス" %>
+        <%= f.label :email, "メールアドレス", class: "form-label" %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email",
           class: "form-control", placeholder: "メールアドレス"%>
 
@@ -17,17 +17,17 @@
       <% end %>
 
       <div class="field">
-        <%= f.label :password, "新しいパスワード" %> <i>(変更無しの場合は空白)</i><br />
+        <%= f.label :password, "新しいパスワード", class: "form-label" %> <i>(変更無しの場合は空白)</i><br />
         <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
       </div>
 
       <div class="field">
-        <%= f.label :password_confirmation, "パスワード確認" %><br />
+        <%= f.label :password_confirmation, "パスワード確認", class: "form-label" %><br />
         <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
       </div>
 
       <div class="field">
-        <%= f.label :current_password, "現在のパスワード"%> <i>(we need your current password to confirm your changes)</i><br />
+        <%= f.label :current_password, "現在のパスワード", class: "form-label" %> <i>(we need your current password to confirm your changes)</i><br />
         <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
       </div>
 

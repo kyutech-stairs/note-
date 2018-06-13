@@ -36,8 +36,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise', '4.4.3'
 
 gem 'bootstrap-sass', '3.3.7'
-#gem 'jquery-rails', '4.3.1'
-#gem 'jquery-ui-rails', '6.0.1'
+gem 'carrierwave', '1.2.2'
+gem 'rmagick', '2.16.0', :require => 'RMagick'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
