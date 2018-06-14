@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     sessions: 'users/sessions'
   }
-  resources :users, only: [:edit, :update], path: '/profile'
+  resources :users, only: [:show, :edit, :update], path: '/profile'
 
   root 'static_pages#index'
 end
