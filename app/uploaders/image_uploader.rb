@@ -31,7 +31,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process resize_to_fit: [50, 50]
+    process :create_square
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
@@ -39,16 +39,20 @@ class ImageUploader < CarrierWave::Uploader::Base
   def extension_whitelist
     %w(jpg jpeg gif png)
   end
-# 拡張子が同じでないとGIFをJPGとかにコンバートできないので、ファイル名を変更
-  def filename
-    super.chomp(File.extname(super)) + '.jpg' if original_filename.present?
-  end
 
  # ファイル名は日本語が入ってくると嫌なので、下記のようにしてみてもいい。
  # 日付(20131001.jpgみたいなファイル名)で保存する
   def filename
     time = Time.now
-    name = time.strftime('%Y%m%d%H%M%S') + '.jpg'
-    name.downcase
+    if original_filename.present?
+      name = time.strftime('%Y%m%d%H%M%S') + '.jpg'
+      name.downcase
+    end
   end
+  def create_square
+    manipulate! do |img|
+      narrow = img.columns > img.rows ? img.rows : img.columns
+      img.crop(Magick::CenterGravity, narrow, narrow).resize(50, 50)
+    end
+end
 end

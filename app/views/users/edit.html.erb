@@ -11,7 +11,8 @@
         <%= f.text_area :profile, placeholder: "自己紹介", class: "form-control profile"%>
       </div>
       <div class="field">
-        <%= f.file_field :image %>
+        <%= f.file_field :image, accept: 'image/jpg,image/jpeg,image/png,image/gif',
+          id: "image-field"  %>
       </div>
       <div class="actions">
         <%= f.submit "更新", class: "btn btn-primary form-control"%>
@@ -19,3 +20,4 @@
     <% end %>
   </div>
 </div>
+
