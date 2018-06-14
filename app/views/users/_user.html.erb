@@ -1,5 +1,5 @@
 <div class="profile-image">
-  <%= image_tag(@user.image, size: "50x50") %>
+  <%= image_tag(@user.image.thumb.url) if !@user.image.file.nil? %>
 </div>
 <div class="profile-text">
   <%= @user.name %>
