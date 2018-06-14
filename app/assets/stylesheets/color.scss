@@ -1,9 +1,8 @@
-@import 'bootstrap-sprockets';
-@import 'bootstrap';
-
 $back-white: #fcfcfc;
+$back-color: #f4f7f6;
 $char-orange: orange;
 
+
 body{
-  background-color: $back-white !important;
+  background-color: $back-color !important;
 }
