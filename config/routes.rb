@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "article/write" => "article#write"
+
   devise_for :users, controllers: {
     confirmations: 'users/confirmations',
     passwords:     'users/passwords',
