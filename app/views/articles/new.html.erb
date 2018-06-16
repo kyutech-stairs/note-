@@ -2,8 +2,8 @@
     <%= form_for(@article) do |f| %>
       <%= f.text_field :title, class: "form-control"%>
         <div class="row" id="editor">
-          <div class="col-md-5">
-            <textarea id="text-area" name="article[content]" cols="30"
+          <div class="col-md-5 col-sm-5">
+            <textarea id="text-area" name="content" cols="30"
             rows="10" class="form-control" v-model="input" debounce='50'></textarea>
           </div>
           <div class="di_inline_t preview col-md-5">

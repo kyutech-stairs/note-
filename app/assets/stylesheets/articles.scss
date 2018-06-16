@@ -1,3 +1,4 @@
+@import './color';
 #editor{
   height: 70vh;
   width: 100vw;
@@ -15,4 +16,46 @@
     border: 1px solid #ccc;
     border-radius: 4px;
   }
+}
+.thumbnail {
+  a{
+    color: $char-black;
+  }
+  display: inline-block;
+  margin-top: 2vh;
+  border: 0 none;
+  padding: 0;
+  box-shadow: 1px 1px 1px gray;
+  .content_wrapper{
+    padding: 0 1vw;
+    .title{
+      font-size: 1vw;
+      padding: 2vh 1vw;
+    }
+    .footer{
+      position: relative;
+      height: 8vh;
+      font-size: 1vh;
+      margin: 1vh auto;
+      border-top: solid 2px #f4f7f6;
+      padding: 1vh 0;
+      .container_left{
+        float: left;
+        padding-left: 0;
+        .icon_image{
+          float: left;
+          margin-right: 1vw;
+          border-radius: 50%;
+          background-position: center;
+        }
+      }
+      .container_right{
+        float: right;
+      }
+    }
+  }
+}
+
+.paginate{
+  text-align: center;
 }
