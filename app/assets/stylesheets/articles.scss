@@ -1,0 +1,22 @@
+.article_new_wrapper{
+  margin-top: 10vh;
+  height:800px;
+  .content_wrapper{
+    background-color: white;
+    height: 100%;
+    input[type="text"], textarea{
+      box-sizing: border-box;
+      padding: 5px;
+      width: 100%;
+    }
+
+    textarea{
+      height:500px;
+    }
+  }
+
+  h3{
+    font-size: 14px;
+    padding-top: 25px;
+  }
+}
