@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get "article/write" => "article#write"
+
 
   devise_for :users, controllers: {
     confirmations: 'users/confirmations',
@@ -8,6 +8,9 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
   resources :users, only: [:show, :edit, :update], path: '/profile'
+  resources :articles, :except => [:index] do
+    resources :comments, only: [:create, :destroy]
+  end
 
   root 'static_pages#index'
 end
