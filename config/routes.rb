@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   }
   resources :users, only: [:show, :edit, :update], path: '/profile'
   resources :articles, only: [:show, :create, :new]
+  resources :file_uploaders, only: [:create]
   root 'static_pages#index'
 end

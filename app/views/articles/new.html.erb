@@ -1,16 +1,18 @@
 <div class="container-fluid">
-  <%= form_for(@article) do |f| %>
-    <div id="editor" class="row">
-      <div class="col-md-4">
-      <textarea id="text-area" name="article[content]" cols="30"
-      rows="10" class="form-control" v-model="input" debounce='50'></textarea>
-      </div>
-      <div class="di_inline_t preview col-md-4">
-        <div v-html='input | marked'></div>
-      </div>
-    </div>
-    <%= f.submit "投稿", class: "btn btn-primary"%>
-  <% end %>
+    <%= form_for(@article) do |f| %>
+      <%= f.text_field :title, class: "form-control"%>
+        <div class="row" id="editor">
+          <div class="col-md-5">
+            <textarea id="text-area" name="article[content]" cols="30"
+            rows="10" class="form-control" v-model="input" debounce='50'></textarea>
+          </div>
+          <div class="di_inline_t preview col-md-5">
+            <div v-html='input | marked'></div>
+          </div>
+        </div>
+      <%= f.submit "投稿", class: "btn btn-primary"%>
+    <% end %>
+  </div>
 </div>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.10/vue.js'></script>
 <script type="text/javascript">
