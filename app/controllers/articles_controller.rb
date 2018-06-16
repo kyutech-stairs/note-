@@ -12,6 +12,7 @@ class ArticlesController < ApplicationController
   end
   def show
     @article = Article.find(params[:id])
+    @user = User.find(@article.user_id)
   end
 
   private

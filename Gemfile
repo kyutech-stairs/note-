@@ -35,14 +35,17 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise', '4.4.3'
 
-gem 'bootstrap-sass', '3.3.7'
-gem 'carrierwave', '1.2.2'
-gem 'rmagick', '2.16.0', :require => 'RMagick'
-gem 'jquery-rails', '4.3.1'
-gem 'qiita-markdown'
-gem 'github-linguist'
-gem 'html-pipeline'
+gem 'bootstrap-sass',       '3.3.7'
+gem 'carrierwave',          '1.2.2'
+gem 'rmagick',              '2.16.0', :require => 'RMagick'
+gem 'jquery-rails',         '4.3.1'
+gem 'qiita-markdown',       '0.10.0'
+gem 'github-linguist',      '6.2.0'
+gem 'html-pipeline',        '2.8.0'
 gem 'rouge'
+gem 'will_paginate',        '3.1.6'
+gem 'bootstrap-will_paginate', '1.0.0'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
