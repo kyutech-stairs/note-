@@ -59,3 +59,13 @@
 .paginate{
   text-align: center;
 }
+.article-show{
+  .article-body{
+    padding: 3vh 3vw;
+    background-color: $back-white;
+    .title{
+      font-size: 4.0rem;
+      margin-bottom: 10vh;
+    }
+  }
+}
