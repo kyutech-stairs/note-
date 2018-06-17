@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController 
   before_action :authenticate_user!, only: [:new, :edit, :create, :update]
+  before_action :correct_user, only: [:edit, :update]
 
   def new
     @article = Article.new
@@ -8,8 +9,8 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
   def create
+    debugger
     @article = Article.new(article_params)
-    @article.user  = current_user
     if @article.save
       redirect_to @article
     else
@@ -30,6 +31,10 @@ class ArticlesController < ApplicationController
 
   private
   def article_params
-    params.require(:article).permit(:title, :content)
+    params.require(:article).permit(:title, :content, :user_id)
+  end
+  def correct_user
+    @article = Article.find(params[:id])
+    redirect_to root_path unless current_user == @article.user
   end
 end
