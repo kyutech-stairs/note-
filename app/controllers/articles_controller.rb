@@ -4,6 +4,7 @@ class ArticlesController < ApplicationController
   end
   def create
     @article = Article.new(article_params)
+    @article.user  = current_user
     if @article.save
       redirect_to @article
     else
@@ -12,7 +13,6 @@ class ArticlesController < ApplicationController
   end
   def show
     @article = Article.find(params[:id])
-    @user = User.find(@article.user_id)
   end
 
   private

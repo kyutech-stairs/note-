@@ -3,10 +3,11 @@
       <%= f.text_field :title, class: "form-control"%>
         <div class="row" id="editor">
           <div class="col-md-5 col-sm-5">
-            <textarea v-model="content" name="article[content]" ></textarea>
+            <textarea id="text-area" name="content" cols="30"
+            rows="10" class="form-control" v-model="input" debounce='50'></textarea>
           </div>
           <div class="di_inline_t preview col-md-5">
-            <div v-html='content | marked'></div>
+            <div v-html='input | marked'></div>
           </div>
         </div>
       <%= f.submit "投稿", class: "btn btn-primary"%>
@@ -19,12 +20,11 @@
    new Vue({
      el: '#editor',
      data: {
-       content: "",
+       input: '<%== j @article.content %>',
      },
      filters: {
        marked: marked,
      },
-     
      });
    };
 </script>

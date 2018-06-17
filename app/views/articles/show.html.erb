@@ -1,0 +1,18 @@
+<div class="container article-show">
+  <div class="row">
+    <div class="col-md-2 col-sm-2 col-xs-2">
+      
+      user-info?
+    </div>
+    <div class="col-md-8 col-sm-8 col-xs-8 article-body">
+      <div class="title">
+        <h1>
+        <%= @article.title %>
+        </h1>
+      </div>
+      <div class="content">
+        <%= qiita_markdown(@article.content) %>
+      </div>
+    </div>
+  </div>
+</div>
