@@ -1,6 +1,11 @@
-class ArticlesController < ApplicationController
+class ArticlesController < ApplicationController 
+  before_action :authenticate_user!, only: [:new, :edit, :create, :update]
+
   def new
     @article = Article.new
+  end
+  def edit
+    @article = Article.find(params[:id])
   end
   def create
     @article = Article.new(article_params)
@@ -13,6 +18,14 @@ class ArticlesController < ApplicationController
   end
   def show
     @article = Article.find(params[:id])
+  end
+  def update
+    @article = Article.find(params[:id])
+    if @article.update_attributes(article_params)
+      redirect_to @article
+    else
+      render 'edit'
+    end
   end
 
   private
