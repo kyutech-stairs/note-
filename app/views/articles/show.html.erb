@@ -17,12 +17,27 @@
       <%= link_to "編集", edit_article_path(@article), class: "btn btn-primary"%>
     <% end %>
   </div>
-  <% if current_user %>
-    <%= render 'comments/form' %>
-  <% end %>
-  <% if @article.comments.any? %>
-    <% @article.comments.each do |comment|%>
-      <%= comment.content%>
+</div>
+<div class="container">
+  <div class="col-md-8 col-sm-8 col-xs-8 article-body 
+      col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
+  <div class="comment-form">
+    <% if current_user %>
+      <%= render 'comments/form' %>
     <% end %>
-  <% end %>
+  </div>
+  <div class="comment-index">
+    <% @article.comments.each do |comment| %>
+      <div class="comment" style="background-color: white; border-bottom: 1px solid #f0f0f0">
+        <span class="user">
+          <%= link_to user_image_for(comment.user, option={class:"icon-image", size: "35"}),
+            comment.user %>
+        </span>
+        <span>
+          <%= comment.content%>
+        </span></br>
+      </div>
+    <% end %>
+  </div>
+  </div>
 </div>
