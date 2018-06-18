@@ -17,4 +17,12 @@
       <%= link_to "編集", edit_article_path(@article), class: "btn btn-primary"%>
     <% end %>
   </div>
+  <% if current_user %>
+    <%= render 'comments/form' %>
+  <% end %>
+  <% if @article.comments.any? %>
+    <% @article.comments.each do |comment|%>
+      <%= comment.content%>
+    <% end %>
+  <% end %>
 </div>

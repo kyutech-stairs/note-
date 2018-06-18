@@ -8,24 +8,45 @@ class ArticlesController < ApplicationController
   def edit
     @article = Article.find(params[:id])
   end
-  def create
-    debugger
-    @article = Article.new(article_params)
-    if @article.save
-      redirect_to @article
-    else
-      render 'new'
-    end
-  end
   def show
     @article = Article.find(params[:id])
   end
+  def destroy
+    @article = Article.find(params[:id])
+    if @article.destroy
+      set_flash(:notice, "記事が削除されました")
+      redirect_to root_path
+    else
+      messages = ""
+      @article.errors.full_messages.each{|msg| messages += "#{msg}¥n"}
+      set_flash(:alert, messages)
+      render 'show'
+    end
+  end
+
   def update
     @article = Article.find(params[:id])
-    if @article.update_attributes(article_params)
+    if @article.update_attribures(article_params)
+      set_flash(:notice, "記事が変更されました")
+      redirect_to @aritcle
+    else
+      messages = ""
+      @article.errors.full_messages.each{|msg| messages += "#{msg}¥n"}
+      set_flash(:alert, messages)
+      render 'edit'
+    end
+  end
+
+  def create
+    @article = Article.new(article_params)
+    if @article.save
+      set_flash(:notice, "記事が投稿されました")
       redirect_to @article
     else
-      render 'edit'
+      messages = ""
+      @article.errors.full_messages.each{|msg| messages += "#{msg}¥n"}
+      set_flash(:alert, messages)
+      render 'new'
     end
   end
 
