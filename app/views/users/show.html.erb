@@ -4,7 +4,9 @@
       <div class="profile">
         <%= render @user %>
 
-        <%= link_to '編集', edit_user_path(current_user) %>
+        <% if current_user&&current_user?(@user) %>
+          <%= link_to '編集', edit_user_path(@user) %>
+        <%end%>
       </div>
     </div>
     <div class="col-md-8">

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
   resources :users, only: [:show, :edit, :update], path: '/profile'
-
+  resources :articles, only: [:show, :create, :new, :edit, :update]
+  resources :file_uploaders, only: [:create]
   root 'static_pages#index'
 end
