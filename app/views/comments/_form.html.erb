@@ -1,0 +1,6 @@
+<%= form_for(@article.comments.build()) do |f| %>
+  <input type="hidden" name="comment[article_id]" value="<%= @article.id %>">
+  <input type="hidden" name="comment[user_id]" value="<%= current_user.id %>">
+  <textarea id="" name="comment[content]" cols="30" rows="10"></textarea>
+  <%= f.submit%>
+<% end %>
