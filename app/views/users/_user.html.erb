@@ -1,10 +1,10 @@
 <div class="profile-image">
-  <%= image_tag(@user.image.thumb.url) if !@user.image.file.nil? %>
+  <%= user_image_for(user) %>
 </div>
 <div class="profile-text">
-  <%= @user.name %>
+  <%= user.name %>
 </div>
 <div class="profile-text">
-  <%= @user.profile %>
+  <%= user.profile %>
 </div>
 
