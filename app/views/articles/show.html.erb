@@ -1,8 +1,18 @@
-<div class="container article-show">
+<div class="container">
   <div class="row">
-    </div>
     <div class="col-md-8 col-sm-8 col-xs-8 article-body 
       col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
+      <div class="article-header">
+        <div class="article-header-left">
+          <span><%= user_image_for(@article.user) %></span>
+          <span><%= link_to @article.user.name, @article.user %></span>
+        </div>
+        <div class="article-header-right">
+          <% if @article.user == current_user%>
+            <%= link_to "編集", edit_article_path(@article)%>
+          <%end%>
+        </div>
+      </div>
       <div class="title">
         <h1>
         <%= @article.title %>
@@ -12,32 +22,18 @@
         <%= qiita_markdown(@article.content) %>
       </div>
     </div>
-    <div class="col-md-2 col-sm-2 col-xs-2">
-    <% if current_user?(@article.user) %>
-      <%= link_to "編集", edit_article_path(@article), class: "btn btn-primary"%>
-    <% end %>
   </div>
-</div>
-<div class="container">
-  <div class="col-md-8 col-sm-8 col-xs-8 article-body 
-      col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
-  <div class="comment-form">
-    <% if current_user %>
-      <%= render 'comments/form' %>
-    <% end %>
-  </div>
-  <div class="comment-index">
-    <% @article.comments.each do |comment| %>
-      <div class="comment" style="background-color: white; border-bottom: 1px solid #f0f0f0">
-        <span class="user">
-          <%= link_to user_image_for(comment.user, option={class:"icon-image", size: "35"}),
-            comment.user %>
-        </span>
-        <span>
-          <%= comment.content%>
-        </span></br>
+  <div class="row">
+    <div class="col-md-8 col-sm-8 col-xs-8 comment-body
+        col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
+      <div class="comment-form">
+        <% if current_user %>
+          <%= render 'comments/form' %>
+        <% end %>
       </div>
-    <% end %>
-  </div>
+      <div class="comment-index">
+        <%= render @article.comments %>
+      </div>
+    </div>
   </div>
 </div>
