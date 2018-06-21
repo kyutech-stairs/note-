@@ -27,9 +27,9 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
-    if @article.update_attribures(article_params)
+    if @article.update_attributes(article_params)
       set_flash(:notice, "記事が変更されました")
-      redirect_to @aritcle
+      redirect_to @article
     else
       messages = ""
       @article.errors.full_messages.each{|msg| messages += "#{msg}¥n"}
