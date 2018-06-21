@@ -5,12 +5,15 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.save
-    redirect_to @comment.article
+    @article = @comment.article
+    respond_to do |format|
+      format.html {redirect_to @article}
+      format.js
+    end
   end
 
   def destroy
-    @article = Article.find(params[:post_id])
-    @comment = @article.comments.find(params[:id])
+    @comment = Comment.find(params[:id])
     if @comment.destroy
       set_flash(:notice, "コメントが削除されました")
     else
@@ -18,7 +21,7 @@ class CommentsController < ApplicationController
       @comment.errors.full_messages.each{|msg| messages += "#{msg}¥n"}
       set_flash(:alert, messages)
     end
-    redirect_to article_path(@article)
+    
   end
 
   private

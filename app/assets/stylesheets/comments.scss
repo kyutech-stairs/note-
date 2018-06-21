@@ -1,6 +1,28 @@
-.comment-form{
-  textarea{
-    width: 100%;
-    border: 1px solid #ccc;
+.comment-body{
+  border-top: 1px solid #ccc;
+  padding: 3vh 3vw;
+  background-color: $back-white;
+  .comment-form{
+    textarea{
+      width: 80%;
+      border: 1px solid #ccc;
+      border: none;
+      float: left;
+      margin-bottom: 2vh;
+    }
+    button{
+      float: right;
+    }
+  }
+  .comment-index{
+    clear: left;
+    .comment{
+      background-color: white;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .delete{
+      float: right;
+    }
   }
 }
+

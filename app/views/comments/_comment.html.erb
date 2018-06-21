@@ -1,0 +1,16 @@
+<div class="comment">
+  <span class="user">
+    <%= link_to user_image_for(comment.user, option={class:"icon-image", size: "35"}),
+      comment.user %>
+  </span>
+  <span>
+    <%= comment.content %>
+  </span>
+  <span>
+    <% if current_user %>
+    <% if comment.user_id==current_user.id %>
+      <%= link_to "削除", comment, method: :delete, class: "delete" %>
+    <% end %>
+    <% end %>
+  </span>
+</div>

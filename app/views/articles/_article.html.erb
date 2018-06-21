@@ -1,9 +1,9 @@
-<div class="col-sm-4 col-xs-4 col-md-3">
+<li class="col-sm-4 col-xs-4 col-md-3 article-b"  id="article-<%= article.id %>">
   <div class="thumbnail">
     <img src="/image/header.jpeg">
     <div class="content_wrapper">
       <div class="title">
-        <h3><%= link_to article.title, article %></h3>
+        <h6><%= link_to article.title, article, id: "article-title" %></h6>
       </div>
       <div class="footer">
         <div class="container_left col-sm-8 col-md-8 col-xs-8">
@@ -16,4 +16,4 @@
       </div>
     </div>
   </div>
-</div>
+</li>
