@@ -7,3 +7,10 @@ $char-black: #333;
 body{
   background-color: $back-color !important;
 }
+.btn-orange{
+  background-color: orange;
+  border: none;
+  &:hover{
+    background-color: #e0a125;
+  }
+}
