@@ -1,6 +1,6 @@
 <li class="col-sm-4 col-xs-4 col-md-3 article-b"  id="article-<%= article.id %>">
   <div class="thumbnail">
-    <img src="assets/header.jpeg">
+    <img src="image/header.jpeg">
     <div class="content_wrapper">
       <div class="title">
         <h6><%= link_to article.title, article, id: "article-title" %></h6>
@@ -11,7 +11,7 @@
           <h5 class="user_name"><%= link_to article.user.name, article.user %></h5>
         </div>
         <div class="container_right col-sm-6 col-xs-6 col-md-6">
-          <h5><%= article.created_at.strftime('%Y/%m/%d') %></h5>
+          <span class="time"><%= date_format(article.created_at) %></span>
         </div>
       </div>
     </div>

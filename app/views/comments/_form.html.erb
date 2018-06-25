@@ -1,14 +1,21 @@
 <%= form_for(@comment, html: {id: "comment-form"}, data: {remote: true}) do |f| %>
   <input type="hidden" name="comment[article_id]" value="<%= @article.id %>">
   <input type="hidden" name="comment[user_id]" value="<%= current_user.id %>">
-  <textarea id="" name="comment[content]" v-model="comment" placeholder="コメント"></textarea>
-  <button v-show="comment" class="btn btn-primary">コメント</button>
+  <textarea id="" name="comment[content]" v-model="comment"
+   :rows="rows" placeholder="コメント"></textarea>
+  <button v-show="comment" class="btn btn-orange">コメント</button>
 <% end %>
  <script type="text/javascript">
    var vm = new Vue({
      el: "#comment-form",
      data: {
        comment: "",
+     },
+     computed: {
+       rows: function(){
+         var num = this.comment.split("\n").length;
+         return (num > 3) ? num : 3;
+       }
      }
    });
    window.vm=vm
