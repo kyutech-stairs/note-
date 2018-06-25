@@ -10,7 +10,9 @@ body{
 .btn-orange{
   background-color: orange;
   border: none;
+  color: white;
   &:hover{
     background-color: #e0a125;
+    color: white;
   }
 }

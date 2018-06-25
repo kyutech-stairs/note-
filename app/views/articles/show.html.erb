@@ -6,10 +6,11 @@
         <div class="article-header-left">
           <span><%= user_image_for(@article.user) %></span>
           <span><%= link_to @article.user.name, @article.user %></span>
+          <span class="time"><%= @article.updated_at.strftime('%Y年%m月%d日に更新')%></span>
         </div>
         <div class="article-header-right">
           <% if @article.user == current_user%>
-            <%= link_to "編集", edit_article_path(@article)%>
+            <%= link_to "編集", edit_article_path(@article), class: "btn btn-orange"%>
           <%end%>
         </div>
       </div>
@@ -22,8 +23,8 @@
         <%= qiita_markdown(@article.content) %>
       </div>
       <div class="article-footer">
-          <%= social_share_button_tag(@article.title,
-                                      allow_sites: %w(twitter pinterest linkedin google_plus)) %>
+        <%= social_share_button_tag(@article.title,
+          allow_sites: %w(twitter pinterest linkedin google_plus)) %>
       </div>
     </div>
   </div>
