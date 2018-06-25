@@ -29,15 +29,15 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-8 col-sm-8 col-xs-8 comment-body
+    <div class="col-md-8 col-sm-8 col-xs-8 comments
         col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
+      <div class="comment-index">
+        <%= render @article.comments %>
+      </div>
       <div class="comment-form">
         <% if current_user %>
           <%= render 'comments/form' %>
         <% end %>
-      </div>
-      <div class="comment-index">
-        <%= render @article.comments %>
       </div>
     </div>
   </div>
