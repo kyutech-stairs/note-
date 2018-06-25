@@ -102,8 +102,14 @@
   padding: 3vh 0;
   .article-header-left{
     float: left;
+    a{
+      color: black;
+    }
   }
   .article-header-right{
     float: right;
   }
+}
+.article-footer{
+  margin-top: 50px;
 }
