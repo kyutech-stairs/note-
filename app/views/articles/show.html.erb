@@ -21,6 +21,10 @@
       <div class="content">
         <%= qiita_markdown(@article.content) %>
       </div>
+      <div class="article-footer">
+          <%= social_share_button_tag(@article.title,
+                                      allow_sites: %w(twitter pinterest linkedin google_plus)) %>
+      </div>
     </div>
   </div>
   <div class="row">
