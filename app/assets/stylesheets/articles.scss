@@ -50,6 +50,7 @@
 }
 
 .paginate{
+  clear: left;
   text-align: center;
 }
 #editor{
@@ -130,4 +131,8 @@
     margin-bottom: 30px;
   }
 
+}
+.article-one{
+  min-width: 280px;
+  min-height: 280px;
 }
