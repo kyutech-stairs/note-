@@ -1,0 +1,48 @@
+<!-- <script>
+$(function() {
+  'use strict';
+  // JavaScript で表示
+
+  // ダイアログ表示前にJavaScriptで操作する
+  $('#price-modal').on('show.bs.modal', function(event) {
+    var button = $(event.relatedTarget);
+    var title = button.text();
+    var article_title = button.data('article-title');
+
+    var modal = $(this);
+    modal.find('.modal-title').text(article_title);
+
+  });
+});
+</script> -->
+
+<div class="modal" id="price-modal" tabindex="-1" role="dialog" aria-labelledby="price-modal-label" aria-hidden="true" data-show="true" data-keyboard="false" data-backdrop="static">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          <span aria-hidden="true">&#215;</span><span class="sr-only">閉じる</span>
+        </button>
+        <h4 class="modal-title">Article Price</h4>
+      </div>
+        <%= f.fields_for :prices do |prices_form| %>
+        <div class="modal-body">
+            <h4 class="modal-name">please set your article price.</h4>
+            <div class="controls">
+                <%= prices_form.hidden_field :article_id%>
+                <p>開始価格</p>
+                <%= prices_form.select :min_price, [["10円",10],["100円",100],["500円",500],["1000円",1000]], {}, class:"form-control col-md-offset-1" %>
+                <p>最大価格</p>
+                <%= prices_form.select :max_price, [["500円",500],["1000円",1000],["2000円",2000],["5000円",5000]], {}, class:"form-control col-md-offset-1" %>
+                <p>レート</p>
+                <%= prices_form.select :rate, [["10人で100円UP",1],["100人で100円UP",2],["1000人で100円UP",3]], {}, class:"form-control col-md-offset-1" %>
+            </div>
+        </div>
+        <% end %>
+        <div class="modal-footer">
+          <%= f.submit "記事を投稿", class: "btn btn-primary btn-orange" %>
+        </div>
+    </div>
+  </div>
+</div>
