@@ -1,4 +1,4 @@
-
+@import './color';
 
 .users-form{
   max-width: 330px;
@@ -35,4 +35,28 @@
 }
 .icon_image{
   border-radius: 50%;
+}
+.users-show{
+  .user-info{
+    padding: 3vh 3vw;
+    background-color: $back-white;
+    border-radius: 10px;
+    border: 1px solid $border-gray;
+    .user-info-image{
+      display: inline-block;
+      margin-bottom: 3vh;
+    }
+    .profile{
+      border-top: 1px solid $border-gray;
+      display: inline-block;
+      margin-bottom: 3vh;
+      
+    }
+  }
+  .users-articles{
+    background-color: $back-white;
+    border: 1px solid $border-gray;
+    border-radius: 10px;
+    padding: 5vh 5vw;
+  }
 }
