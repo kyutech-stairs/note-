@@ -1,0 +1,12 @@
+@import './color';
+
+
+.like-button{
+  color: $char-orange;
+  font-size: 32px;
+  &:hover{
+    color: $hover-orange;
+    border: none;
+    text-decoration: none;
+  }
+}

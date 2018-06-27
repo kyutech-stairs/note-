@@ -4,4 +4,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   mount_uploader :image, ImageUploader
+  has_many :articles, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
+
+  def like(article)
+    likes.create!(article_id: article.id)
+  end
+  def liking?(article)
+    likes.map(&:article_id).include?(article.id)
+  end
 end

@@ -46,6 +46,20 @@
         margin-top: 10px;
       }
     }
+    .article-info{
+      height: 30px;
+      border-top: solid 2px #f4f7f6;
+      margin-top: 5px;
+      .like{
+        height: 100%;
+        padding: 5px;
+        .like-icon{
+          font-size: 20px;
+          color: $char-orange;
+          display: inline-block;
+        }
+      }
+    }
   }
 }
 
