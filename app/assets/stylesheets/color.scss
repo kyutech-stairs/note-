@@ -2,7 +2,8 @@ $back-white: #fcfcfc;
 $back-color: #f4f7f6;
 $char-orange: orange;
 $char-black: #333;
-
+$char-light-gray: #aaa;
+$border-gray: #ccc;
 
 body{
   background-color: $back-color !important;
@@ -10,7 +11,12 @@ body{
 .btn-orange{
   background-color: orange;
   border: none;
+  color: white;
   &:hover{
     background-color: #e0a125;
+    color: white;
   }
+}
+.time{
+  color: $char-light-gray;
 }
