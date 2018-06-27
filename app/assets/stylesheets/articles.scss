@@ -23,7 +23,7 @@
     .footer{
       position: relative;
       height: 8vh;
-      min-height: 40px;
+      height: 40px;
       font-size: 1vh;
       margin: 1vh auto;
       border-top: solid 2px #f4f7f6;
@@ -50,6 +50,7 @@
 }
 
 .paginate{
+  clear: left;
   text-align: center;
 }
 #editor{
@@ -130,4 +131,8 @@
     margin-bottom: 30px;
   }
 
+}
+.article-one{
+  min-width: 280px;
+  min-height: 280px;
 }
