@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
-    @article.prices.build
+    @article.build_price
   end
   def edit
     @article = Article.find(params[:id])
@@ -55,7 +55,7 @@ class ArticlesController < ApplicationController
 
   private
   def article_params
-    params.require(:article).permit(:title, :content, :user_id, prices_attributes: [:article_id, :min_price, :max_price, :rate])
+    params.require(:article).permit(:title, :content, :user_id, price_attributes: [:article_id, :min_price, :max_price, :rate])
   end
   def correct_user
     @article = Article.find(params[:id])
