@@ -1,0 +1,14 @@
+en:
+  ja:
+    enums:
+      price:
+        mins:
+          min_plan_1: "10円"
+          min_plan_2: "100円"
+          min_plan_3: "500円"
+          min_plan_4: "1000円"
+        maxes:
+          max_plan_1: "500円"
+          max_plan_2: "1000円"
+          max_plan_3: "2000円"
+          max_plan_4: "5000円"

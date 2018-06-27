@@ -32,11 +32,11 @@ $(function() {
             <div class="controls">
                 <%= prices_form.hidden_field :article_id%>
                 <p>開始価格</p>
-                <%= prices_form.select :min_price, [["10円",10],["100円",100],["500円",500],["1000円",1000]], {}, class:"form-control col-md-offset-1" %>
+                <%= prices_form.select :min, enum_options_for_select(Price, :min) , {}, class:"form-control" %>
                 <p>最大価格</p>
-                <%= prices_form.select :max_price, [["500円",500],["1000円",1000],["2000円",2000],["5000円",5000]], {}, class:"form-control col-md-offset-1" %>
+                <%= prices_form.select :max, enum_options_for_select(Price, :max), {}, class:"form-control" %>
                 <p>レート</p>
-                <%= prices_form.select :rate, [["10人で100円UP",1],["100人で100円UP",2],["1000人で100円UP",3]], {}, class:"form-control col-md-offset-1" %>
+                <%= prices_form.select :rate, Price.rates.invert, {}, class:"form-control" %>
             </div>
         </div>
         <% end %>
