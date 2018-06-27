@@ -1,56 +1,52 @@
-<div class="container">
-  <div class="row users-show">
-    <div class="col-md-4 col-xs-4 col-sm-4">
-      <div class="user-info">
-        <div class="user-info-image">
-          <%= user_image_for(@user, size: 100) %>
-        </div>
-        <div class="profile">
-          <div class="user-name">
-            <h3><%= @user.name %></h3>
-          </div>
-          <div class="user-profile">
-            <%= @user.profile %>
-          </div>
-        </div>
-        <% if current_user&&current_user?(@user) %>
-          <%= link_to '編集', edit_user_path(@user), class: "btn btn-orange" %>
-        <%end%>
+<div class="row users-show">
+  <div class="col-md-3 col-xs-3 col-sm-3">
+    <div class="user-info">
+      <div class="user-info-image">
+        <%= user_image_for(@user, size: 100) %>
       </div>
-    </div>
-    <div class="col-md-8 col-sm-8 col-xs-8 users-articles">
-      <ul class="nav nav-tabs" role="tablist">
-        <li class="active" role="presentation">
-          <a aria-controls="tab_a" data-toggle="tab" href="#tab_a" role="tab">投稿記事</a>
-        </li>
-        <li role="presentation">
-          <a aria-controls="tab_b" data-toggle="tab" href="#tab_b" role="tab">お気に入り</a>
-        </li>
-        <li role="presentation">
-          <a aria-controls="tab_c" data-toggle="tab" href="#tab_c" role="tab">購入記事</a>
-        </li>
-      </ul>
-      <div class="tab-content">
-        <div class="tab-pane active" id="tab_a" role="tabpanel">
-          <ul style="list-style: none;">
-            <% if @articles.any? %>
-              <%= render @articles %>
-            <% end %>
-          </ul>
-          <div class="paginate">
-            <%= will_paginate @articles %>
-          </div>
+      <div class="profile">
+        <div class="user-name">
+          <h3><%= @user.name %></h3>
         </div>
-        <div class="tab-pane" id="tab_b" role="tabpanel">
-      <p>
-        タブBです
-      </p>
+        <div class="user-profile">
+          <%= @user.profile %>
+        </div>
+      </div>
+      <% if current_user&&current_user?(@user) %>
+        <%= link_to '編集', edit_user_path(@user), class: "btn btn-orange" %>
+      <%end%>
     </div>
-    <div class="tab-pane" id="tab_c" role="tabpanel">
-      <p>
-        タブC!!
-      </p>
-    </div>
+  </div>
+  <div class="col-md-9 col-sm-9 col-xs-9 users-articles">
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="active" role="presentation">
+        <a aria-controls="tab_a" data-toggle="tab" href="#tab_a" role="tab">投稿記事</a>
+      </li>
+      <li role="presentation">
+        <a aria-controls="tab_b" data-toggle="tab" href="#tab_b" role="tab">お気に入り</a>
+      </li>
+      <li role="presentation">
+        <a aria-controls="tab_c" data-toggle="tab" href="#tab_c" role="tab">購入記事</a>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane active" id="tab_a" role="tabpanel">
+        <ul style="list-style: none;">
+          <% if @articles.any? %>
+            <%= render @articles %>
+          <% else %>
+            <span>投稿記事はありません</span>
+          <% end %>
+        </ul>
+        <div class="paginate">
+          <%= will_paginate @articles %>
+        </div>
+      </div>
+      <div class="tab-pane" id="tab_b" role="tabpanel">
+        <span>お気に入り記事はありません</span>
+      </div>
+      <div class="tab-pane" id="tab_c" role="tabpanel">
+        <span>購入記事はありません</span>
       </div>
     </div>
   </div>
