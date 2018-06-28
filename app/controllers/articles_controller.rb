@@ -39,6 +39,7 @@ class ArticlesController < ApplicationController
     end
   end
 
+
   def create
     @article = Article.new(article_params)
 
@@ -55,7 +56,7 @@ class ArticlesController < ApplicationController
 
   private
   def article_params
-    params.require(:article).permit(:title, :content, :user_id, price_attributes: [:article_id, :min_price, :max_price, :rate])
+    params.require(:article).permit(:title, :content, :user_id, price_attributes: [:article_id, :min, :max, :rate])
   end
   def correct_user
     @article = Article.find(params[:id])

@@ -6,6 +6,18 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+  enums:
+    price:
+      mins:
+        10: "10円"
+        100: "100円"
+        500: "500円"
+        1000: "1000円"
+      maxes:
+        max_plan_1: "500円"
+        max_plan_2: "1000円"
+        max_plan_3: "2000円"
+        max_plan_4: "5000円"
   date:
     abbr_day_names:
     - 日

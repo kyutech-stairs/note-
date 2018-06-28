@@ -13,7 +13,7 @@ module EnumI18nHelper
   # Example usage:
   # enum_i18n(User, :approval_state, :unprocessed)
   def enum_i18n(class_name, enum, key)
-    I18n.t("ja.enums.#{class_name.model_name.i18n_key}.#{enum.to_s.pluralize}.#{key}")
+    I18n.t("enums.#{class_name.model_name.i18n_key}.#{enum.to_s.pluralize}.#{key}")
   end
 
 end
