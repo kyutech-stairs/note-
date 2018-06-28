@@ -56,7 +56,7 @@ class ArticlesController < ApplicationController
 
   private
   def article_params
-    params.require(:article).permit(:title, :content, :user_id, price_attributes: [:article_id, :min, :max, :rate])
+    params.require(:article).permit(:title, :content, :user_id, price_attributes: [:min, :max, :rate])
   end
   def correct_user
     @article = Article.find(params[:id])

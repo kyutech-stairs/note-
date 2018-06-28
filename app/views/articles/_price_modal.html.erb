@@ -26,17 +26,16 @@ $(function() {
         </button>
         <h4 class="modal-title">Article Price</h4>
       </div>
-        <%= f.fields_for :prices do |prices_form| %>
+        <%= f.fields_for :price do |price_form| %>
         <div class="modal-body">
             <h4 class="modal-name">please set your article price.</h4>
             <div class="controls">
-                <%= prices_form.hidden_field :article_id%>
                 <p>開始価格</p>
-                <%= prices_form.select :min, enum_options_for_select(Price, :min) , {}, class:"form-control" %>
+                <%= price_form.select :min, enum_options_for_select(Price, :min) , {}, class:"form-control" %>
                 <p>最大価格</p>
-                <%= prices_form.select :max, enum_options_for_select(Price, :max), {}, class:"form-control" %>
+                <%= price_form.select :max, enum_options_for_select(Price, :max), {}, class:"form-control" %>
                 <p>レート</p>
-                <%= prices_form.select :rate, Price.rates.invert, {}, class:"form-control" %>
+                <%= price_form.select :rate, enum_options_for_select(Price, :rate), {}, class:"form-control" %>
             </div>
         </div>
         <% end %>
