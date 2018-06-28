@@ -9,15 +9,19 @@ ja:
   enums:
     price:
       mins:
-        10: "10円"
-        100: "100円"
-        500: "500円"
-        1000: "1000円"
+        min_plan_1: "10円"
+        min_plan_2: "100円"
+        min_plan_3: "500円"
+        min_plan_4: "1000円"
       maxes:
         max_plan_1: "500円"
         max_plan_2: "1000円"
         max_plan_3: "2000円"
         max_plan_4: "5000円"
+      rates:
+        high: "10人で100円UP"
+        normal: "100人で100円UP"
+        low: "1000人で100円UP"
   date:
     abbr_day_names:
     - 日
