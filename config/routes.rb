@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update], path: '/profile'
   resources :file_uploaders, only: [:create]
   resources :articles, :except => [:index] do
-  end
 
+  end
   resources :comments, only: [:create, :destroy]
   root 'static_pages#index'
 end
