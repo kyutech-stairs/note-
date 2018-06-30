@@ -4,9 +4,21 @@
 .like-button{
   color: $char-orange;
   font-size: 32px;
+  display: inline-block;
+  vertical-align: top;
+  height: 100%;
   &:hover{
     color: $hover-orange;
     border: none;
     text-decoration: none;
   }
+}
+.like-icon{
+  color: $char-orange;
+  font-size: 32px;
+}
+.like-count{
+  display: inline-block;
+  vertical-align: middle;
+  height: 32px;
 }

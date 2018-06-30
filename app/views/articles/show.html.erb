@@ -1,3 +1,9 @@
+<div class="sidebar">
+  <div class="like-form">
+    <%= render 'likes/form'%>
+  </div>
+</div>
+
 <div class="container">
   <div class="row">
     <div class="">
@@ -25,10 +31,10 @@
         <%= qiita_markdown(@article.content) %>
       </div>
       <div class="article-footer">
-      <div class="like-from">
+      <div class="like-form">
         <%= render 'likes/form'%>
       </div>
-
+      <div class="social-share-button">
         <%= social_share_button_tag(@article.title,
           allow_sites: %w(twitter pinterest linkedin google_plus)) %>
       </div>
