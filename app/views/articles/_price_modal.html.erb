@@ -26,22 +26,55 @@ $(function() {
         </button>
         <h4 class="modal-title">Article Price</h4>
       </div>
-        <%= f.fields_for :price do |price_form| %>
-        <div class="modal-body">
-            <h4 class="modal-name">please set your article price.</h4>
-            <div class="controls">
-                <p>開始価格</p>
-                <%= price_form.select :min, enum_options_for_select(Price, :min) , {}, class:"form-control" %>
-                <p>最大価格</p>
-                <%= price_form.select :max, enum_options_for_select(Price, :max), {}, class:"form-control" %>
-                <p>レート</p>
-                <%= price_form.select :rate, enum_options_for_select(Price, :rate), {}, class:"form-control" %>
-            </div>
-        </div>
+        <%= f.fields_for :price  do |price_form| %>
+          <div class="modal-body"  id="price-form">
+              <div class="modal-label">
+                <h4 class="modal-name">choose free or fee-charging article.</h4>
+                <!-- <input type="checkbox"　v-model="checked">free -->
+              </div>
+              <div>
+                  <p>開始価格</p>
+                  <!-- <%= price_form.select :min, enum_options_for_select(Price, :min) , {}, {class:"form-control", "v-model" => "selected_min"}%> -->
+                  <%= price_form.select :min, enum_options_for_select(Price, :min) , {}, class:"form-control"%>
+                  <p>最大価格</p>
+                  <%= price_form.select :max, enum_options_for_select(Price, :max), {}, class:"form-control" %>
+                  <p>レート</p>
+                  <%= price_form.select :rate, enum_options_for_select(Price, :rate), {}, class:"form-control" %>
+              </div>
+          </div>
         <% end %>
         <div class="modal-footer">
-          <%= f.submit "記事を投稿", class: "btn btn-primary btn-orange" %>
+          <%= f.submit "記事を投稿", class: "btn btn-orange" %>
         </div>
     </div>
   </div>
 </div>
+
+<!-- <script type="text/javascript">
+  var vm = new Vue({
+    el: "#price-editor",
+    data: {
+      checked: false
+    },
+
+  });
+  window.vm = vm;
+</script> -->
+
+<!-- <script type="text/javascript">
+  var vm = new Vue({
+    el: "#price-editor",
+    data: {
+      selected_min: "<%= j @article.price.min %>"
+      selected_max: "<%= j @article.price.max %>"
+      selected_rate: "<%= j @article.price.rate %>"
+    },
+    directives:{
+     disabled: function (el, binding){
+       el.disabled = binding.value
+     }
+    }
+
+  });
+  window.vm = vm;
+</script> -->
