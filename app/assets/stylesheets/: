@@ -153,9 +153,5 @@
 .sidebar{
   position: fixed;
   z-index: 1;
-  left: 30px;
-  overflow-x: hidden;
-  .like-form{
-    
-  }
+  margin: 0 auto;
 }
