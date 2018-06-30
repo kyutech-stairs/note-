@@ -14,8 +14,14 @@
     </div>
     <div v-else style="color: gray;">プレビュー</div>
   </div>
-  <button type="submit" class="btn btn-primary btn-orange">記事を投稿</button>
+  <button type="button" v-disabled="content.length==0 || title.length==0" class="btn btn-orange" data-toggle="modal" data-target="#price-modal">価格設定</button>
+
+  <!-- モーダル部分 -->
+  <%= render 'price_modal', f: f %>
+
 <% end %>
+
+
 
  <script type="text/javascript">
    var vm = new Vue({
@@ -29,6 +35,11 @@
          return marked(text, {sanitize: true})
        },
      },
+     directives:{
+      disabled: function (el, binding){
+        el.disabled = binding.value
+      }
+     }
 
    });
    window.vm = vm;

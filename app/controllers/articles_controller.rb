@@ -1,9 +1,10 @@
-class ArticlesController < ApplicationController 
+class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :create, :update]
   before_action :correct_user, only: [:edit, :update]
 
   def new
     @article = Article.new
+    @article.build_price
   end
   def edit
     @article = Article.find(params[:id])
@@ -38,8 +39,10 @@ class ArticlesController < ApplicationController
     end
   end
 
+
   def create
     @article = Article.new(article_params)
+
     if @article.save
       set_flash(:notice, "記事が投稿されました")
       redirect_to @article
@@ -53,7 +56,7 @@ class ArticlesController < ApplicationController
 
   private
   def article_params
-    params.require(:article).permit(:title, :content, :user_id)
+    params.require(:article).permit(:title, :content, :user_id, price_attributes: [:min, :max, :rate])
   end
   def correct_user
     @article = Article.find(params[:id])
