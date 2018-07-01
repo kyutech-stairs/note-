@@ -30,9 +30,9 @@ $(function() {
           <div class="modal-body"  id="price-form">
               <div class="modal-label">
                 <h4 class="modal-name">choose free or fee-charging article.</h4>
-                <!-- <input type="checkbox"　v-model="checked">free -->
+                <input type="checkbox"　v-on:click="show=!show">free
               </div>
-              <div>
+              <div v-show="show">
                   <p>開始価格</p>
                   <!-- <%= price_form.select :min, enum_options_for_select(Price, :min) , {}, {class:"form-control", "v-model" => "selected_min"}%> -->
                   <%= price_form.select :min, enum_options_for_select(Price, :min) , {}, class:"form-control"%>
@@ -50,16 +50,15 @@ $(function() {
   </div>
 </div>
 
-<!-- <script type="text/javascript">
+<script type="text/javascript">
   var vm = new Vue({
     el: "#price-editor",
     data: {
-      checked: false
-    },
+      show: false
+    }
 
   });
-  window.vm = vm;
-</script> -->
+</script>
 
 <!-- <script type="text/javascript">
   var vm = new Vue({
