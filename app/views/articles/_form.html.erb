@@ -17,13 +17,64 @@
   <button type="button" v-disabled="content.length==0 || title.length==0" class="btn btn-orange" data-toggle="modal" data-target="#price-modal">価格設定</button>
 
   <!-- モーダル部分 -->
-  <%= render 'price_modal', f: f %>
+  <div class="modal" id="price-modal" tabindex="-1" role="dialog" aria-labelledby="price-modal-label" aria-hidden="true" data-show="true" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog">
+      <div class="modal-content"   id="price-editor">
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+            <span aria-hidden="true">&#215;</span><span class="sr-only">閉じる</span>
+          </button>
+          <h4 class="modal-title">Article Price</h4>
+        </div>
+          <%= f.fields_for :price  do |price_form| %>
+            <div class="modal-body">
+                <div class="modal-label">
+                  <h4 class="modal-name">choose free or fee-charging article.</h4>
+                  <input type="checkbox"　v-model="show">{{show}}
+                </div>
+                <div v-show="show">
+                    <p>開始価格</p>
+                    <%= price_form.select :min, enum_options_for_select(Price, :min) , {}, {class:"form-control", "v-model" => "selected_min"}%>
+                    <span>Selected: {{ selected_min }}</span>
+                    <p>最大価格</p>
+                    <%= price_form.select :max, enum_options_for_select(Price, :max), {}, {class:"form-control", "v-model" => "selected_max"} %>
+                    <p>レート</p>
+                    <%= price_form.select :rate, enum_options_for_select(Price, :rate), {}, {class:"form-control", "v-model" => "selected_rate"} %>
+                </div>
+            </div>
+          <% end %>
+          <div class="modal-footer">
+            <%= f.submit "記事を投稿",  class: "btn btn-orange", "v-disabled"=>"selected_min.length==0 " %>
+          </div>
+      </div>
+    </div>
+  </div>
+
 
 <% end %>
 
 
 
  <script type="text/javascript">
+
+ var vm2 = new Vue({
+   el: "#price-editor",
+   data: {
+     show: true,
+     selected_min: "",
+     selected_max: "",
+     selected_rate: ""
+   },
+   directives:{
+    disabled: function (el, binding){
+      el.disabled = binding.value
+    }
+   }
+
+ })
+ window.vm2 = vm2;
+
    var vm = new Vue({
      el: "#editor",
      data: {
