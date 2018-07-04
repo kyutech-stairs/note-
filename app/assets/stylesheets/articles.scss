@@ -4,15 +4,20 @@
   vertical-align: middle;
 }
 .thumbnail {
+  .header-image{
+    width: 100%;
+  }
   a{
     color: $char-black;
   }
-  display: inline-block;
   margin-top: 2vh;
   border: 0 none;
   padding: 0;
   box-shadow: 1px 1px 1px gray;
   .content_wrapper{
+    .row{
+      margin: 0 10px;
+    }
     padding: 0 1vw;
     .title{
       font-size: 1vw;
@@ -21,51 +26,49 @@
       height: 60px;
     }
     .footer{
-      position: relative;
-      height: 8vh;
-      height: 40px;
+      height: 50px;
       font-size: 1vh;
-      margin: 1vh auto;
       border-top: solid 2px #f4f7f6;
-      padding: 1vh 0;
       .container_left{
         float: left;
-        padding-left: 0;
-        min-height: 40px;
+        margin: auto 0;
         .icon_image{
           float: left;
-          margin-right: 1vw;
           border-radius: 50%;
           background-position: center;
+        }
+      }
+      .container_center{
+        float: left;
+        padding: 0;
+        margin: auto 0;
+        .user-name{
+          overflow-x: hidden;
         }
       }
       .container_right{
         overflow-x: auto;
         float: right;
-        min-height: 30px;
-        margin-top: 10px;
+        margin: auto 0;
+        padding: 0;
       }
     }
     .article-info{
       height: 30px;
       border-top: solid 2px #f4f7f6;
       margin-top: 5px;
+      margin-bottom: 5px;
       .like{
         height: 100%;
         padding: 5px;
         .like-icon{
-          font-size: 20px;
+          font-size: 25px;
           color: $char-orange;
           display: inline-block;
         }
       }
     }
   }
-}
-
-.paginate{
-  clear: left;
-  text-align: center;
 }
 #editor{
   .title{

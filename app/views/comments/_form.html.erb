@@ -3,7 +3,7 @@
   <input type="hidden" name="comment[user_id]" value="<%= current_user.id %>">
   <textarea id="" name="comment[content]" v-model="comment"
    :rows="rows" placeholder="コメント"></textarea>
-  <button v-show="comment" class="btn btn-orange">コメント</button>
+  <button v-show="comment" v-on:click="send" class="btn btn-orange">コメント</button>
 <% end %>
  <script type="text/javascript">
    var vm = new Vue({
@@ -15,6 +15,11 @@
        rows: function(){
          var num = this.comment.split("\n").length;
          return (num > 3) ? num : 3;
+       }
+     },
+     methods: {
+       send: function(){
+         this.comment = "";
        }
      }
    });

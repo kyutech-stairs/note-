@@ -1,25 +1,27 @@
-<li class="col-sm-4 col-xs-4 col-md-3 article-one"  id="article-<%= article.id %>">
+<div class="col-sm-3 col-xs-3 col-md-3 article-one"  id="article-<%= article.id %>">
   <div class="thumbnail">
-    <%= image_tag("header.jpeg")%>
+    <%= image_tag("header.jpeg", class: "header-image")%>
     <div class="content_wrapper">
       <div class="title">
         <h6><%= link_to article.title, article, id: "article-title" %></h6>
       </div>
-      <div class="article-info">
+      <div class="article-info row">
         <div class="like">
-          <span class="glyphicon glyphicon-heart like-icon"></span>
+          <i class="glyphicon glyphicon-heart like-icon"></i>
           <span><%= article.likes.count %></span>
         </div>
       </div>
-      <div class="footer">
-        <div class="container_left col-sm-6 col-md-6 col-xs-6">
+      <div class="footer row">
+        <div class="container_left col-sm-3 col-md-3 col-xs-3">
           <%= user_image_for(article.user) %>
-          <h5 class="user_name"><%= link_to article.user.name, article.user %></h5>
         </div>
-        <div class="container_right col-sm-6 col-xs-6 col-md-6">
+        <div class="col-sm col-md col-xs container_center">
+          <%= link_to article.user.name, article.user, class: "user-name" %>
+        </div>
+        <div class="container_right col-sm-4 col-xs-4 col-md-4">
           <span class="time"><%= date_format(article.created_at) %></span>
         </div>
       </div>
     </div>
   </div>
-</li>
+</div>
