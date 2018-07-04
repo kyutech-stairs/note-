@@ -34,8 +34,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem 'devise', '4.4.3'
-
-gem 'bootstrap-sass',       '3.3.7'
+gem "font-awesome-rails"
+gem 'bootstrap',       '~> 4.1.1'
 gem 'carrierwave',          '1.2.2'
 gem 'rmagick',              '2.16.0', :require => 'RMagick'
 gem 'jquery-rails',         '4.3.1'
