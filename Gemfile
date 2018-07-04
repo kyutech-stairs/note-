@@ -49,6 +49,8 @@ gem 'vuejs-rails',          '2.5.13'
 gem 'marked-rails',         '0.3.2.0'
 gem 'social-share-button'
 
+gem 'summernote-rails', '~> 0.8.10.0'
+gem 'simple_form', '~> 3.5.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

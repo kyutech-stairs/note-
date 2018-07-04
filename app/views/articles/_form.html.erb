@@ -1,6 +1,5 @@
 <input type="file" id="fileuploader" accept='image/jpg,image/jpeg,image/png,image/gif'>
 <%= form_for(@article, html: {class: "article_form", id: "editor"}) do |f| %>
-  <form id="editor" action="/articles" accept-charset="UTF-8" method="post" class="article_form">
   <input type="hidden" value="<%= current_user.id %>" name="article[user_id]">
   <div class="title">
     <input type="text" v-model="title" name="article[title]" value="<%=@article.title%>" placeholder="タイトル">
@@ -14,7 +13,7 @@
     </div>
     <div v-else style="color: gray;">プレビュー</div>
   </div>
-  <button type="button" v-disabled="content.length==0 || title.length==0" class="btn btn-orange" data-toggle="modal" data-target="#price-modal">価格設定</button>
+  <button type="button" :disabled="content.length==0 || title.length==0" class="btn btn-orange" data-toggle="modal" data-target="#price-modal">価格設定</button>
 
   <!-- モーダル部分 -->
   <%= render 'price_modal', f: f %>
@@ -24,7 +23,7 @@
 
 
  <script type="text/javascript">
-   var vm = new Vue({
+  new Vue({
      el: "#editor",
      data: {
        content: "<%= j @article.content %>",
@@ -35,12 +34,5 @@
          return marked(text, {sanitize: true})
        },
      },
-     directives:{
-      disabled: function (el, binding){
-        el.disabled = binding.value
-      }
-     }
-
    });
-   window.vm = vm;
  </script>
