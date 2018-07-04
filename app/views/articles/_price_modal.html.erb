@@ -21,23 +21,21 @@ $(function() {
     <div class="modal-content">
 
       <div class="modal-header">
+        <h4 class="modal-title">価格設定画面</h4>
         <button type="button" class="close" data-dismiss="modal">
           <span aria-hidden="true">&#215;</span><span class="sr-only">閉じる</span>
         </button>
-        <h4 class="modal-title">Article Price</h4>
       </div>
         <%= f.fields_for :price do |price_form| %>
         <div class="modal-body">
-            <h4 class="modal-name">please set your article price.</h4>
-            <div class="controls">
-                <p>開始価格</p>
-                <%= price_form.select :min, enum_options_for_select(Price, :min) , {}, class:"form-control" %>
-                <p>最大価格</p>
-                <%= price_form.select :max, enum_options_for_select(Price, :max), {}, class:"form-control" %>
-                <p>レート</p>
-                <%= price_form.select :rate, enum_options_for_select(Price, :rate), {}, class:"form-control" %>
-            </div>
-        </div>
+          <div class="controls">
+              <p>開始価格</p>
+              <%= price_form.select :min, enum_options_for_select(Price, :min) , {}, class:"form-control" %>
+              <p>最大価格</p>
+              <%= price_form.select :max, enum_options_for_select(Price, :max), {}, class:"form-control" %>
+              <p>レート</p>
+              <%= price_form.select :rate, enum_options_for_select(Price, :rate), {}, class:"form-control" %>
+          </div>
         <% end %>
         <div class="modal-footer">
           <%= f.submit "記事を投稿", class: "btn btn-primary btn-orange" %>
