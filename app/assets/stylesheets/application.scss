@@ -11,8 +11,7 @@
  * It is generally better to create a new file per style scope.
  *
  */
-$icon-font-path: "/font/css/open-iconic-bootstrap.css";
-@import "font-awesome";
+@import 'bootstrap/glyphicons';
 @import 'bootstrap';
 @import 'social-share-button';
 @import './*';
