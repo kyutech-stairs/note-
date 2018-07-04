@@ -1,4 +1,4 @@
-<div class="col-sm col-xs col-md article-one"  id="article-<%= article.id %>">
+<div class="col-sm-3 col-xs-3 col-md-3 article-one"  id="article-<%= article.id %>">
   <div class="thumbnail">
     <%= image_tag("header.jpeg", class: "header-image")%>
     <div class="content_wrapper">
@@ -15,7 +15,7 @@
         <div class="container_left col-sm-3 col-md-3 col-xs-3">
           <%= user_image_for(article.user) %>
         </div>
-        <div class="col-sm col-md col-xs container-center">
+        <div class="col-sm col-md col-xs container_center">
           <%= link_to article.user.name, article.user, class: "user-name" %>
         </div>
         <div class="container_right col-sm-4 col-xs-4 col-md-4">

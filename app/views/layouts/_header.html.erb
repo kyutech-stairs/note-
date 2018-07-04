@@ -19,8 +19,8 @@
           </div>
         </li>
       <% else %>
-        <li><%= link_to 'ログイン', new_user_session_path %></li>
-        <li><%= link_to '新規登録', new_user_registration_path %></li>
+        <li class="navbar-item"><%= link_to 'ログイン', new_user_session_path, class: "nav-link" %></li>
+        <li class="navbar-item"><%= link_to '新規登録', new_user_registration_path, class: "nav-link" %></li>
       <% end %>
     </ul>
   </div>
