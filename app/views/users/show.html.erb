@@ -44,7 +44,14 @@
         </div>
 
       </div>
-      <div class="tab-pane fade" id="favorite-article-tab" role="tabpanel" aria-labelledby="profile-tab"></div>
+      <div class="tab-pane fade" id="favorite-article-tab" role="tabpanel" aria-labelledby="profile-tab">
+        <div class="row">
+          <%= render @favorites %>
+        </div>
+        <div class="paginate">
+          <%= will_paginate @favorites, list_classes: %w(pagination justify-content-center) %>
+        </div>
+      </div>
 
       <div class="tab-pane fade" id="purchase-article-tab" role="tabpanel" aria-labelledby="contact-tab">...</div>
     </div>

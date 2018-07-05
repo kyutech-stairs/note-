@@ -1,24 +1,27 @@
 @import './color';
 
 
-.like-button{
-  color: $char-orange;
-  font-size: 32px;
+.like-form{
   display: inline-block;
-  vertical-align: top;
-  height: 100%;
-  &:hover{
-    color: $hover-orange;
-    border: none;
-    text-decoration: none;
+  .like-button{
+    color: $char-orange;
+    font-size: 32px;
+    display: inline-block;
+    vertical-align: top;
+    height: 100%;
+    &:hover{
+      color: $hover-orange;
+      border: none;
+      text-decoration: none;
+    }
   }
-}
-.like-icon{
-  color: $char-orange;
-  font-size: 32px;
-}
-.like-count{
-  display: inline-block;
-  vertical-align: bottom;
-  height: 32px;
+  .like-icon{
+    color: $char-orange;
+    font-size: 32px;
+  }
+  .like-count{
+    display: inline-block;
+    vertical-align: bottom;
+    height: 32px;
+  }
 }
