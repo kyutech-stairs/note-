@@ -1,3 +1,21 @@
 // Place all the styles related to the FileUploaders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.file-button{
+  font-size: 32px;
+}
+.file-send-button{
+  float: right;
+  margin-bottom: 10px;
+}
+.file-label{
+  height: 36px;
+  margin: 0;
+  margin-right: 10vw;
+  float: right;
+  color: green;
+}
+
+#file-form{
+  margin-bottom: 70px;
+}
