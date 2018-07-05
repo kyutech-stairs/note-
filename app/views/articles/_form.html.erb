@@ -1,11 +1,19 @@
-<input type="file" id="fileuploader" accept='image/jpg,image/jpeg,image/png,image/gif'>
+<form action="/file_uploaders" method="post" accept-charset="UTF-8">
+</form>
+<%= form_tag("/file_uploaders", multipart: true, remote: true) do %>
+  <%= file_field :file_uploaders, :file %>
+  <input type="submit">
+<% end %>
+
+
+
 <%= form_for(@article, html: {class: "article_form", id: "editor"}) do |f| %>
   <input type="hidden" value="<%= current_user.id %>" name="article[user_id]">
   <div class="title">
     <input type="text" v-model="title" name="article[title]" value="<%=@article.title%>" placeholder="タイトル">
   </div>
   <div class="content">
-    <textarea v-model="content" name="article[content]" placeholder="記事を入力"><%= @article.content %></textarea>
+    <textarea v-model="content" name="article[content]" placeholder="記事を入力" id="content"><%= @article.content %></textarea>
   </div>
   <div class="preview">
     <div v-if="content">
