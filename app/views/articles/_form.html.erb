@@ -1,11 +1,4 @@
-<form action="/file_uploaders" method="post" accept-charset="UTF-8">
-</form>
-<%= form_tag("/file_uploaders", multipart: true, remote: true) do %>
-  <%= file_field :file_uploaders, :file %>
-  <input type="submit">
-<% end %>
-
-
+<%= render 'file_uploaders/file_form' %>
 
 <%= form_for(@article, html: {class: "article_form", id: "editor"}) do |f| %>
   <input type="hidden" value="<%= current_user.id %>" name="article[user_id]">
@@ -21,14 +14,17 @@
     </div>
     <div v-else style="color: gray;">プレビュー</div>
   </div>
-  <button type="button" :disabled="content.length==0 || title.length==0" class="btn btn-orange" data-toggle="modal" data-target="#price-modal">価格設定</button>
-
   <!-- モーダル部分 -->
-  <%= render 'price_modal', f: f %>
-
-<% end %>
-
-
+  <% if controller.action_name=="new" %>
+    <button type="button" :disabled="content.length==0 || title.length==0"
+      class="btn btn-orange" data-toggle="modal" data-target="#price-modal">
+      価格設定</button>
+    <%= render 'price_modal', f: f %>
+  <% else %>
+    <button type="submit" class="btn btn-orange">再投稿</button>
+  <%end%>
+<%end%>
+</div>
 
  <script type="text/javascript">
   new Vue({

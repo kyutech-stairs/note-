@@ -1,4 +1,6 @@
 class FileUploadersController < ApplicationController
+  before_action :authenticate_user! 
+
   require 'digest/sha1'
   def create
     @uploaded_file = file_param[:file]

@@ -7,21 +7,20 @@
         <button type="button" class="close" data-dismiss="modal">
           <span aria-hidden="true">&#215;</span><span class="sr-only">閉じる</span>
         </button>
+      </div>
+      <%= f.fields_for :price do |price_form| %>
+      <div class="modal-body">
+        <div class="controls">
+          <p>開始価格</p>
+          <%= price_form.select :min, enum_options_for_select(Price, :min) , {}, class:"form-control" %>
+          <p>最大価格</p>
+          <%= price_form.select :max, enum_options_for_select(Price, :max), {}, class:"form-control" %>
+          <p>レート</p>
+          <%= price_form.select :rate, enum_options_for_select(Price, :rate), {}, class:"form-control" %>
         </div>
-        <%= f.fields_for :price do |price_form| %>
-        <div class="modal-body">
-          <div class="controls">
-            <p>開始価格</p>
-            <%= price_form.select :min, enum_options_for_select(Price, :min) , {}, class:"form-control" %>
-            <p>最大価格</p>
-            <%= price_form.select :max, enum_options_for_select(Price, :max), {}, class:"form-control" %>
-            <p>レート</p>
-            <%= price_form.select :rate, enum_options_for_select(Price, :rate), {}, class:"form-control" %>
-          </div>
-        <% end %>
-        <div class="modal-footer">
-          <%= f.submit "記事を投稿", class: "btn btn-primary btn-orange" %>
-        </div>
+      <% end %>
+      <div class="modal-footer">
+        <%= f.submit "記事を投稿", class: "btn btn-primary btn-orange" %>
       </div>
     </div>
   </div>
