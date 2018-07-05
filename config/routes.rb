@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :file_uploaders, only: [:create]
   resources :articles, :except => [:index] do
     resources :likes, only: [:create, :destroy]
+    resources :bads, only: [:create, :destroy]
   end
   resources :comments, only: [:create, :destroy]
   root 'static_pages#index'
