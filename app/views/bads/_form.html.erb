@@ -1,0 +1,21 @@
+<% if current_user %>
+  <% if current_user.bads?(@article)%>
+    <%= link_to "", article_bad_path(@article.bads.find_by(user_id: current_user.id),
+                                      article_id: @article.id),
+                                      class: "glyphicon glyphicon-heart bad-button",
+                                      method: :delete, remote: true %>
+  <% else %>
+    <%= link_to "", article_bads_path(@bad, article_id: @article.id),
+      class: "glyphicon glyphicon-heart-empty bad-button", 
+      method: :post, remote: true  %>
+  <%end%>
+  <div class="bad-count">
+    <%= @article.bads.count %>
+  </div>
+<% else %>
+  <i class="glyphicon glyphicon-heart-empty bad-icon"></i>
+  <div class="bad-count">
+    <%= @article.bads.count%>
+  </div>
+<% end %>
+

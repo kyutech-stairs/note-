@@ -11,11 +11,25 @@ class User < ApplicationRecord
   has_many :articles, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :bads, dependent: :destroy
 
   def like(article)
     likes.create!(article_id: article.id)
   end
+  def cancel_like(article)
+    likes.find_by(article_id: article.id).destroy 
+  end
   def liking?(article)
     likes.map(&:article_id).include?(article.id)
   end
+  def bad(article)
+    bads.create!(article_id: article.id)
+  end
+  def cancel_bad(article)
+    bads.find_by(article_id: article.id).destroy
+  end
+  def bads?(article)
+    bads.map(&:article_id).include?(article.id)
+  end
+
 end
