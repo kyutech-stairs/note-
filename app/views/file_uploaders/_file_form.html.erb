@@ -4,6 +4,11 @@
     <i class="glyphicon glyphicon-picture file-button"></i>
     <input accept="image/jpg,image/jpeg,image/png,image/gif" type="file" name="file_uploaders[file]" id="file_uploaders_file" style="display: none;">
   </label>
-  <button class="btn btn-orange file-send-button">挿入</button>
 </form>
+
+ <script type="text/javascript">
+   $("#file_uploaders_file").on("change", function() {
+     Rails.fire($(this).closest("form")[0], 'submit');
+   });
+ </script>
 
