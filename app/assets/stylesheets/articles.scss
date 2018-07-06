@@ -68,6 +68,15 @@
           display: inline-block;
         }
       }
+      .bad{
+        height: 100%;
+        padding: 5px;
+        .bad-icon{
+          font-size: 25px;
+          display: inline-block;
+          color: $char-blue;
+        }
+      }
     }
   }
 }
