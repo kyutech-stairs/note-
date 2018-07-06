@@ -5,6 +5,7 @@ class Article < ApplicationRecord
   has_many :bads, dependent: :destroy
   has_one :price, dependent: :destroy
   accepts_nested_attributes_for :price
+  validates :price, presence: true
 
   validates :title, presence: true
   validates :content, presence: true

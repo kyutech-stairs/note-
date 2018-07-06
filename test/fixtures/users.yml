@@ -1,9 +1,14 @@
-nomaiyama:
-  name: "nomiyama"
+<% file_path = Rails.root.join('test/fixtures/files')%>
+monster:
+  name: "monster"
   email: "sample@gmail.com"
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  profile: "introduce myself"
+  image: <%= file_path.join('test.jpeg')%>
 
-natsuki:
-  name: "natsuki"
+cheese:
+  name: "cheese"
   email: "sample1@gmail.com"
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+
+

@@ -56,9 +56,9 @@ ActiveRecord::Schema.define(version: 20180705112846) do
 
   create_table "prices", force: :cascade do |t|
     t.integer "article_id"
-    t.integer "max"
-    t.integer "min"
-    t.integer "rate"
+    t.integer "max", default: 0
+    t.integer "min", default: 0
+    t.integer "rate", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
