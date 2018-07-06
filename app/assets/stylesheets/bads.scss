@@ -1,25 +1,24 @@
-@import './color';
+@import "./color";
 
-
-.like-form{
+.bad-form{
   display: inline-block;
-  .like-button{
-    color: $char-orange;
+  .bad-button{
+    color: $char-blue;
     font-size: 32px;
     display: inline-block;
     vertical-align: top;
     height: 100%;
     &:hover{
-      color: $hover-orange;
+      color: $hover-blue;
       border: none;
       text-decoration: none;
     }
   }
-  .like-icon{
-    color: $char-orange;
+  .bad-icon{
     font-size: 32px;
+    color: $char-blue;
   }
-  .like-count{
+  .bad-count{
     display: inline-block;
     vertical-align: bottom;
     height: 32px;
