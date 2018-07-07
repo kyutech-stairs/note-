@@ -8,12 +8,7 @@ class Price < ApplicationRecord
   validates :rate, presence: true
 
   def price_validation
-    if min.nil?
-      errors.add(:min, " : 開始価格を入力してください")
-    elsif max.nil?
-      errors.add(:max, " : 最大価格を入力してください")
-    elsif rate.nil?
-      errors.add(:rate, " : レートを入力してください")
+    if min.nil? ||  max.nil? || rate.nil?
     elsif min>max 
       errors.add(:min, " : 開始価格を最高価格より小さく設定してください")
     elsif min==0 && (max!=0 || rate != "free")
