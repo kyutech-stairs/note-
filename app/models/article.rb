@@ -6,6 +6,7 @@ class Article < ApplicationRecord
   has_one :price, dependent: :destroy
   accepts_nested_attributes_for :price
   validates :price, presence: true
+  has_many :purchases, dependent: :destroy
 
   validates :title, presence: true
   validates :content, presence: true

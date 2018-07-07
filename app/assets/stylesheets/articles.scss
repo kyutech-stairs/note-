@@ -20,10 +20,13 @@
     }
     padding: 0 1vw;
     .title{
-      font-size: 1vw;
-      padding: 2vh 1vw;
+      padding: 2vh 0;
       overflow: auto;
       height: 60px;
+      p{
+        font-size: 0.8em;
+        line-height: 1.3em;
+      }
     }
     .footer{
       height: 50px;
@@ -57,11 +60,12 @@
     .article-info{
       height: 30px;
       border-top: solid 2px #f4f7f6;
-      margin-top: 5px;
+      margin-top: 10px;
       margin-bottom: 5px;
       .like{
         height: 100%;
         padding: 5px;
+        padding-top: 0;
         .like-icon{
           font-size: 25px;
           color: $char-orange;
@@ -71,11 +75,31 @@
       .bad{
         height: 100%;
         padding: 5px;
+        padding-top: 0;
         .bad-icon{
           font-size: 25px;
           display: inline-block;
           color: $char-blue;
         }
+      }
+      .purchaser{
+        height: 100%;
+        padding: 5px;
+        margin-left: auto;
+        letter-spacing: -0.1em;
+        .purchaser-icon{
+          display: inline-block;
+          font-size: 20px;
+          color: #666;
+          transform: scale(0.8,1.1);
+        }
+      }
+      .price{
+        height: 100%;
+        padding: 5px;
+        vertical-align: middle;
+        font-weight: 100;
+        margin-right: 0;
       }
     }
   }
