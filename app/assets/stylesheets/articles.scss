@@ -82,11 +82,12 @@
           color: $char-blue;
         }
       }
-      .viewer{
+      .purchaser{
         height: 100%;
         padding: 5px;
         margin-left: auto;
-        .viewer-icon{
+        letter-spacing: -0.1em;
+        .purchaser-icon{
           display: inline-block;
           font-size: 20px;
           color: #666;

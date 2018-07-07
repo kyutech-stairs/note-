@@ -14,9 +14,9 @@
           <i class="glyphicon glyphicon-heart bad-icon"></i>
           <span><%= article.bads.count %></span>
         </div>
-        <% if article.price.min == 0 %>
-        <div class="viewer">
-          <i class="glyphicon glyphicon-user viewer-icon"></i>
+        <% if article.price.min != 0 %>
+        <div class="purchaser">
+          <i class="glyphicon glyphicon-user purchaser-icon"></i>
           <span><%= article.purchases.count %></span>
         </div>
         <div class="price">
