@@ -43,11 +43,12 @@ gem 'qiita-markdown',       '0.10.0'
 gem 'github-linguist',      '6.2.0'
 gem 'html-pipeline',        '2.8.0'
 gem 'rouge'
-gem 'will_paginate',        '3.1.6'
-gem 'will_paginate-bootstrap4'
 gem 'vuejs-rails',          '2.5.13'
 gem 'marked-rails',         '0.3.2.0'
 gem 'social-share-button'
+
+gem 'kaminari'
+gem 'bootstrap4-kaminari-views'
 
 
 group :development, :test do

@@ -32,28 +32,13 @@
     <div class="tab-content" id="myTabContent">
       <div class="tab-pane fade show active" id="post-article-tab" role="tabpanel"
             aria-labelledby="home-tab">
-        <div class="row">
-          <% if @articles.any? %>
-            <%= render @articles %>
-          <% else %>
-            <span>投稿記事はありません</span>
-          <% end %>
-        </div>
-        <div class="paginate">
-          <%= will_paginate @articles, list_classes: %w(pagination justify-content-center) %>
-        </div>
-
+        <%= render 'articles'%>
       </div>
       <div class="tab-pane fade" id="favorite-article-tab" role="tabpanel" aria-labelledby="profile-tab">
-        <div class="row">
-          <%= render @favorites %>
-        </div>
-        <div class="paginate">
-          <%= will_paginate @favorites, list_classes: %w(pagination justify-content-center) %>
-        </div>
+        <%= render 'favorites'%>
+      <div class="tab-pane fade" id="purchase-article-tab" role="tabpanel" aria-labelledby="contact-tab">
+        
       </div>
-
-      <div class="tab-pane fade" id="purchase-article-tab" role="tabpanel" aria-labelledby="contact-tab">...</div>
     </div>
 
   </div>

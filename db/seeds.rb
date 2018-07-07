@@ -26,7 +26,7 @@ Article.create!(title: "Hello World",
   Article.create!(title: "サンプル記事#{n}",
                   content: "### サンプル記事",
                   user_id: 1,
-                  price: Price.new)
+                  price: Price.new(min: 100, max: 1000))
 end
 title = 
 "
@@ -57,4 +57,4 @@ Vue.jsの入門記事を前に作ったので、初めて触る人はこちら�
 Article.create(title: title,
               content: content,
               user_id: 1,
-              price: Price.new)
+              price: Price.new(min: 100, max: 200))
