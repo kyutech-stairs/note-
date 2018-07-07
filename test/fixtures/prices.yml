@@ -1,4 +1,4 @@
 price_one:
-  min: min_plan_0
-  max: max_plan_0
+  min: 0
+  max: 0
   rate: free

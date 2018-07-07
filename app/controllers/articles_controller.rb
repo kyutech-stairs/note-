@@ -42,13 +42,13 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
-
     if @article.save
       set_flash(:notice, "記事が投稿されました")
       redirect_to @article
     else
       messages = ""
       @article.errors.full_messages.each{|msg| messages += "#{msg}¥n"}
+      @article.build_price
       set_flash(:alert, messages)
       render 'new'
     end

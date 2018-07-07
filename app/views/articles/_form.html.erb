@@ -15,11 +15,11 @@
     <div v-else style="color: gray;">プレビュー</div>
   </div>
   <!-- モーダル部分 -->
-  <% if controller.action_name=="new" %>
+  <% if controller.action_name=="new" || controller.action_name=='create' %>
     <button type="button" :disabled="content.length==0 || title.length==0"
       class="btn btn-orange" data-toggle="modal" data-target="#price-modal">
       価格設定</button>
-    <%= render 'price_modal', f: f %>
+      <%= render 'price_modal', f: f %>
   <% else %>
     <button type="submit" class="btn btn-orange">再投稿</button>
   <%end%>
@@ -27,16 +27,40 @@
 </div>
 
  <script type="text/javascript">
-  new Vue({
+  var vm = new Vue({
      el: "#editor",
      data: {
        content: "<%= j @article.content %>",
        title: "<%= j @article.title%>",
+       minPrice: 0,
+       maxPrice: 0,
+       rate: "free",
+       bool: true,
      },
      methods: {
        mark: function(text){
          return marked(text, {sanitize: true})
        },
+       pressFree: function(){
+         this.bool=true
+         this.minPrice=0
+         this.maxPrice=0
+         this.rate="free"
+       },
+       pressToll: function(){
+         this.bool=false
+         this.minPrice=''
+         this.maxPrice=''
+       },
+       unDisabled: function(){
+
+       }
      },
+     computed: {
+       isDisabled: function(){
+          return this.bool
+       },
+    }
    });
+  window.vm = vm;
  </script>

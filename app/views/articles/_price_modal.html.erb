@@ -9,18 +9,34 @@
         </button>
       </div>
       <%= f.fields_for :price do |price_form| %>
-      <div class="modal-body">
+      <div class="modal-body" id="modal-body">
+        <div class="free-or-toll row">
+          <div class="btn-group btn-group-toggle col-md-4 offset-md-8 col-sm-4 
+            offset-sm-8 col-xs-4 offset-xs-8">
+            <label class="btn btn-primary"  v-bind:class='{active:isDisabled}'>
+              <input type="radio" v-on:change="pressFree" id="free" name="options" id="option1"  value="free">無料
+            </label>
+            <label class="btn btn-primary" v-bind:class='{active:!isDisabled}'>
+              <input type="radio" v-on:change="pressToll" id="toll" name="options" id="option2"  value="toll">有料
+            </label>
+          </div>
+        </div>
+
         <div class="controls">
           <p>開始価格</p>
-          <%= price_form.select :min, enum_options_for_select(Price, :min) , {}, class:"form-control" %>
-          <p>最大価格</p>
-          <%= price_form.select :max, enum_options_for_select(Price, :max), {}, class:"form-control" %>
+            <input type="number" v-model="minPrice" name="article[price_attributes][min]"
+            class="form-control margin-yen" placeholder="100~1000" :readonly="isDisabled">
+          <span>円</span>
+        <p>最大価格</p>
+            <input v-model="maxPrice" name="article[price_attributes][max]"
+            class="form-control margin-yen" placeholder="100~1000" :readonly="isDisabled">
+            <span>円</span>
           <p>レート</p>
-          <%= price_form.select :rate, enum_options_for_select(Price, :rate), {}, class:"form-control" %>
+          <%= price_form.select :rate, enum_options_for_select(Price, :rate), {}, class:"form-control margin-yen", ":readonly": "isDisabled", "v-model": "rate" %>
         </div>
       <% end %>
       <div class="modal-footer">
-        <%= f.submit "記事を投稿", class: "btn btn-primary btn-orange" %>
+        <input type="submit" class="btn btn-orange" value="記事を投稿" v-on:change="unDisabled">
       </div>
     </div>
   </div>
