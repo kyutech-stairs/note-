@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 20180705112846) do
     t.integer "user_id"
     t.integer "article_id"
     t.boolean "is_purchased", default: false
-    t.integer "price"
+    t.integer "price_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

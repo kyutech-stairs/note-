@@ -3,7 +3,7 @@
     <%= image_tag("header.jpeg", class: "header-image")%>
     <div class="content_wrapper">
       <div class="title">
-        <h6><%= link_to article.title, article, id: "article-title" %></h6>
+        <p><%= link_to article.title, article, id: "article-title" %></p>
       </div>
       <div class="article-info row">
         <div class="like">
@@ -14,7 +14,15 @@
           <i class="glyphicon glyphicon-heart bad-icon"></i>
           <span><%= article.bads.count %></span>
         </div>
-
+        <% if article.price.min == 0 %>
+        <div class="viewer">
+          <i class="glyphicon glyphicon-user viewer-icon"></i>
+          <span><%= article.purchases.count %></span>
+        </div>
+        <div class="price">
+          <%= display_in_yen(article.price.min) %>
+        </div>
+      <% end %>
       </div>
       <div class="footer row">
         <div class="container_left col-sm-3 col-md-3 col-xs-3">
