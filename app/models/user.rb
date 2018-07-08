@@ -34,5 +34,14 @@ class User < ApplicationRecord
   def bads?(article)
     bads.map(&:article_id).include?(article.id)
   end
+  def follow(user)
+    follows.create!(follow_id: user.id);
+  end
+  def cancel_follow(user)
+    follows.find_by(follow_id: user.id).destroy
+  end
+  def follows?(user)
+    follows.map(&:follow_id).include?(user.id)
+  end
 
 end
