@@ -1,3 +1,20 @@
-// Place all the styles related to the Follows controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.follow{
+  .following {
+    display: inline-block;
+    padding: 0;
+    width: 45%;
+    li{
+      text-align: center;
+    }
+  }
+  .follower {
+    display: inline-block;
+    padding: 0;
+    width: 45%;
+    li{
+      text-align: center;
+    }
+  }
+}
