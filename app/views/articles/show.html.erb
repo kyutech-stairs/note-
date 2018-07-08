@@ -19,9 +19,11 @@
           <span><%= link_to @article.user.name, @article.user %></span>
           <span class="time"><%= @article.updated_at.strftime('%Y年%m月%d日に更新')%></span>
         </div>
-        <div class="article-header-right">
+        <!-- 画面右上：current_userなら編集、その他はfollow_buttonを表示 -->
+        <div class="article-header-right" id="follow">
           <% if @article.user == current_user%>
             <%= link_to "編集", edit_article_path(@article), class: "btn btn-orange"%>
+          <% else %>
           <%end%>
         </div>
       </div>
@@ -31,7 +33,19 @@
         </h1>
       </div>
       <div class="content">
-        <%= qiita_markdown(@article.content) %>
+        <% if @article.price.min == 0 %>
+          <%= qiita_markdown(@article.content) %>
+        <% elsif current_user %>
+          <% if current_user.is_purchased?(@article) || current_user==@article.user %>
+            <%= qiita_markdown(@article.content) %>
+          <% else %>
+            <%= qiita_markdown(@article.content[0..100]+"...")%>
+            <%= render 'purchases/form'%>
+          <% end %>
+        <% else %>
+            <%= qiita_markdown(@article.content[0..100]+"...")%>
+            <%= render 'purchases/form'%>
+        <% end %>
       </div>
       <div class="article-footer">
         <div class="feed">
@@ -60,4 +74,3 @@
       </div>
     </div>
   </div>
-</div>
