@@ -19,9 +19,11 @@
           <span><%= link_to @article.user.name, @article.user %></span>
           <span class="time"><%= @article.updated_at.strftime('%Y年%m月%d日に更新')%></span>
         </div>
-        <div class="article-header-right">
+        <!-- 画面右上：current_userなら編集、その他はfollow_buttonを表示 -->
+        <div class="article-header-right" id="follow">
           <% if @article.user == current_user%>
             <%= link_to "編集", edit_article_path(@article), class: "btn btn-orange"%>
+          <% else %>
           <%end%>
         </div>
       </div>
@@ -72,4 +74,3 @@
       </div>
     </div>
   </div>
-</div>
