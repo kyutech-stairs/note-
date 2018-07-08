@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :create, :update]
-  before_action :correct_user, only: [:edit, :update]
+  before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :create_by_correct_user, only: :create
 
   def new
     @article = Article.new
@@ -62,7 +63,11 @@ class ArticlesController < ApplicationController
     params.require(:article).permit(:title, :content, :user_id)
   end
   def correct_user
-    @article = Article.find(params[:id])
-    redirect_to root_path unless current_user == @article.user
+    user = current_user.articles.find_by(id: params[:id])
+    redirect_to root_path if user.nil?
+  end
+  def create_by_correct_user
+    user = User.find(params[:article][:user_id])
+    redirect_to root_path unless current_user == user
   end
 end

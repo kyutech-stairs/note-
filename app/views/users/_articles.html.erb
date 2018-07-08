@@ -1,0 +1,13 @@
+<div class="paginate">
+  <%= paginate @articles, param_name: :article, remote: true, window: 2 %>
+</div>
+<div class="row">
+  <% if @articles.any? %>
+    <%= render @articles %>
+  <% else %>
+    <span>投稿記事はありません</span>
+  <% end %>
+</div>
+<div class="paginate">
+  <%= paginate @articles, param_name: :article, remote: true %>
+</div>
