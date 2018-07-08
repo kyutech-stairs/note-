@@ -15,21 +15,18 @@ User.create!(email: "example@gmail.com",
             password_confirmation: "password",
             name: "金子",
             profile: "気まぐれクックです。")
-
 Article.create!(title: "Hello World",
                 content: "# Hi Im Java.
                           ```
                           sudo npm install hoge
                           ```",
-               user_id: 1)
-
-Article.create!(title: "今日の晩御飯",
-                content: "# 豚キムチ",
-                user_id: 2)
+                          user_id: 2,
+                          price: Price.new)
 40.times do |n|
   Article.create!(title: "サンプル記事#{n}",
                   content: "### サンプル記事",
-                  user_id: 1)
+                  user_id: 1,
+                  price: Price.new)
 end
 title = 
 "
@@ -59,4 +56,5 @@ Vue.jsの入門記事を前に作ったので、初めて触る人はこちら�
 "
 Article.create(title: title,
               content: content,
-              user_id: 1)
+              user_id: 1,
+              price: Price.new)

@@ -28,7 +28,7 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
-    if @article.update_attributes(article_params)
+    if @article.update_attributes(article_update_params)
       set_flash(:notice, "記事が変更されました")
       redirect_to @article
     else
@@ -42,13 +42,13 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
-
     if @article.save
       set_flash(:notice, "記事が投稿されました")
       redirect_to @article
     else
       messages = ""
       @article.errors.full_messages.each{|msg| messages += "#{msg}¥n"}
+      @article.build_price
       set_flash(:alert, messages)
       render 'new'
     end
@@ -57,6 +57,9 @@ class ArticlesController < ApplicationController
   private
   def article_params
     params.require(:article).permit(:title, :content, :user_id, price_attributes: [:min, :max, :rate])
+  end
+  def article_update_params
+    params.require(:article).permit(:title, :content, :user_id)
   end
   def correct_user
     @article = Article.find(params[:id])

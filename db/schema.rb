@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180614014512) do
+ActiveRecord::Schema.define(version: 20180705112846) do
 
   create_table "articles", force: :cascade do |t|
     t.text "title"
@@ -18,6 +18,14 @@ ActiveRecord::Schema.define(version: 20180614014512) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "bads", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "article_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "article_id"], name: "index_bads_on_user_id_and_article_id", unique: true
   end
 
   create_table "comments", force: :cascade do |t|
@@ -43,13 +51,14 @@ ActiveRecord::Schema.define(version: 20180614014512) do
     t.integer "article_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id", "article_id"], name: "index_likes_on_user_id_and_article_id", unique: true
   end
 
   create_table "prices", force: :cascade do |t|
     t.integer "article_id"
-    t.integer "max"
-    t.integer "min"
-    t.integer "rate"
+    t.integer "max", default: 0
+    t.integer "min", default: 0
+    t.integer "rate", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -58,7 +67,7 @@ ActiveRecord::Schema.define(version: 20180614014512) do
     t.integer "user_id"
     t.integer "article_id"
     t.boolean "is_purchased", default: false
-    t.integer "price"
+    t.integer "price_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

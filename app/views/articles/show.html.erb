@@ -1,3 +1,14 @@
+<div class="sidebar">
+  <div class="feed">
+    <div class="like-form">
+      <%= render 'likes/form'%>
+    </div>
+    <div class="bad-form">
+      <%= render 'bads/form'%>
+    </div>
+  </div>
+</div>
+
 <div class="container">
   <div class="row">
     <div class="col-md-8 col-sm-8 col-xs-8 article-body
@@ -29,14 +40,22 @@
         <%= qiita_markdown(@article.content) %>
       </div>
       <div class="article-footer">
-        <%= social_share_button_tag(@article.title,
-          allow_sites: %w(twitter pinterest linkedin google_plus)) %>
+        <div class="feed">
+          <div class="like-form">
+            <%= render 'likes/form'%>
+          </div>
+          <div class="bad-form">
+            <%= render 'bads/form'%>
+          </div>
+        </div>
+        <div class="social-share-button">
+          <%= social_share_button_tag(@article.title,
+            allow_sites: %w(twitter pinterest linkedin google_plus)) %>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="row">
     <div class="col-md-8 col-sm-8 col-xs-8 comments
-        col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
+      offset-xs-1 offset-sm-1 offset-md-1">
       <div class="comment-index">
         <%= render @article.comments %>
       </div>

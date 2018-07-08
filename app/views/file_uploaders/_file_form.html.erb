@@ -1,4 +1,14 @@
-<%= form_tag '/file_uploaders', method: 'post', multipart: true, remote: true do %>
-  <%= file_field :file_uploaders, :file, accept: 'image/jpg,image/jpeg,image/png,image/gif' %>
-  <%= submit_tag 'send'  %>
-<% end %>
+<form enctype="multipart/form-data" action="/file_uploaders" accept-charset="UTF-8" data-remote="true" method="post" id="file-form">
+  <input name="utf8" type="hidden" value="✓">
+  <label for="file_uploaders_file" class="file-label">
+    <i class="glyphicon glyphicon-picture file-button"></i>
+    <input accept="image/jpg,image/jpeg,image/png,image/gif" type="file" name="file_uploaders[file]" id="file_uploaders_file" style="display: none;">
+  </label>
+</form>
+
+ <script type="text/javascript">
+   $("#file_uploaders_file").on("change", function() {
+     Rails.fire($(this).closest("form")[0], 'submit');
+   });
+ </script>
+

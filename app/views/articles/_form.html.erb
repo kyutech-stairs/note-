@@ -1,12 +1,12 @@
-<input type="file" id="fileuploader" accept='image/jpg,image/jpeg,image/png,image/gif'>
+<%= render 'file_uploaders/file_form' %>
+
 <%= form_for(@article, html: {class: "article_form", id: "editor"}) do |f| %>
-  <form id="editor" action="/articles" accept-charset="UTF-8" method="post" class="article_form">
   <input type="hidden" value="<%= current_user.id %>" name="article[user_id]">
   <div class="title">
     <input type="text" v-model="title" name="article[title]" value="<%=@article.title%>" placeholder="タイトル">
   </div>
   <div class="content">
-    <textarea v-model="content" name="article[content]" placeholder="記事を入力"><%= @article.content %></textarea>
+    <textarea v-model="content" name="article[content]" placeholder="記事を入力" id="content"><%= @article.content %></textarea>
   </div>
   <div class="preview">
     <div v-if="content">
@@ -14,33 +14,50 @@
     </div>
     <div v-else style="color: gray;">プレビュー</div>
   </div>
-  <button type="button" v-disabled="content.length==0 || title.length==0" class="btn btn-orange" data-toggle="modal" data-target="#price-modal">価格設定</button>
-
   <!-- モーダル部分 -->
-  <%= render 'price_modal', f: f %>
-
-<% end %>
-
-
+  <% if controller.action_name=="new" || controller.action_name=='create' %>
+    <button type="button" :disabled="content.length==0 || title.length==0"
+      class="btn btn-orange" data-toggle="modal" data-target="#price-modal">
+      価格設定</button>
+      <%= render 'price_modal', f: f %>
+  <% else %>
+    <button type="submit" class="btn btn-orange">再投稿</button>
+  <%end%>
+<%end%>
+</div>
 
  <script type="text/javascript">
-   var vm = new Vue({
+  var vm = new Vue({
      el: "#editor",
      data: {
        content: "<%= j @article.content %>",
        title: "<%= j @article.title%>",
+       minPrice: 0,
+       maxPrice: 0,
+       rate: "free",
+       bool: true,
      },
      methods: {
        mark: function(text){
          return marked(text, {sanitize: true})
        },
+       pressFree: function(){
+         this.bool=true
+         this.minPrice=0
+         this.maxPrice=0
+         this.rate="free"
+       },
+       pressToll: function(){
+         this.bool=false
+         this.minPrice=''
+         this.maxPrice=''
+       },
      },
-     directives:{
-      disabled: function (el, binding){
-        el.disabled = binding.value
-      }
-     }
-
+     computed: {
+       isDisabled: function(){
+          return this.bool
+       },
+    }
    });
-   window.vm = vm;
+  window.vm = vm;
  </script>
