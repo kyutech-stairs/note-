@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def index
-    @articles = Article.paginate(page: params[:page], per_page: 24, ).order("created_at DESC")
+    @articles = Article.order("created_at DESC").page(params[:page]).per(24)
   end
   def new
 

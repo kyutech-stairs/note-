@@ -65,9 +65,10 @@ ActiveRecord::Schema.define(version: 20180705112846) do
     t.integer "user_id"
     t.integer "article_id"
     t.boolean "is_purchased", default: false
-    t.integer "price_id"
+    t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id", "article_id"], name: "index_purchases_on_user_id_and_article_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|
