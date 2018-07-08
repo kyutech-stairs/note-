@@ -1,0 +1,20 @@
+
+
+.follow{
+  .following {
+    display: inline-block;
+    padding: 0;
+    width: 45%;
+    li{
+      text-align: center;
+    }
+  }
+  .follower {
+    display: inline-block;
+    padding: 0;
+    width: 45%;
+    li{
+      text-align: center;
+    }
+  }
+}
