@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-8 col-sm-8 col-xs-8 article-body 
+    <div class="col-md-8 col-sm-8 col-xs-8 article-body
       col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
       <div class="article-header">
         <div class="article-header-left">
@@ -8,9 +8,15 @@
           <span><%= link_to @article.user.name, @article.user %></span>
           <span class="time"><%= @article.updated_at.strftime('%Y年%m月%d日に更新')%></span>
         </div>
-        <div class="article-header-right">
+        <!-- 画面右上：current_userなら編集、その他はfollow_buttonを表示 -->
+        <div class="article-header-right" id="follow">
           <% if @article.user == current_user%>
             <%= link_to "編集", edit_article_path(@article), class: "btn btn-orange"%>
+          <% else %>
+            <span>{{user_id}}</span>
+            <span>{{follow_id}}</span>
+            <button @click="create"  class="btn btn-orange">Follow</button>
+            <p v-show="loading">{{ message }}</p>
           <%end%>
         </div>
       </div>
@@ -42,3 +48,50 @@
     </div>
   </div>
 </div>
+
+
+<script type="text/javascript">
+window.onload = function() {
+var vm = new Vue({
+  el: '#follow',
+  data: {
+    loading: false,
+     message: '送信中です',
+    follow_state: false,
+    user_id: "<%= current_user.id %>",
+    follow_id: "<%= @article.user.id %>"
+    },
+  methods: {
+    create: function() {
+      // this.loading = !this.loading;
+      // var that = this,
+      //       hostname = window.location.hostname,
+      //       protocol = window.location.protocol,
+      //       port =  window.location.port,
+      //       baseURL = [protocol,'//', hostname,':', port, '/follows'].join('');
+      //
+      //       var params = {
+      //           url: baseURL,
+      //           method: 'POST',
+      //           data: { user_id: that.user_id, follow_id: that.follow_id }
+      //       }
+      //       $.ajax(params).done(function(response){
+      //            that.message = '送信完了しました';
+      //       });
+      axios.post('/follow', {
+        user_id: this.user_id,
+        follow_id: this.follow_id
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    }
+  }
+});
+};
+
+
+</script>
