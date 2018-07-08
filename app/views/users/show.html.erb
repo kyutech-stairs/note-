@@ -12,6 +12,19 @@
           <%= @user.profile %>
         </div>
       </div>
+      <div class="follow">
+        <ul class="following" style="list-style: none;">
+          <li>フォロー</li>
+          <li class="following-count"><%= @user.following.count%></li>
+        </ul>
+        <ul class="follower" style="list-style: none;">
+          <li>フォロワー</li>
+          <li class="follower-count"><%= @user.followers.count%></li>
+        </ul>
+        <div class="follow-form">
+          <%= render 'follows/form', target: @user%>
+        </div>
+      </div>
       <% if current_user&&current_user?(@user) %>
         <%= link_to '編集', edit_user_path(@user), class: "btn btn-orange" %>
       <%end%>
