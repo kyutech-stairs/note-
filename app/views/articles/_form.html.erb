@@ -1,7 +1,6 @@
 <%= render 'file_uploaders/file_form' %>
 
 <%= form_for(@article, html: {class: "article_form", id: "editor"}) do |f| %>
-  <input type="hidden" value="<%= current_user.id %>" name="article[user_id]">
   <div class="title">
     <input type="text" v-model="title" name="article[title]" value="<%=@article.title%>" placeholder="タイトル">
   </div>
