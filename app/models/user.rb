@@ -44,4 +44,7 @@ class User < ApplicationRecord
     follows.map(&:follow_id).include?(user.id)
   end
 
+  def is_purchased?(article)
+    purchases.map(&:article_id).include?(article.id)
+  end
 end
