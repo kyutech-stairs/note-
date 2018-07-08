@@ -7,12 +7,16 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     sessions: 'users/sessions'
   }
-  resources :users, only: [:show, :edit, :update], path: '/profile'
+  resources :users, only: [:show, :edit, :update], path: '/profile' do
+    get :following, :followers
+  end
   resources :file_uploaders, only: [:create]
   resources :articles, :except => [:index] do
     resources :likes, only: [:create, :destroy]
     resources :bads, only: [:create, :destroy]
+    resources :purchases, only: :create
   end
   resources :comments, only: [:create, :destroy]
+  resources :follows, only: [:create, :destroy]
   root 'static_pages#index'
 end
