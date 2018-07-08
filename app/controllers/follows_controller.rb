@@ -1,16 +1,19 @@
 class FollowsController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :destroy]
   def create
-    @follow = Follow.new(follow_params)
-    # @follow = Follow.new(user_id: params[:user_id], follow_id: params[:follow_id])
-    if @follow.save
-      render json: { success: true }
-    else
-      render :new
+    @user = User.find(params[:follow_id])
+    current_user.follow(@user)
+    respond_to do |format|
+      format.html {redirect_to @article}
+      format.js
+    end
   end
-
-
-  private
-   def follow_params
-     params.require(:follow).permit(:user_id, :follow_id)
-   end
+  def destroy
+    @user = User.find(params[:user_id])
+    current_user.cancel_follow(@user)
+    respond_to do |format|
+      format.html {redirect_to @article}
+      format.js
+    end
+  end
 end
