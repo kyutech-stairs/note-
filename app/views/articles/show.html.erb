@@ -33,7 +33,19 @@
         </h1>
       </div>
       <div class="content">
-        <%= qiita_markdown(@article.content) %>
+        <% if @article.price.min == 0 %>
+          <%= qiita_markdown(@article.content) %>
+        <% elsif current_user %>
+          <% if current_user.is_purchased?(@article) || current_user==@article.user %>
+            <%= qiita_markdown(@article.content) %>
+          <% else %>
+            <%= qiita_markdown(@article.content[0..100]+"...")%>
+            <%= render 'purchases/form'%>
+          <% end %>
+        <% else %>
+            <%= qiita_markdown(@article.content[0..100]+"...")%>
+            <%= render 'purchases/form'%>
+        <% end %>
       </div>
       <div class="article-footer">
         <div class="feed">
