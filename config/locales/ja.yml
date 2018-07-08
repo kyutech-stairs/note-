@@ -19,9 +19,10 @@ ja:
         max_plan_3: "2000円"
         max_plan_4: "5000円"
       rates:
-        high: "10人で100円UP"
-        normal: "100人で100円UP"
+        free: "固定"
         low: "1000人で100円UP"
+        middle: "100人で100円UP"
+        high: "10人で100円UP"
   date:
     abbr_day_names:
     - 日
