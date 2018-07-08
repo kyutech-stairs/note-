@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
+  before_action :correct_user 
 
  #ここ微妙
   def create
@@ -28,6 +29,8 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:content, :user_id, :article_id)
   end
-
-
+  def correct_user
+    user = User.find(params[:comment][:user_id])
+    redirect_to root_path unless user == current_user
+  end
 end
