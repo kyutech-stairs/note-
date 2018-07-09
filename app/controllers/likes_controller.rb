@@ -1,5 +1,6 @@
 class LikesController < ApplicationController
   before_action :authenticate_user!, only: [:create, :destroy]
+  before_action :correct_user, only: :destroy
   def create
     @article = Article.find(params[:article_id])
     current_user.like(@article)
@@ -20,4 +21,8 @@ class LikesController < ApplicationController
     end
   end
   private
+  def correct_user
+    like = current_user.likes.find_by(id: params[:id])
+    redirect_to root_path if like.nil?
+  end
 end
