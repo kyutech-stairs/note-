@@ -14,6 +14,12 @@ class LikesControllerTest < ActionDispatch::IntegrationTest
       post article_likes_path(@like, article_id: @article.id)
     end
   end
+  test "should redirect create when user are no logged in" do
+    assert_no_difference 'Like.count' do
+      post article_likes_path(@like, article_id: @article.id)
+    end
+    assert_redirected_to new_user_session_path
+  end
   #destroy
   test "should destroy" do
     log_in_as @user
@@ -29,5 +35,12 @@ class LikesControllerTest < ActionDispatch::IntegrationTest
       delete article_like_path(@like, article_id: @article.id)
     end
     assert_redirected_to root_path
+  end
+  test "should redirect destroy when user are no logged in" do
+    @like.save
+    assert_no_difference 'Like.count' do
+      delete article_like_path(@like, article_id: @article.id)
+    end
+    assert_redirected_to new_user_session_path
   end
 end
