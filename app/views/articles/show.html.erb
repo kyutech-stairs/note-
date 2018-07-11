@@ -25,6 +25,9 @@
             <%= link_to "編集", edit_article_path(@article), class: "btn btn-orange"%>
             <%= link_to "削除", article_path(@article), method: :delete, class: "btn btn-orange"%>
           <% else %>
+          <div class="follow-form">
+            <%= render 'follows/form', target: @article.user%>
+          </div>
           <%end%>
         </div>
       </div>
