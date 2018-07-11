@@ -316,6 +316,7 @@ DEPENDENCIES
   kaminari
   listen (>= 3.0.5, < 3.2)
   marked-rails (= 0.3.2.0)
+  minitest
   minitest-reporters (= 1.1.14)
   pry-rails
   puma (~> 3.7)
