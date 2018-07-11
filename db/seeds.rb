@@ -22,11 +22,16 @@ Article.create!(title: "Hello World",
                           ```",
                           user_id: 2,
                           price: Price.new)
-40.times do |n|
-  Article.create!(title: "サンプル記事#{n}",
+20.times do |n|
+  Article.create!(title: "サンプル記事#{2*n+1}",
                   content: "### サンプル記事",
                   user_id: 1,
-                  price: Price.new(min: 100, max: 1000))
+                  price: Price.new(min: 100, max: 1000, rate: "high"))
+
+  Article.create!(title: "サンプル記事#{2*n+2}",
+                  content: "### サンプル記事",
+                  user_id: 2,
+                  price: Price.new(min: 100, max: 1000, rate: "low"))
 end
 title = 
 "
