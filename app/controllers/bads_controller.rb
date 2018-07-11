@@ -1,5 +1,6 @@
 class BadsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :destroy]
+  before_action :correct_user, only: :destroy
   def create
     @article = Article.find(params[:article_id])
     current_user.bad(@article)
@@ -19,5 +20,9 @@ class BadsController < ApplicationController
       format.js
     end
   end
-
+  private 
+  def correct_user
+    bad = current_user.bads.find_by(id: params[:id])
+    redirect_to root_path if bad.nil?
+  end
 end

@@ -1,7 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :create, :update]
   before_action :correct_user, only: [:edit, :update, :destroy]
-  before_action :create_by_correct_user, only: :create
 
   def new
     @article = Article.new
@@ -42,7 +41,7 @@ class ArticlesController < ApplicationController
 
 
   def create
-    @article = Article.new(article_params)
+    @article = current_user.articles.build(article_params)
     if @article.save
       set_flash(:notice, "記事が投稿されました")
       redirect_to @article
@@ -57,17 +56,17 @@ class ArticlesController < ApplicationController
 
   private
   def article_params
-    params.require(:article).permit(:title, :content, :user_id, price_attributes: [:min, :max, :rate])
+    params.require(:article).permit(:title, :content, price_attributes: [:min, :max, :rate])
   end
   def article_update_params
-    params.require(:article).permit(:title, :content, :user_id)
+    params.require(:article).permit(:title, :content)
   end
   def correct_user
-    user = current_user.articles.find_by(id: params[:id])
-    redirect_to root_path if user.nil?
-  end
-  def create_by_correct_user
-    user = User.find(params[:article][:user_id])
-    redirect_to root_path unless current_user == user
+    if current_user
+      user = current_user.articles.find_by(id: params[:id])
+      redirect_to root_path if user.nil?
+    else 
+      redirect_to new_user_session_path
+    end
   end
 end
