@@ -1,4 +1,5 @@
 class Bad < ApplicationRecord
   belongs_to :user
   belongs_to :article
+  validates :user, uniqueness: { scope: :article }
 end

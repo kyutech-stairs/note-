@@ -1,8 +1,7 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :correct_user 
+  before_action :correct_user, only: :destroy
 
- #ここ微妙
   def create
     @comment = Comment.new(comment_params)
     @comment.save
@@ -14,9 +13,12 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment = Comment.find(params[:id])
     if @comment.destroy
       set_flash(:notice, "コメントが削除されました")
+      respond_to do |format|
+        format.html {redirect_to @comment.article}
+        format.js {}
+      end
     else
       messages = ""
       @comment.errors.full_messages.each{|msg| messages += "#{msg}¥n"}
@@ -30,7 +32,7 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:content, :user_id, :article_id)
   end
   def correct_user
-    user = User.find(params[:comment][:user_id])
-    redirect_to root_path unless user == current_user
+    @comment = current_user.comments.find_by(id: params[:id])
+    redirect_to root_path if @comment.nil?
   end
 end
