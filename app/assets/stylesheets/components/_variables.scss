@@ -43,6 +43,8 @@ $success-color: #76ff03 !default;
 $error-color: #ff6e40 !default;
 $link-color: #263238 !default;
 
+$default-text-color: #616161 !default;
+
 
 // 2. Badges
 // ==========================================================================
@@ -101,8 +103,8 @@ $button-floating-radius: 50% !default;
 
 $card-padding: 24px !default;
 $card-bg-color: #fff !default;
-$card-link-color: #263238 !default;
-$card-link-color-light: lighten($card-link-color, 20%) !default;
+$card-link-color: #fff !default;
+$card-hover-link-color: darken($primary-color, 10%) !default;
 
 
 // 5. Carousel

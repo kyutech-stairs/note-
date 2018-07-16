@@ -15,6 +15,7 @@
   background-color: $card-bg-color;
   transition: box-shadow .25s;
   border-radius: 2px;
+  color: $default-text-color;
   @extend .z-depth-1;
 
 
@@ -110,6 +111,12 @@
     .card-reveal {
       z-index: 1;
       padding-bottom: 64px;
+      a{
+        color: $primary-color;
+      }
+      p{
+        padding-left: 1px;
+      }
     }
   }
 
@@ -142,7 +149,7 @@
   }
 
   .card-content {
-    padding: $card-padding;
+    padding: 2vh $card-padding;
     border-radius: 0 0 2px 2px;
 
     p {
@@ -166,15 +173,15 @@
     background-color: inherit; // Use inherit to inherit color classes
     border-top: 1px solid rgba(160,160,160,.2);
     position: relative;
-    padding: 16px $card-padding;
+    padding: 1vh $card-padding;
 
     a:not(.btn):not(.btn-large):not(.btn-floating) {
-      color: $card-link-color;
+      color: $primary-color;
       margin-right: $card-padding;
       transition: color .3s ease;
       text-transform: uppercase;
 
-      &:hover { color: $card-link-color-light; }
+      &:hover { color: $card-hover-link-color; }
     }
   }
 
