@@ -1,46 +1,40 @@
 <div class="col-md-4 article-one"  id="article-<%= article.id %>">
   <div class="card sticky-action">
      <div class="card-image waves-effect waves-block waves-light">
-       <%= image_tag("header.jpeg", class: "header-image activator")%>
+       <%= image_tag("sample-1.jpg", class: "header-image activator")%>
+       <span class="card-title activator grey-text text-darken-4"><%= link_to article.title.truncate(35), article, id: "article-title", class:"" %><i class="material-icons right">more_vert</i></span>
      </div>
      <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4"><%= link_to article.title.truncate(15), article, id: "article-title", class:"" %><i class="material-icons right">more_vert</i></span>
+       <div class="icons">
+         <i class="material-icons like">sentiment_very_satisfied</i>
+         <span><%= article.likes.count %></span>
+         <i class="material-icons bad">sentiment_very_dissatisfied</i>
+         <span><%= article.bads.count %></span>
+       </div>
+       <% if article.price.min != 0 %>
+         <div class="icons">
+           <i class="material-icons purchase">add_shopping_cart</i>
+           <span><%= article.purchases.count %></span>
+         </div>
+         <div class="icons price">
+           <%= display_in_yen(article.price.min) %>
+         </div>
+       <% end %>
      </div>
-
      <div class="card-action">
-      <div class="like">
-        <i class="material-icons">mood</i>
-        <span><%= article.likes.count %></span>
-      </div>
-      <div class="bad">
-        <i class="material-icons">mood_bad</i>
-        <span><%= article.bads.count %></span>
-      </div>
-      <% if article.price.min != 0 %>
-      <div class="purchaser">
-        <i class="glyphicon glyphicon-user purchaser-icon"></i>
-        <span><%= article.purchases.count %></span>
-      </div>
-      <div class="price">
-        <%= display_in_yen(article.price.min) %>
-      </div>
-    <% end %>
-    <div class="footer row">
-      <div class="container_left col-sm-3 col-md-3 col-xs-3">
-        <%= user_image_for(article.user) %>
-      </div>
-      <div class="col-sm col-md col-xs container_center">
-        <%= link_to article.user.name, article.user, class: "user-name" %>
-      </div>
-      <div class="container_right col-sm-4 col-xs-4 col-md-4">
-        <span class="time"><%= date_format(article.created_at) %></span>
-      </div>
-    </div>
-    </div>
-
-    <div class="card-reveal">
-    <span class="card-title grey-text text-darken-4"><%= link_to article.title.truncate(15), article, id: "article-title", class:"grey-text text-darken-4" %><i class="material-icons right">close</i></span>
-    <p><%= article.content.truncate(50) %></p>
+        <div class="footer row">
+          <div class="profile">
+            <%= user_image_for(article.user) %>
+            <%= link_to article.user.name, article.user, class: "user-name" %>
+          </div>
+          <div class="profile time">
+            <%= date_format(article.created_at) %>
+          </div>
+        </div>
+     </div>
+     <div class="card-reveal">
+      <span class="card-title"><%= link_to article.title.truncate(38), article, id: "article-title"%><i class="material-icons right">close</i></span>
+      <p><%= article.content.truncate(100) %></p>
     </div>
   </div>
 </div>
