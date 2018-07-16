@@ -21,6 +21,6 @@
 //= require_tree .
 
 
-$(document).ready(function(){
+$(window).on('load', function(){
    $('.dropdown-trigger').dropdown();
  });

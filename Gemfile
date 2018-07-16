@@ -46,9 +46,7 @@ gem 'rouge'
 gem 'vuejs-rails',          '2.5.13'
 gem 'marked-rails',         '0.3.2.0'
 gem 'social-share-button'
-
 gem 'kaminari'
-gem 'bootstrap4-kaminari-views'
 
 gem 'materialize-sass', '~> 1.0.0.rc2'
 gem 'material_icons'

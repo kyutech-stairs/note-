@@ -21,7 +21,10 @@ nav {
   height: $navbar-height-mobile;
   line-height: $navbar-line-height-mobile;
 
-  a { color: $navbar-font-color; }
+  a {
+    color: $navbar-font-color;
+    outline: none;
+  }
 
   i,
   [class^="mdi-"], [class*="mdi-"],
