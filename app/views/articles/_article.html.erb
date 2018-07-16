@@ -1,8 +1,8 @@
 <div class="col-md-4 article-one"  id="article-<%= article.id %>">
-  <div class="card sticky-action">
+  <div class="card sticky-action hoverable">
      <div class="card-image waves-effect waves-block waves-light">
        <%= image_tag("sample-1.jpg", class: "header-image activator")%>
-       <span class="card-title activator grey-text text-darken-4"><%= link_to article.title.truncate(35), article, id: "article-title", class:"" %><i class="material-icons right">more_vert</i></span>
+       <span class="card-title activator"><%= link_to article.title.truncate(35), article, id: "article-title"%><i class="material-icons right">more_vert</i></span>
      </div>
      <div class="card-content">
        <div class="icons">
@@ -16,7 +16,7 @@
            <i class="material-icons purchase">add_shopping_cart</i>
            <span><%= article.purchases.count %></span>
          </div>
-         <div class="icons price">
+         <div class="icons right">
            <%= display_in_yen(article.price.min) %>
          </div>
        <% end %>
@@ -27,7 +27,7 @@
             <%= user_image_for(article.user) %>
             <%= link_to article.user.name, article.user, class: "user-name" %>
           </div>
-          <div class="profile time">
+          <div class="profile valign-wrapper right">
             <%= date_format(article.created_at) %>
           </div>
         </div>

@@ -2,6 +2,20 @@
   min-width: 280px;
   min-height: 280px;
   .card{
+    .card-image{
+      background-color: black;
+      .header-image{
+        opacity: 0.7;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        -ms-transition: all 0.3s;
+        -o-transition: all 0.3s;
+        transition: all 0.3s;
+        &:hover{
+          opacity: 1.0;
+        }
+      }
+    }
     .card-content{
       .icons{
         display: inline;
@@ -15,9 +29,6 @@
           color: black;
         }
       }
-      .price{
-        float: right;
-      }
     }
     .card-action{
       .footer{
@@ -26,10 +37,6 @@
         .profile{
           display: inline;
           margin: 0 auto;
-          line-height: 35px;
-        }
-        .time{
-          float: right;
           line-height: 35px;
         }
       }
