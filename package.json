@@ -2,8 +2,12 @@
   "name": "note",
   "private": true,
   "dependencies": {
+    "@rails/webpacker": "3.5",
     "axios": "^0.18.0",
     "jquery": "^3.3.1",
     "popper": "^1.0.1"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "2.11.2"
   }
 }
