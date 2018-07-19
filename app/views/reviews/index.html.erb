@@ -3,11 +3,11 @@
     <div class="col-md-8 col-sm-8 col-xs-8
       offset-xs-1 offset-sm-1 offset-md-1">
       <% @articles.each do |article| %>
-        <% @review = article.reviews.find_by(user_id: current_user.id) %>
+        <% review_instance_from(article) %>
         <% if @review %>
-          <%= render 'form', article: article %>
+          <%= render 'edit_form', article: article %>
         <% else %>
-          <%= render 'form', article: article %>
+          <%= render 'form', article: article%>
         <% end %>
       <% end %>
     </div>
