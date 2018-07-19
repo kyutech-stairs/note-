@@ -1,0 +1,23 @@
+.review-one{
+  background-color: white;
+  padding: 20px;
+  .review-article-title{
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid;
+  }
+  .review-title{
+    input{
+      width: 100%;
+    }
+  }
+  .review-content{
+    textarea{
+      width: 100%;
+    }
+  }
+  .review-form{
+    padding-bottom: 20px;
+    border-bottom: 1px solid;
+  }
+}

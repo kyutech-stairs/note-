@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-sm-8 col-xs-8
+      offset-xs-1 offset-sm-1 offset-md-1">
+      <% @articles.each do |article| %>
+        <% @review = article.reviews.find_by(user_id: current_user.id) %>
+        <% if @review %>
+          <%= render 'form', article: article %>
+        <% else %>
+          <%= render 'form', article: article %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

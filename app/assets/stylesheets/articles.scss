@@ -188,28 +188,34 @@
 }
 .sidebar{
   position: fixed;
-  z-index: 1;
   left: 30px;
   overflow-x: hidden;
   .like-form{
     
   }
 }
-.modal-body{
-  .controls{
-    width: 90%;
-    margin: 0 auto;
-    p{
-      margin-left: 3%;
-    }
-    .margin-yen{
+.sidebar-right{
+  position: fixed;
+  right: 30px;
+}
+#price-modal{
+  .modal-body{
+    .controls{
       width: 90%;
       margin: 0 auto;
-      margin-left: 3%;
-      display: inline-block;
+      p{
+        margin-left: 3%;
+      }
+      .margin-yen{
+        width: 90%;
+        margin: 0 auto;
+        margin-left: 3%;
+        display: inline-block;
+      }
+    }
+    .modal-footer{
+      border: none;
     }
   }
-  .modal-footer{
-    border: none;
-  }
+
 }
