@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :destroy, :index]
+  before_action :authenticate_user!, only: [:create, :destroy, :index, :update]
 
   def index
     @articles = Article.where(id: current_user.purchases.map(&:article_id))
@@ -20,6 +20,7 @@ class ReviewsController < ApplicationController
   def destroy
 
   end
+  
   
   private 
   def review_params
