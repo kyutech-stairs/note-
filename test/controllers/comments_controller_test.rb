@@ -10,7 +10,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
   test "should create" do
     log_in_as @user
     assert_difference 'Comment.count', 1 do
-      post comments_path(), params: { comment: 
+      post article_comments_path(@article), params: { comment: 
               {article_id: @comment.article_id, 
                user_id: @comment.user_id, 
                content: @comment.content}}
@@ -18,7 +18,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
   end
   test "should redirect create when user are no logged in " do
     assert_no_difference 'Comment.count' do
-      post comments_path(), params: { comment: 
+      post article_comments_path(@article), params: { comment: 
               {article_id: @comment.article_id, 
                user_id: @comment.user_id, 
                content: @comment.content}}
@@ -30,21 +30,21 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     log_in_as @user
     @comment.save
     assert_difference 'Comment.count', -1 do
-      delete comment_path(@comment)
+      delete article_comment_path(@comment, article_id: @article.id)
     end
   end
   test "should redirect destroy when wrong user done" do
     log_in_as @other
     @comment.save
     assert_no_difference 'Comment.count' do
-      delete comment_path(@comment)
+      delete article_comment_path(@comment, article_id: @article.id)
     end
     assert_redirected_to root_path
   end
   test "should redirect destroy when user are no logged in" do
     @comment.save
     assert_no_difference 'Comment.count' do
-      delete comment_path(@comment)
+      delete article_comment_path(@comment, article_id: @article.id)
     end
     assert_redirected_to new_user_session_path
   end
