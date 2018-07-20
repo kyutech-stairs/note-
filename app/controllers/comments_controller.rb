@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   before_action :correct_user, only: :destroy
 
   def create
-    @comment = Comment.new(comment_params)
+    @comment = current_user.comments.build(comment_params)
     @comment.save
     @article = @comment.article
     respond_to do |format|
@@ -13,6 +13,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    @article = @comment.article
     if @comment.destroy
       set_flash(:notice, "コメントが削除されました")
       respond_to do |format|
