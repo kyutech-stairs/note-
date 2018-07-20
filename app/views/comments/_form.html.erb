@@ -1,6 +1,5 @@
-<%= form_for(@comment, html: {id: "comment-form"}, data: {remote: true}) do |f| %>
-  <input type="hidden" name="comment[article_id]" value="<%= @article.id %>">
-  <input type="hidden" name="comment[user_id]" value="<%= current_user.id %>">
+<%= form_tag(article_comments_path(@article), id: "comment-form", data: {remote: true}) do  %>
+  <input type="hidden" value="<%= @article.id%>" name="comment[article_id]">
   <textarea id="" name="comment[content]" v-model="comment"
    :rows="rows" placeholder="コメント"></textarea>
   <button v-show="comment" v-on:click="send" class="btn btn-orange">コメント</button>
