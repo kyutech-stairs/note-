@@ -11,7 +11,7 @@
     <div class="ch-comment-info">
         <% if current_user %>
         <% if comment.user_id==current_user.id %>
-          <%= link_to "削除", comment, method: :delete, class: "delete" %>
+          <%= link_to "削除", article_comment_path(comment, article_id: @article.id), method: :delete, class: "delete", remote: true %>
         <% end %>
         <% end %>
     </div>
