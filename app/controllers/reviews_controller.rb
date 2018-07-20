@@ -40,5 +40,4 @@ class ReviewsController < ApplicationController
     @review = Review.find_by(id: params[:id])
     redirect_to root_path if !@review
   end
-    
 end

@@ -1,4 +1,4 @@
-<div class="review-one">
+<div class="write-review">
   <%= render 'article_modal', article: article%>
   <%= form_for reviews_path(@review), html: { class: "review-form"} do |f| %>
     <input type="hidden" value="<%= article.id%>" name="article_id">
