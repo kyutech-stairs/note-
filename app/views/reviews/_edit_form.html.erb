@@ -1,0 +1,24 @@
+<div class="write-review">
+  <%= render 'article_modal', article: article %>
+  <%= form_for @review, html: { class: "review-form"} do |f| %>
+    <input type="hidden" value="<%= article.id%>" name="article_id">
+    <div class="star">
+      <label for="star">hyouka</label></br>
+      <input type="radio" name="star" value="1">
+      <input type="radio" name="star" value="2">
+      <input type="radio" name="star" value="3">
+      <input type="radio" name="star" value="4">
+      <input type="radio" name="star" value="5">
+    </div>
+    <div class="review-title">
+      <label for="title">titie</label></br>
+      <input type="text" name="title" placeholder="タイトル" value="<%= @review.title%>">
+    </div>
+    <div class="review-content">
+      <label for="content">content</label></br>
+      <textarea name="content" placeholder="レビュー内容"><%= @review.content %></textarea></br>
+    </div>
+    <input type="submit" class="btn btn-primary">
+    <%= link_to "delete", @review, class: "btn btn-primary", method: :delete %>
+  <% end %>
+</div>
