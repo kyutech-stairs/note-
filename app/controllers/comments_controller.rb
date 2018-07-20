@@ -3,16 +3,20 @@ class CommentsController < ApplicationController
   before_action :correct_user, only: :destroy
 
   def create
-    @comment = Comment.new(comment_params)
-    @comment.save
+    @comment = current_user.comments.build(comment_params)
     @article = @comment.article
-    respond_to do |format|
-      format.html {redirect_to @article}
-      format.js
+    if @comment.save
+      respond_to do |format|
+        format.html {redirect_to @article}
+        format.js
+      end
+    else
+      redirect_to @article 
     end
   end
 
   def destroy
+    @article = @comment.article
     if @comment.destroy
       set_flash(:notice, "コメントが削除されました")
       respond_to do |format|
