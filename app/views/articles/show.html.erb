@@ -7,9 +7,6 @@
       <%= render 'bads/form'%>
     </div>
   </div>
-  <div class="review">
-    <%= link_to "レビューを書く", reviews_path, class: "btn btn-orange"%>
-  </div>
 </div>
 
 <div class="container">
@@ -67,6 +64,17 @@
           <%= social_share_button_tag(@article.title,
             allow_sites: %w(twitter pinterest linkedin google_plus)) %>
         </div>
+      </div>
+    </div>
+    <div class="col-md-2 col-sm-2 col-xs-2">
+      <div>
+        <%= link_to "レビューを書く", reviews_path, class: "btn btn-orange"%></br>
+      </div>
+      <div class="reviews-show">
+        <%= render @reviews %>
+      </div>
+      <div class="paginate">
+        <%= paginate @reviews %>
       </div>
     </div>
     <div class="col-md-8 col-sm-8 col-xs-8 comments
