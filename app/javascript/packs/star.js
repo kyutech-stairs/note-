@@ -6,5 +6,8 @@ var star = new Vue({
   el: "#star-rate",
   components: {
     'star-rating': StarRating
+  },
+  data: {
+    star: ""
   }
 })

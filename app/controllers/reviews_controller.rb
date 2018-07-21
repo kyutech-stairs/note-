@@ -1,10 +1,10 @@
 class ReviewsController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :destroy, :index, :update]
+  before_action :authenticate_user!, only: [:create, :destroy, :update]
   before_action :correct_user, only: [:destroy, :update]
 
-  def index
-    @articles = Article.where(id: current_user.purchases.map(&:article_id))
-  end
+#  def index
+#    @articles = Article.where(id: current_user.purchases.map(&:article_id))
+#  end
 
   def create
     @review = Review.new(review_params)
@@ -15,12 +15,10 @@ class ReviewsController < ApplicationController
     else
       set_flash(:alert, "失敗")
     end
-    redirect_to action: :index
   end
 
   def destroy
      @review.destroy
-     redirect_to action: :index
   end
   
   def update
@@ -29,7 +27,6 @@ class ReviewsController < ApplicationController
     else 
       set_flash(:alert, "失敗")
     end
-    redirect_to action: :index
   end
   
   private 
