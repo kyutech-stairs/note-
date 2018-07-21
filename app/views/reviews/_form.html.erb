@@ -1,14 +1,11 @@
 <div class="write-review">
-  <%= render 'article_modal', article: article%>
-  <%= form_for reviews_path(@review), html: { class: "review-form"} do |f| %>
+  <%= render 'reviews/article_modal', article: article %>
+  <%= form_tag article_reviews_path(@article)  do |f| %>
     <input type="hidden" value="<%= article.id%>" name="article_id">
-    <div class="star">
-      <label for="star">hyouka</label></br>
-      <input type="radio" name="star" value="1">
-      <input type="radio" name="star" value="2">
-      <input type="radio" name="star" value="3">
-      <input type="radio" name="star" value="4">
-      <input type="radio" name="star" value="5">
+    <input type="hidden" value="">
+    <div id="star-rate">
+      <star-rating :star-size="20">
+      </star-rating>
     </div>
     <div class="review-title">
       <label for="title">titie</label></br>
@@ -21,3 +18,4 @@
     <input type="submit" class="btn btn-primary">
   <% end %>
 </div>
+<%= javascript_pack_tag 'star' %>
