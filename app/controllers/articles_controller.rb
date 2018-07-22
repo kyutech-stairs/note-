@@ -13,6 +13,8 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @comment = Comment.new
     @reviews = @article.reviews.page(params[:page]).per(20)
+    @review = @article.reviews.find_by(user_id: current_user)
+    @review = Review.new unless @review
   end
   def destroy
     @article = Article.find(params[:id])
