@@ -1,0 +1,27 @@
+<div class="reviews-show" id="reviews-index">
+  <% if @reviews.any?%>
+    <a href="<%= article_path(@article)+"?search=#{0}"%>">
+    <star-rating :star-size="20" :increment="0.01" :read-only="true" 
+      :rating="<%= avg_reviews(@reviews)%>" :show-rating="false" :inline="true"></star-rating>
+    </a>
+    <%= avg_reviews(@reviews)%></br>
+    <% (1..5).reverse_each do |num| %>
+
+      <a href="<%= article_path(@article)+"?search=#{num}"%>">
+        <star-rating :read-only="true" :star-size="20" :rating="<%= num %>" 
+        :show-rating="false" :inline="true"></star-rating>
+      </a>
+      <%= @reviews.map(&:star).count(num)%></br>
+
+    <% end %>
+    <div id="review-feeds">
+      <%= render @reviews_feeds %>
+      <div class="paginate">
+        <%= paginate @reviews_feeds %>
+      </div>
+    </div>
+  <% else %>
+    レビューはまだありません
+  <% end%>
+</div>
+

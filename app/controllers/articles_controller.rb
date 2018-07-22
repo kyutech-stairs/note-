@@ -11,10 +11,14 @@ class ArticlesController < ApplicationController
   end
   def show
     @article = Article.find(params[:id])
-    @comment = Comment.new
-    @reviews = @article.reviews.page(params[:page]).per(20)
+    @reviews = @article.reviews.page(params[:page]).per(5)
+    @reviews_feeds = @article.reviews.page(params[:page]).per(5).search_by_star(params[:search])
     @review = @article.reviews.find_by(user_id: current_user)
     @review = Review.new unless @review
+    respond_to do |format|
+      format.html {}
+      format.js
+    end
   end
   def destroy
     @article = Article.find(params[:id])
