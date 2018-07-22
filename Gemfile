@@ -50,6 +50,7 @@ gem 'social-share-button'
 gem 'kaminari'
 gem 'bootstrap4-kaminari-views'
 
+gem 'webpacker'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
