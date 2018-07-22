@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :destroy, :update]
   before_action :correct_user, only: [:destroy, :update]
+  before_action :create_before_purchase, only: [:create]
 
 #  def index
 #    @articles = Article.where(id: current_user.purchases.map(&:article_id))
@@ -38,5 +39,8 @@ class ReviewsController < ApplicationController
   def correct_user
     @review = Review.find_by(id: params[:id])
     redirect_to root_path if !@review
+  end
+  def create_before_purchase
+    redirect_to root_path unless current_user.is_purchased?(Article.find(params[:article_id]))
   end
 end

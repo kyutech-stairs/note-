@@ -9,7 +9,7 @@ var star = new Vue({
     'star-rating': StarRating
   },
   data: {
-    rating: 0,
+    rating: null,
     boundRating: "",
   },
   methods: {
