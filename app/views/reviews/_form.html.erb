@@ -5,13 +5,15 @@
     <input type="hidden" value="">
     <div id="star-rate">
       <% if @review.star %>
-        <star-rating :star-size="20" :rating="<%= @review.star%>" @rating-selected="setRating">
+        <star-rating :star-size="20" :rating="<%= @review.star %>" @rating-selected="setRating">
         </star-rating>
       <% else %>
         <star-rating :star-size="20" v-model="rating">
         </star-rating>
       <% end %>
-      <input type="hidden" v-model="rating" name="star">
+      <div v-if="rating">
+        <input type="hidden" v-bind:value="rating" name="star">
+      </div>
     </div>
     <div class="review-title">
       <label for="title">titie</label></br>
