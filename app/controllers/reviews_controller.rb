@@ -7,14 +7,14 @@ class ReviewsController < ApplicationController
 #  end
 
   def create
-    @review = Review.new(review_params)
-    @review.user = current_user
-    @review.article = Article.find(params[:article_id])
+    @review = current_user.reviews.build(review_params)
     if @review.save
       set_flash(:notice, "reviewを作成しました")
     else
       set_flash(:alert, "失敗")
     end
+    @article = @review.article
+    redirect_to @article
   end
 
   def destroy
@@ -27,11 +27,13 @@ class ReviewsController < ApplicationController
     else 
       set_flash(:alert, "失敗")
     end
+    @article = @review.article
+    redirect_to @article
   end
   
   private 
   def review_params
-    params.permit(:star, :title, :content)
+    params.permit(:star, :title, :content, :article_id)
   end
   def correct_user
     @review = Review.find_by(id: params[:id])

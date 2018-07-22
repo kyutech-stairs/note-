@@ -1,19 +1,25 @@
 <div class="write-review">
   <%= render 'reviews/article_modal', article: article %>
-  <%= form_tag article_reviews_path(@article)  do |f| %>
+    <%= form_for [@article, @review] do |f| %>
     <input type="hidden" value="<%= article.id%>" name="article_id">
     <input type="hidden" value="">
     <div id="star-rate">
-      <star-rating :star-size="20">
-      </star-rating>
+      <% if @review.star %>
+        <star-rating :star-size="20" :rating="<%= @review.star%>" @rating-selected="setRating">
+        </star-rating>
+      <% else %>
+        <star-rating :star-size="20" v-model="rating">
+        </star-rating>
+      <% end %>
+      <input type="hidden" v-model="rating" name="star">
     </div>
     <div class="review-title">
       <label for="title">titie</label></br>
-      <input type="text" name="title" placeholder="タイトル">
+      <input type="text" name="title" placeholder="タイトル" value="<%= @review.title%>">
     </div>
     <div class="review-content">
       <label for="content">content</label></br>
-      <textarea name="content" placeholder="レビュー内容"></textarea></br>
+      <textarea name="content" placeholder="レビュー内容"><%= @review.content %></textarea></br>
     </div>
     <input type="submit" class="btn btn-primary">
   <% end %>
