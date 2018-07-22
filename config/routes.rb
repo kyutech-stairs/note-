@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :bads, only: [:create, :destroy]
     resources :purchases, only: :create
     resources :comments, only: [:create, :destroy]
+    resources :reviews, only: [:create, :destroy, :update]
   end
   resources :follows, only: [:create, :destroy]
   root 'static_pages#index'

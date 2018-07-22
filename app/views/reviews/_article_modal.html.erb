@@ -1,0 +1,20 @@
+<div class="review-article-title">
+  <%= article.title %>
+  <a href="#" data-toggle="modal" data-target="#article-content-modal-<%=article.id%>">...check contents</a>
+  </br>
+</div>
+<div class="modal" id="article-content-modal-<%= article.id%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= qiita_markdown(article.content) %>
+      </div>
+    </div>
+  </div>
+</div>

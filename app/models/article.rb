@@ -8,6 +8,8 @@ class Article < ApplicationRecord
   validates :price, presence: true
   has_many :purchases, dependent: :destroy
 
+  has_many :reviews
+
   validates :title, presence: true
   validates :content, presence: true
 end
