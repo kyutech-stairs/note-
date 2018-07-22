@@ -1,6 +1,7 @@
-<div class="review-one">
+<div class="review-one" style="border: 1px solid;">
   <div class="review-star">
-    <%= review.star %>
+    <star-rating :read-only="true" :rating="<%= review.star %>" :star-size="20"
+    :show-rating="false"></star-rating>
   </div>
   <div class="review-title">
     <%= review.title %>
