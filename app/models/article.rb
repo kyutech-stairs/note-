@@ -12,4 +12,21 @@ class Article < ApplicationRecord
 
   validates :title, presence: true
   validates :content, presence: true
+
+
+  def update_price
+    if price.min >= 100 && price.rate != "free"
+      r = Price.rates[price.rate]
+      # 100 is not decided yet. 100 is fluctuation range
+      flu_p = 100 / r      
+      tmp_p = likes.count * flu_p + purchases.count * flu_p - bads.count * flu_p * 2 + price.min
+      if tmp_p > price.max
+        price.now_price = price.max
+      elsif tmp_p < price.min
+        price.now_price = price.min
+      else
+        price.now_price = tmp_p
+      end
+    end
+  end
 end

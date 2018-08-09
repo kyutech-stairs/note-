@@ -26,12 +26,12 @@ Article.create!(title: "Hello World",
   Article.create!(title: "サンプル記事#{2*n+1}",
                   content: "### サンプル記事",
                   user_id: 1,
-                  price: Price.new(min: 100, max: 1000, rate: "high"))
+                  price: Price.new(min: 100, max: 1000, rate: "high", now_price: 100))
 
   Article.create!(title: "サンプル記事#{2*n+2}",
                   content: "### サンプル記事",
                   user_id: 2,
-                  price: Price.new(min: 100, max: 1000, rate: "low"))
+                  price: Price.new(min: 100, max: 1000, rate: "low", now_price: 100))
 end
 title = 
 "
@@ -62,4 +62,4 @@ Vue.jsの入門記事を前に作ったので、初めて触る人はこちら�
 Article.create(title: title,
               content: content,
               user_id: 1,
-              price: Price.new(min: 100, max: 200))
+              price: Price.new(min: 100, max: 200, now_price: 100))

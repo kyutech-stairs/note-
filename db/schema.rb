@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20180718134351) do
     t.integer "max", default: 0
     t.integer "min", default: 0
     t.integer "rate", default: 0
+    t.integer "now_price", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
