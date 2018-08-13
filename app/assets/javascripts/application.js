@@ -12,7 +12,6 @@
 //
 //= require rails-ujs
 //= require jquery3
-//= require popper
 //= require vue
 //= require social-share-button
 //= require marked
@@ -23,4 +22,5 @@
 
 $(window).on('load', function(){
    $('.dropdown-trigger').dropdown();
+    
  });

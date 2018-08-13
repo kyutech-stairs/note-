@@ -1,7 +1,7 @@
 <div class="col-md-4 article-one"  id="article-<%= article.id %>">
   <div class="card sticky-action hoverable">
-     <div class="card-image waves-effect waves-block waves-light">
-       <%= image_tag("sample-1.jpg", class: "header-image activator")%>
+     <div class="card-image">
+       <%= link_to image_tag("sample-1.jpg", class: "header-image"), article%>
        <span class="card-title activator"><%= link_to article.title.truncate(35), article, id: "article-title"%><i class="material-icons right">more_vert</i></span>
      </div>
      <div class="card-content">
@@ -13,7 +13,7 @@
        </div>
        <% if article.price.min != 0 %>
          <div class="icons">
-           <i class="material-icons purchase">add_shopping_cart</i>
+           <i class="material-icons purchase">people</i>
            <span><%= article.purchases.count %></span>
          </div>
          <div class="icons right">
