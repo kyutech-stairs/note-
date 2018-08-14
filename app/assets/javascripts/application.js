@@ -22,5 +22,9 @@
 
 $(window).on('load', function(){
    $('.dropdown-trigger').dropdown();
-    
+
+ });
+
+ $("#file_uploaders_file").on("change", function() {
+   Rails.fire($(this).closest("form")[0], 'submit');
  });
