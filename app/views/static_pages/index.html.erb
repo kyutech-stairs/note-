@@ -1,10 +1,8 @@
-<div class="main_wrapper">
-  <div class="row">
-      <% if @articles.any? %>
-        <%= render @articles %>
-      <% end %>
-  </div>
-  <div class="paginate">
-    <%= paginate @articles%>
-  </div>
+<div class="row">
+  <% if @articles.any? %>
+    <%= render @articles %>
+  <% end %>
+</div>
+<div class="paginate">
+  <%= paginate @articles%>
 </div>
