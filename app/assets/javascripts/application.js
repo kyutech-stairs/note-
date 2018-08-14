@@ -15,7 +15,6 @@
 //= require vue
 //= require social-share-button
 //= require marked
-//= require bootstrap
 //= require turbolinks
 //= require_tree .
 
