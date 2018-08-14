@@ -1,3 +1,4 @@
+//static-pages
 .article-one{
     min-width: 280px;
     min-height: 280px;
@@ -45,7 +46,7 @@
   }
 
 
-
+//article_new
 .row{
   margin: 5vh 2vw;
   .title{
@@ -73,18 +74,25 @@
   .preview{
     overflow: auto;
     height: 80vh;
-    padding: 3vh 3vw ;
     display: inline-block;
     background-color: #fff;
     border: none;
-  }
-
-  .btn{
-    float: right;
+    .preview-wrapper{
+      padding: 3vh 3vw;
+      .preview-placeholder{
+        font-size: 3vh;
+      }
+    }
   }
 }
 
-
+.modal_wrapper{
+  .btn-large{
+    font-weight: bold;
+    margin: 2vh 5vw;
+    float: right;
+  }
+}
 
 .article-body{
   padding: 3vh 3vw;
@@ -136,12 +144,14 @@
 
   }
 }
+
+
 .modal-body{
   .controls{
     width: 90%;
     margin: 0 auto;
-    p{
-      margin-left: 3%;
+    input::placeholder {
+      color: grey;
     }
     .margin-yen{
       width: 90%;
@@ -149,8 +159,5 @@
       margin-left: 3%;
       display: inline-block;
     }
-  }
-  .modal-footer{
-    border: none;
   }
 }
