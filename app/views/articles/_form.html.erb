@@ -12,10 +12,10 @@
   </div>
 </div>
 <div class="row">
-  <div class="content z-depth-2 col offset-s1">
+  <div class="content z-depth-2 col s11 offset-s1">
     <textarea v-model="content" name="article[content]" placeholder="記事を入力" id="content"><%= @article.content %></textarea>
   </div>
-  <div class="preview z-depth-2 col offset-s1">
+  <div class="preview z-depth-2 col s11 offset-s1">
     <div class="preview-wrapper">
       <div v-if="content">
         <div v-html="mark(content)" ></div>
@@ -73,3 +73,5 @@
    });
   window.vm = vm;
  </script>
+
+ <%= javascript_include_tag "application.js" %>
