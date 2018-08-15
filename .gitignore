@@ -24,7 +24,8 @@ vendor/bundle
 /yarn-error.log
 
 .byebug_history
-/public/*
+/public/image
+/public/images
 /public/packs
 /public/packs-test
 /node_modules
