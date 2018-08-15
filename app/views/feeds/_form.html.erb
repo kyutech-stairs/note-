@@ -1,0 +1,16 @@
+<% if current_user %>
+  <% if current_user.liking?(article) %> 
+    <%= link_to "cancel", article_feed_path(current_user.feeds.find_by(article_id: article.id),
+                              article_id: article.id), method: :delete, remote: true %>
+  <% else %>
+    <%= link_to "like", article_feeds_path(article, params: { feed: "like" }),
+      method: :post, remote: true  %>
+  <% end %>
+  <% if current_user.bads?(article) %>
+    <%= link_to "cancel", article_feed_path(current_user.feeds.find_by(article_id: article.id),
+                              article_id: article.id), method: :delete, remote: true %>
+  <% else %>
+    <%= link_to "bad", article_feeds_path(article, params: { feed: "bad" }),
+      method: :post, remote: true %> 
+  <% end %>
+<% end %>

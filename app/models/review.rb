@@ -8,7 +8,7 @@ class Review < ApplicationRecord
 
   def myself
     if user_id == Article.find(article_id).user_id
-      errors.add(:user, "dont review your own article")
+      errors.add(:user, "cant review your own article")
     end
   end
   
