@@ -1,3 +1,8 @@
+@mixin btn_color($color: #fff) {
+  background-color: lighten($color, 4%);
+  @extend .z-depth-1-half;
+}
+
 // shared styles
 .btn,
 .btn-flat {
@@ -83,6 +88,36 @@
     background-color: $button-floating-background-hover;
     @extend .z-depth-1-half;
   }
+  &.red{
+    background-color: #f44336;
+    &:hover {
+      @include btn_color(#f44336);
+    }
+  }
+  &.yellow{
+    background-color: #ffeb3b;
+    &:hover {
+      @include btn_color(#ffeb3b);
+    }
+  }
+  &.green{
+    background-color: #4caf50;
+    &:hover {
+      @include btn_color(#4caf50);
+    }
+  }
+  &.blue{
+    background-color: #2196f3;
+    &:hover {
+      @include btn_color(#2196f3);
+    }
+  }
+  &.orange{
+    background-color: #ff9800;
+    &:hover {
+      @include btn_color(#ff9800);
+    }
+  }
   &:before {
     border-radius: 0;
   }
@@ -155,7 +190,6 @@ button.btn-floating {
       visibility: visible;
     }
   }
-
   // Directions
   &.direction-left,
   &.direction-right {
@@ -237,8 +271,8 @@ button.btn-floating {
     }
   }
   position: fixed;
-  right: 23px;
-  bottom: 23px;
+  right: 2vw;
+  top: 10vh;
   padding-top: 15px;
   margin-bottom: 0;
   z-index: 997;
