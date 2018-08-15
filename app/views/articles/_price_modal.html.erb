@@ -17,27 +17,27 @@
           <div class="row">
             <div class="input-field col s12">
               <input type="text" v-model="minPrice" name="article[price_attributes][min]"
-              class="margin-yen" id="min_price" placeholder="100~1000" :disabled="isDisabled">
+              class="margin-yen" id="min_price" placeholder="100~1000" :readonly="isDisabled">
               <span>円</span>
               <label for="min_price">開始価格</label>
             </div>
             <div class="input-field col s12">
               <input type="text" v-model="maxPrice" name="article[price_attributes][max]"
-              class="margin-yen" id="max_price" placeholder="100~1000" :disabled="isDisabled">
+              class="margin-yen" id="max_price" placeholder="100~1000" :readonly="isDisabled">
               <span>円</span>
               <label for="max_price">最大価格</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s24">
-                <%= price_form.select :rate, enum_options_for_select(Price, :rate), {}, ":readonly": "isDisabled", "v-model": "rate" %>
+                <%= price_form.select :rate, enum_options_for_select(Price, :rate), {}, "v-model": "rate" %>
                 <label>レート</label>
             </div>
           </div>
         </div>
       <% end %>
       <div class="modal-footer">
-        <input type="submit" class="btn" value="記事を投稿">
+        <input type="submit" :disabled="minPrice.length==0 || maxPrice.length==0" class="btn" value="記事を投稿">
       </div>
     </div>
 
