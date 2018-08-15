@@ -145,19 +145,26 @@
   }
 }
 
-
-.modal-body{
-  .controls{
-    width: 90%;
-    margin: 0 auto;
-    input::placeholder {
-      color: grey;
+.modal{
+  .modal-header{
+    .switch{
+      height:65px;
+      line-height: 65px;
     }
-    .margin-yen{
+  }
+  .modal-body{
+    .controls{
       width: 90%;
       margin: 0 auto;
-      margin-left: 3%;
-      display: inline-block;
+      input::placeholder {
+        color: grey;
+      }
+      .margin-yen{
+        width: 90%;
+        margin: 0 auto;
+        margin-left: 3%;
+        display: inline-block;
+      }
     }
   }
 }

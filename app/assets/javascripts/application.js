@@ -19,11 +19,7 @@
 //= require_tree .
 
 
-$(window).on('load', function(){
+$(document).ready(function(){
    $('.dropdown-trigger').dropdown();
 
- });
-
- $("#file_uploaders_file").on("change", function() {
-   Rails.fire($(this).closest("form")[0], 'submit');
  });
