@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-sm-8 col-xs-8
+      offset-xs-1 offset-sm-1 offset-md-1">
+      <% @articles.each do |article| %>
+        <% review_instance_from(article) %>
+        <% if @review %>
+          <%= render 'edit_form', article: article %>
+        <% else %>
+          <%= render 'form', article: article%>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

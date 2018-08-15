@@ -5,6 +5,12 @@ class PurchasesController < ApplicationController
     @purchase.is_purchased = true
     @article = Article.find(params[:article_id])
     if @purchase.save
+      
+      if @article.purchases.count % Price.rates[@article.price.rate] == 0
+        @article.update_price
+        # saveに失敗した時の対処を考えないといけないかも。
+        @article.save
+      end
       redirect_to @article
     else
     end

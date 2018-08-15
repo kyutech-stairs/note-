@@ -17,7 +17,7 @@
            <span><%= article.purchases.count %></span>
          </div>
          <div class="icons right">
-           <%= display_in_yen(article.price.min) %>
+           <%= display_in_yen(article.price.now_price) %>
          </div>
        <% end %>
      </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180705112846) do
+ActiveRecord::Schema.define(version: 20180718134351) do
 
   create_table "articles", force: :cascade do |t|
     t.text "title"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20180705112846) do
     t.integer "max", default: 0
     t.integer "min", default: 0
     t.integer "rate", default: 0
+    t.integer "now_price", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -69,6 +70,17 @@ ActiveRecord::Schema.define(version: 20180705112846) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id", "article_id"], name: "index_purchases_on_user_id_and_article_id", unique: true
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.text "title"
+    t.integer "star"
+    t.integer "user_id"
+    t.integer "article_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "article_id"], name: "index_reviews_on_user_id_and_article_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|
