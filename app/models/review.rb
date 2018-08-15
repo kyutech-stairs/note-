@@ -4,6 +4,13 @@ class Review < ApplicationRecord
   validates :content, length: { maximum: 1000 }, presence: true
   validates :star, inclusion: { in: 1..5 }, presence: true
   validates :title, length: { maximum: 100}, presence: true
+  validate :myself
+
+  def myself
+    if user_id == Article.find(article_id).user_id
+      errors.add(:user, "dont review your own article")
+    end
+  end
   
   def self.search_by_star(num)
     if num.to_i==0
