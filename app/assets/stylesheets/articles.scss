@@ -1,50 +1,53 @@
+//static-pages
 .article-one{
-  min-width: 280px;
-  min-height: 280px;
-  .card{
-    .card-image{
-      background-color: black;
-      .header-image{
-        opacity: 0.7;
-        -webkit-transition: all 0.3s;
-        -moz-transition: all 0.3s;
-        -ms-transition: all 0.3s;
-        -o-transition: all 0.3s;
-        transition: all 0.3s;
-        &:hover{
-          opacity: 1.0;
+    min-width: 280px;
+    min-height: 280px;
+    .card{
+      .card-image{
+        background-color: black;
+        .header-image{
+          opacity: 0.7;
+          -webkit-transition: all 0.3s;
+          -moz-transition: all 0.3s;
+          -ms-transition: all 0.3s;
+          -o-transition: all 0.3s;
+          transition: all 0.3s;
+          &:hover{
+            opacity: 1.0;
+          }
         }
       }
-    }
-    .card-content{
-      .icons{
-        display: inline;
-        .like{
-          color: orange;
-        }
-        .bad{
-          color: blue;
-        }
-        .purchase{
-          color: black;
-        }
-      }
-    }
-    .card-action{
-      .footer{
-        height: 35px;
-        font-size: 2vh;
-        .profile{
+      .card-content{
+        .icons{
           display: inline;
+          .like{
+            color: orange;
+          }
+          .bad{
+            color: blue;
+          }
+          .purchase{
+            color: black;
+          }
+        }
+      }
+      .card-action{
+        padding: 0;
+        min-height: 50px;
+        .row{
           margin: 0 auto;
-          line-height: 35px;
+          img{
+            margin-top: 1vh;
+          }
         }
       }
     }
   }
-}
 
-#editor{
+
+//article_new
+.row{
+  margin: 5vh 2vw;
   .title{
     margin: 3vh 1vw;
     height: 50px;
@@ -57,27 +60,35 @@
   .content{
     display: inline-block;
     vertical-align: top;
+    padding: 0;
+    height: 80vh;
     textarea{
-      height: 80vh;
-      width: 49.5vw;
+      height: 100%;
+      margin: 0;
       padding: 3vh 3vw ;
       background-color: #fff;
-      border: 1px solid #ccc;
-      border-radius: 4px;
+      border: none;
     }
   }
   .preview{
     overflow: auto;
-    width: 50vw;
     height: 80vh;
-    padding: 3vh 3vw ;
     display: inline-block;
-    margin: 0;
     background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border: none;
+    .preview-wrapper{
+      padding: 3vh 3vw;
+      .preview-placeholder{
+        font-size: 3vh;
+      }
+    }
   }
-  .btn{
+}
+
+.modal_wrapper{
+  .btn-large{
+    font-weight: bold;
+    margin: 2vh 5vw;
     float: right;
   }
 }
@@ -131,18 +142,12 @@
 
   }
 }
-.sidebar-right{
-  position: fixed;
-  right: 30px;
-}
-#price-modal{
+
+.modal{
   .modal-body{
     .controls{
       width: 90%;
       margin: 0 auto;
-      p{
-        margin-left: 3%;
-      }
       .margin-yen{
         width: 90%;
         margin: 0 auto;
@@ -150,9 +155,5 @@
         display: inline-block;
       }
     }
-    .modal-footer{
-      border: none;
-    }
   }
-
 }

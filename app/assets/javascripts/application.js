@@ -15,11 +15,5 @@
 //= require vue
 //= require social-share-button
 //= require marked
-//= require bootstrap
 //= require turbolinks
 //= require_tree .
-
-
-$(window).on('load', function(){
-   $('.dropdown-trigger').dropdown();
- });

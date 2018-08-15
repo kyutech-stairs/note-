@@ -32,6 +32,9 @@
   }
   .modal-close {
     cursor: pointer;
+    span{
+      float: right;
+    }
   }
 
   .modal-footer {
