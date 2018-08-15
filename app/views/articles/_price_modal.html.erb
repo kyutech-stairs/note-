@@ -1,43 +1,44 @@
-<div class="modal" id="price-modal" tabindex="-1" role="dialog" aria-labelledby="price-modal-label" aria-hidden="true" data-show="true" data-keyboard="false" data-backdrop="static">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <div class="modal-header">
-        <h4 class="modal-title">価格設定画面</h4>
-        <button type="button" class="close" data-dismiss="modal">
-          <span aria-hidden="true">&#215;</span><span class="sr-only">閉じる</span>
+<div class="modal" id="price-modal">
+      <div class="modal-header row valign-wrapper">
+        <h3 class="modal-title col s8">Set Price</h3>
+        <div class="switch col s8">
+          <label>
+            <input type="checkbox" v-model="bool" v-on:change="FreeOrToll" id="toll" name="options" value="toll">有料
+            <span class="lever"></span>無料
+          </label>
+        </div>
+        <button type="button" class="modal-close btn-flat col offset-s7 s1">
+          <span aria-hidden="true">&#215;</span><span class="sr-only"></span>
         </button>
       </div>
       <%= f.fields_for :price do |price_form| %>
-      <div class="modal-body" id="modal-body">
-        <div class="free-or-toll row">
-          <div class="btn-group btn-group-toggle col-md-4 offset-md-8 col-sm-4
-            offset-sm-8 col-xs-4 offset-xs-8">
-            <label class="btn btn-primary"  v-bind:class='{active:isDisabled}'>
-              <input type="radio" v-on:change="pressFree" id="free" name="options" id="option1"  value="free">無料
-            </label>
-            <label class="btn btn-primary" v-bind:class='{active:!isDisabled}'>
-              <input type="radio" v-on:change="pressToll" id="toll" name="options" id="option2"  value="toll">有料
-            </label>
-          </div>
-        </div>
-
+      <div class="modal-body">
         <div class="controls">
-          <p>開始価格</p>
-            <input type="number" v-model="minPrice" name="article[price_attributes][min]"
-            class="form-control margin-yen" placeholder="100~1000" :readonly="isDisabled">
-          <span>円</span>
-        <p>最大価格</p>
-            <input v-model="maxPrice" name="article[price_attributes][max]"
-            class="form-control margin-yen" placeholder="100~1000" :readonly="isDisabled">
-            <span>円</span>
-          <p>レート</p>
-          <%= price_form.select :rate, enum_options_for_select(Price, :rate), {}, class:"form-control margin-yen", ":readonly": "isDisabled", "v-model": "rate" %>
+          <div class="row">
+            <div class="input-field col s12">
+              <input placeholder="100~1000" id="min_price" type="text" v-model="minPrice" name="article[price_attributes][min]"
+              class="margin-yen validate" :disabled="isDisabled">
+              <label for="min_price">開始価格</label>
+              <span>円</span>
+            </div>
+            <div class="input-field col s12">
+              <input type="text" v-model="maxPrice" name="article[price_attributes][max]"
+              class="margin-yen validate" id="max_price" placeholder="100~1000" :disabled="isDisabled">
+              <label for="max_price">最大価格</label>
+              <span>円</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s24">
+                <%= price_form.select :rate, enum_options_for_select(Price, :rate), {}, "v-model": "rate" %>
+                <label>レート</label>
+            </div>
+          </div>
         </div>
       <% end %>
       <div class="modal-footer">
-        <input type="submit" class="btn btn-orange" value="記事を投稿">
+        <input type="submit" :disabled="minPrice.length==0 || maxPrice.length==0" class="btn" value="記事を投稿">
       </div>
     </div>
-  </div>
+
 </div>

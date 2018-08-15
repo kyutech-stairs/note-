@@ -1,9 +1,14 @@
 <form enctype="multipart/form-data" action="/file_uploaders" accept-charset="UTF-8" data-remote="true" method="post" id="file-form">
   <input name="utf8" type="hidden" value="✓">
-  <label for="file_uploaders_file" class="file-label">
-    <i class="glyphicon glyphicon-picture file-button"></i>
-    <input accept="image/jpg,image/jpeg,image/png,image/gif" type="file" name="file_uploaders[file]" id="file_uploaders_file" style="display: none;">
-  </label>
+  <div class="file-field input-field">
+    <div class="btn">
+      <span>File</span>
+      <input accept="image/jpg,image/jpeg,image/png,image/gif" type="file" name="file_uploaders[file]" >
+    </div>
+    <div class="file-path-wrapper">
+        <input class="file-path validate" type="text">
+    </div>
+  </div>
 </form>
 
  <script type="text/javascript">
@@ -11,4 +16,3 @@
      Rails.fire($(this).closest("form")[0], 'submit');
    });
  </script>
-

@@ -1,29 +1,43 @@
-<%= render 'file_uploaders/file_form' %>
+<div class="row">
+  <div class="col s12 offset-right-s12">
+  <%= render 'file_uploaders/file_form' %>
+  </div>
+</div>
 
 <%= form_for(@article, html: {class: "article_form", id: "editor"}) do |f| %>
-  <div class="title">
-    <input type="text" v-model="title" name="article[title]" value="<%=@article.title%>" placeholder="タイトル">
+<div class="row">
+  <div class="input-field col s24">
+    <input id="title_form" type="text" v-model="title" name="article[title]" value="<%=@article.title%>">
+    <label for="title_form">Title</label>
   </div>
-  <div class="content">
+</div>
+<div class="row">
+  <div class="content z-depth-2 col s11 offset-s1">
     <textarea v-model="content" name="article[content]" placeholder="記事を入力" id="content"><%= @article.content %></textarea>
   </div>
-  <div class="preview">
-    <div v-if="content">
-      <div v-html="mark(content)" ></div>
+  <div class="preview z-depth-2 col s11 offset-s1">
+    <div class="preview-wrapper">
+      <div v-if="content">
+        <div v-html="mark(content)" ></div>
+      </div>
+      <div class="preview-placeholder" v-else style="color: gray;">プレビュー</div>
     </div>
-    <div v-else style="color: gray;">プレビュー</div>
   </div>
+</div>
+<div class="modal_wrapper">
   <!-- モーダル部分 -->
   <% if controller.action_name=="new" || controller.action_name=='create' %>
-    <button type="button" :disabled="content.length==0 || title.length==0"
-      class="btn btn-orange" data-toggle="modal" data-target="#price-modal">
+    <button :disabled="content.length==0 || title.length==0"
+      class="btn-large waves-effect waves-light modal-trigger"  data-target="price-modal">
       価格設定</button>
       <%= render 'price_modal', f: f %>
   <% else %>
-    <button type="submit" class="btn btn-orange">再投稿</button>
+    <button type="submit" class="btn">再投稿</button>
   <%end%>
-<%end%>
 </div>
+<%end%>
+
+
 
  <script type="text/javascript">
   var vm = new Vue({
@@ -40,16 +54,15 @@
        mark: function(text){
          return marked(text, {sanitize: true})
        },
-       pressFree: function(){
-         this.bool=true
-         this.minPrice=0
-         this.maxPrice=0
-         this.rate="free"
-       },
-       pressToll: function(){
-         this.bool=false
-         this.minPrice=''
-         this.maxPrice=''
+       FreeOrToll: function(){
+         if(this.bool==true){
+           this.minPrice=0
+           this.maxPrice=0
+           this.rate="free"
+         }else{
+           this.minPrice=''
+           this.maxPrice=''
+         }
        },
      },
      computed: {

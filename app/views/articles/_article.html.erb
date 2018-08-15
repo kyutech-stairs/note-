@@ -1,7 +1,7 @@
-<div class="col-md-4 article-one"  id="article-<%= article.id %>">
+<div class="col s6 article-one"  id="article-<%= article.id %>">
   <div class="card sticky-action hoverable">
-     <div class="card-image waves-effect waves-block waves-light">
-       <%= image_tag("sample-1.jpg", class: "header-image activator")%>
+     <div class="card-image">
+       <%= link_to image_tag("sample-1.jpg", class: "header-image"), article%>
        <span class="card-title activator"><%= link_to article.title.truncate(35), article, id: "article-title"%><i class="material-icons right">more_vert</i></span>
      </div>
      <div class="card-content">
@@ -13,7 +13,7 @@
        </div>
        <% if article.price.min != 0 %>
          <div class="icons">
-           <i class="material-icons purchase">add_shopping_cart</i>
+           <i class="material-icons purchase">people</i>
            <span><%= article.purchases.count %></span>
          </div>
          <div class="icons right">
@@ -22,12 +22,14 @@
        <% end %>
      </div>
      <div class="card-action">
-        <div class="footer row">
-          <div class="profile">
-            <%= user_image_for(article.user) %>
+        <div class="row valign-wrapper">
+          <div class="col s4">
+            <%= link_to user_image_for(article.user), article.user %>
+          </div>
+          <div class="col offset-s1 s9">
             <%= link_to article.user.name, article.user, class: "user-name" %>
           </div>
-          <div class="profile valign-wrapper right">
+          <div class="col s10">
             <%= date_format(article.created_at) %>
           </div>
         </div>

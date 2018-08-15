@@ -44,6 +44,9 @@
   &.offset-#{$size}#{$i} {
     margin-left: $perc;
   }
+  &.offset-right-#{$size}#{$i} {
+    margin-right: $perc;
+  }
   &.pull-#{$size}#{$i} {
     right: $perc;
   }
@@ -56,7 +59,7 @@
 .row {
   margin-left: auto;
   margin-right: auto;
-
+  width: 90%;
   // Clear floating children
   &:after {
     content: "";
