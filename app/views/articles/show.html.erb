@@ -66,6 +66,11 @@
         </div>
       </div>
     </div>
+    <div class="col-md-2 col-sm-2 col-xs-2">
+      <div id="reviews">
+        <%= render 'reviews/reviews'%>
+      </div>
+    </div>
     <div class="col-md-8 col-sm-8 col-xs-8 comments
       offset-xs-1 offset-sm-1 offset-md-1">
       <div class="comment-index">
@@ -73,8 +78,16 @@
       </div>
       <div class="comment-form">
         <% if current_user %>
-          <%= render 'comments/form' %>
+          <%= render 'comments/form'  %>
         <% end %>
       </div>
     </div>
   </div>
+  <div>
+    <% if current_user %>
+      <% if current_user.is_purchased?(@article) %>
+        <%= render 'reviews/form', article: @article %>
+      <% end %>
+    <% end %>
+  </div>
+<%= javascript_pack_tag 'star_reviews' %> 
