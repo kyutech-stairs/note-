@@ -16,6 +16,7 @@
     <%= render 'layouts/header' %>
     <%= show_flash %>
     <%= yield %>
+    <%= javascript_include_tag "materialize.min.js" %>
     <%= javascript_include_tag "article.js" %>
   </body>
 </html>
