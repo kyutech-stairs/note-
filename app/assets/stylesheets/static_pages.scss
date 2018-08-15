@@ -1,24 +1,36 @@
-@import "./color";
-
-.header{
-  padding-right: 5vw;
-  padding-left: 5vw;
-  margin-bottom: 5vh;
-  background-color: $back-white !important;
-  #logo{
-    color: $char-orange;
-    font-size: 1.7em;
-  }
+@mixin paginate_size {
+  height: 40px;
+  width: 40px;
+  border-radius: 2px;
+  line-height: 40px;
 }
 
+
 .paginate{
-  margin-top: 10vh;
+  margin: 10vh 0;
   text-align: center;
-  nav{
-    display: inline-block !important;
-  }
   .pagination{
     width: 100%;
     margin: 0 auto;
+    display: inline-block;
+    .active{
+      a{
+        @include paginate_size;
+        background-color: #40c4ff;
+        border-color: #40c4ff;
+        &:hover{
+          color: white;
+        }
+      }
+    }
+    .page-item{
+      a{
+        @include paginate_size;
+        &:hover{
+          color: #40c4ff;
+          background-color: #e1f5fe;
+        }
+      }
+    }
   }
 }
