@@ -62,4 +62,4 @@ Vue.jsの入門記事を前に作ったので、初めて触る人はこちら�
 Article.create(title: title,
               content: content,
               user_id: 1,
-              price: Price.new(min: 100, max: 200, now_price: 100))
+              price: Price.new(min: 100, max: 200, rate: "low", now_price: 100))
