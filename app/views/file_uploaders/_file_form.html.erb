@@ -6,13 +6,13 @@
       <input accept="image/jpg,image/jpeg,image/png,image/gif" type="file" name="file_uploaders[file]" >
     </div>
     <div class="file-path-wrapper">
-        <input class="file-path validate" type="text">
+      <input class="file-path validate" type="text" id="file_path">
     </div>
   </div>
 </form>
 
  <script type="text/javascript">
-   $("#file_uploaders_file").on("change", function() {
-     Rails.fire($(this).closest("form")[0], 'submit');
-   });
+  $("#file_path").on("change", function() {
+   Rails.fire($(this).closest("form")[0], 'submit');
+  });
  </script>

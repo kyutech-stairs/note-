@@ -1,0 +1,12 @@
+<div class="paginate">
+  <%= paginate @purchases, param_name: :purchase, remote: true %>
+</div>
+<div class="row">
+  <% if @purchases.any? %>
+    <%= render @purchases %>
+  <% end %>
+</div>
+<div class="paginate">
+  <%= paginate @purchases, param_name: :purchase, remote: true %>
+</div>
+</div>

@@ -18,30 +18,32 @@ class User < ApplicationRecord
   #followされる
   has_many :passive_follows, class_name: "Follow", foreign_key: "following_id", dependent: :destroy
   has_many :followers, through: :passive_follows
-
   has_many :reviews
-
-
-
   validates :name, presence: true
+  has_many :feeds, dependent: :destroy
 
   def like(article)
-    likes.create!(article_id: article.id)
-  end
-  def cancel_like(article)
-    likes.find_by(article_id: article.id).destroy
+    if feed = feeds.find_by(article_id: article.id)
+      feed.update_attributes(like: true, bad: false)
+    else
+      feeds.create!(article_id: article.id, like: true)
+    end
   end
   def liking?(article)
-    likes.map(&:article_id).include?(article.id)
+    feeds.where(like: true).map(&:article_id).include?(article.id)
   end
   def bad(article)
-    bads.create!(article_id: article.id)
-  end
-  def cancel_bad(article)
-    bads.find_by(article_id: article.id).destroy
+    if feed = feeds.find_by(article_id: article.id)
+      feed.update_attributes(like: false, bad: true)
+    else
+      feeds.create!(article_id: article.id, bad: true)
+    end
   end
   def bads?(article)
-    bads.map(&:article_id).include?(article.id)
+    feeds.where(bad: true).map(&:article_id).include?(article.id)
+  end
+  def cancel_feed(article)
+    feeds.find_by(article_id: article.id).destroy
   end
   def follow(user)
     active_follows.create!(following_id: user.id)
