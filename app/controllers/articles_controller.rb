@@ -49,6 +49,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = current_user.articles.build(article_params)
+    @article.price.now_price = @article.price.min
     if @article.save
       set_flash(:notice, "記事が投稿されました")
       redirect_to @article
