@@ -1,0 +1,16 @@
+current directory: /Users/riku/workplace/note-/vendor/bundle/ruby/2.5.0/gems/github-linguist-6.2.0/ext/linguist
+/Users/riku/.rbenv/versions/2.5.0/bin/ruby -r ./siteconf20180714-73407-mvjxqd.rb extconf.rb
+creating Makefile
+
+current directory: /Users/riku/workplace/note-/vendor/bundle/ruby/2.5.0/gems/github-linguist-6.2.0/ext/linguist
+make "DESTDIR=" clean
+
+current directory: /Users/riku/workplace/note-/vendor/bundle/ruby/2.5.0/gems/github-linguist-6.2.0/ext/linguist
+make "DESTDIR="
+compiling lex.linguist_yy.c
+compiling linguist.c
+linking shared-object linguist/linguist.bundle
+
+current directory: /Users/riku/workplace/note-/vendor/bundle/ruby/2.5.0/gems/github-linguist-6.2.0/ext/linguist
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 linguist.bundle ./.gem.20180714-73407-k3s2l2/linguist
