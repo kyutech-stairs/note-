@@ -1,9 +1,0 @@
-*.bundle
-*.o
-*.so
-*.swp
-/ext/redcarpet/Makefile
-/tmp
-Gemfile.lock
-*.xcodeproj
-/pkg
