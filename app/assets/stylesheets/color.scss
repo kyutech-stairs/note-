@@ -1,15 +1,15 @@
-$back-white: #fcfcfc;
-$back-color: #f4f7f6;
-$char-orange: orange;
-$hover-orange: #e0a125;
-$char-blue: #007bff;
-$hover-blue: #0070f0;
-$char-black: #333;
-$char-light-gray: #aaa;
+// $back-color: #f4f7f6;
+// $hover-orange: #e0a125;
+// $char-blue: #007bff;
+// $hover-blue: #0070f0;
+// $char-black: #333;
+// $char-light-gray: #aaa;
 $border-gray: #ccc;
+// $primary-color: #ffa726 !default;ewq1234523q
+// // $secondary-color: #ffca28 !default;
 
 body{
-  background-color: $back-color !important;
+  // background-color: $back-color !important;
 }
 .btn-orange{
   background-color: orange;
@@ -21,5 +21,5 @@ body{
   }
 }
 .time{
-  color: $char-light-gray;
+  // color: $char-light-gray;
 }
