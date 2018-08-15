@@ -1,7 +1,11 @@
 <div class="sidebar">
   <div class="feed">
     <div class="feed-form">
-      <%= render 'feeds/form', article: @article %>
+      <% if current_user != @article.user%>
+        <%= render 'feeds/form', article: @article %>
+      <% else %>
+        <%= render 'feeds/feeds' %>
+      <% end %>
     </div>
   </div>
 </div>
@@ -51,7 +55,11 @@
       <div class="article-footer">
         <div class="feed">
           <div class="feed-form">
-            <%= render 'feeds/form', article: @article %>
+            <% if current_user != @article.user%>
+              <%= render 'feeds/form', article: @article %>
+            <% else %>
+              <%= render 'feeds/feeds' %>
+            <% end %>
           </div>
         </div>
         <div class="social-share-button">
