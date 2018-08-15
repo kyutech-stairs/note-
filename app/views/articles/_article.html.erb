@@ -1,4 +1,4 @@
-<div class="col article-one"  id="article-<%= article.id %>">
+<div class="col s6 article-one"  id="article-<%= article.id %>">
   <div class="card sticky-action hoverable">
      <div class="card-image">
        <%= link_to image_tag("sample-1.jpg", class: "header-image"), article%>
@@ -22,12 +22,14 @@
        <% end %>
      </div>
      <div class="card-action">
-        <div class="footer">
-          <div class="profile">
+        <div class="row valign-wrapper">
+          <div class="col s4">
             <%= link_to user_image_for(article.user), article.user %>
+          </div>
+          <div class="col offset-s1 s9">
             <%= link_to article.user.name, article.user, class: "user-name" %>
           </div>
-          <div class="profile valign-wrapper right">
+          <div class="col s10">
             <%= date_format(article.created_at) %>
           </div>
         </div>

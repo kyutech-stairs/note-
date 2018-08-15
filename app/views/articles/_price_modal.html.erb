@@ -1,14 +1,14 @@
 <div class="modal" id="price-modal">
-      <div class="modal-header row">
-        <h3 class="modal-title col">Set Price</h3>
-        <div class="switch col">
+      <div class="modal-header row valign-wrapper">
+        <h3 class="modal-title col s8">Set Price</h3>
+        <div class="switch col s8">
           <label>
             <input type="checkbox" v-model="bool" v-on:change="FreeOrToll" id="toll" name="options" value="toll">有料
             <span class="lever"></span>無料
           </label>
         </div>
-        <button type="button" class="modal-close btn-flat col">
-          <span aria-hidden="true">&#215;</span><span class="sr-only">閉じる</span>
+        <button type="button" class="modal-close btn-flat col offset-s7 s1">
+          <span aria-hidden="true">&#215;</span><span class="sr-only"></span>
         </button>
       </div>
       <%= f.fields_for :price do |price_form| %>
