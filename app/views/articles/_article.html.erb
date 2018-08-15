@@ -7,9 +7,9 @@
      <div class="card-content">
        <div class="icons">
          <i class="material-icons like">sentiment_very_satisfied</i>
-         <span><%= article.likes.count %></span>
+         <span><%= article.like_count %></span>
          <i class="material-icons bad">sentiment_very_dissatisfied</i>
-         <span><%= article.bads.count %></span>
+         <span><%= article.bad_count %></span>
        </div>
        <% if article.price.min != 0 %>
          <div class="icons">

@@ -30,4 +30,11 @@ class Article < ApplicationRecord
       end
     end
   end
+
+  def like_count
+    feeds.where(like: true).size
+  end
+  def bad_count
+    feeds.where(bad: true).size
+  end
 end
