@@ -12,11 +12,10 @@ Rails.application.routes.draw do
   end
   resources :file_uploaders, only: [:create]
   resources :articles, :except => [:index] do
-    resources :likes, only: [:create, :destroy]
-    resources :bads, only: [:create, :destroy]
     resources :purchases, only: :create
     resources :comments, only: [:create, :destroy]
     resources :reviews, only: [:create, :destroy, :update]
+    resources :feeds, only: [:create, :destroy]
   end
   resources :follows, only: [:create, :destroy]
   root 'static_pages#index'

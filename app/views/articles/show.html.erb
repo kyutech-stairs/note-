@@ -1,10 +1,7 @@
 <div class="sidebar">
   <div class="feed">
-    <div class="like-form">
-      <%= render 'likes/form'%>
-    </div>
-    <div class="bad-form">
-      <%= render 'bads/form'%>
+    <div class="feed-form">
+      <%= render 'feeds/form', article: @article %>
     </div>
   </div>
 </div>
@@ -53,11 +50,8 @@
       </div>
       <div class="article-footer">
         <div class="feed">
-          <div class="like-form">
-            <%= render 'likes/form'%>
-          </div>
-          <div class="bad-form">
-            <%= render 'bads/form'%>
+          <div class="feed-form">
+            <%= render 'feeds/form', article: @article %>
           </div>
         </div>
         <div class="social-share-button">
