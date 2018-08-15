@@ -6,6 +6,7 @@
 
 # Ignore bundler config.
 /.bundle
+vendor/bundle
 
 /*.swp
 
@@ -31,3 +32,4 @@ yarn-debug.log*
 .yarn-integrity
 
 .DS_Store
+
