@@ -46,6 +46,15 @@
 
 
 //article_new
+.file_btn{
+  position: fixed;
+  right: 2vw;
+  top: 18vh;
+  padding-top: 15px;
+  margin-bottom: 0;
+  z-index: 996;
+}
+
 .row{
   margin: 5vh 2vw;
   .title{
