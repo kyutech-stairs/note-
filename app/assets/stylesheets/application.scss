@@ -14,11 +14,12 @@
 @import 'social-share-button';
 @import './*';
 
-
+$size: 30px;
 .social-share-button {
   .ssb-icon {
-    background-size: 24px 24px;
-    height: 24px;
-    width: 24px;
+    background-size: $size $size;
+    height: $size;
+    width: $size;
+    margin-left: 2vw;
   }
 }
