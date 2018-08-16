@@ -1,9 +1,5 @@
-.comments{
-  border-top: 1px solid #ccc;
-  padding: 3vh 3vw;
-  // background-color: $back-white;
+
   .comment-form{
-    margin-top: 30px;
     textarea{
       width: 100%;
       border: 1px solid #ccc;
@@ -17,9 +13,7 @@
   }
   .comment-index{
     clear: left;
-    margin-top: 30px;
     .comment{
-      margin-top: 30px;
       .comment-header{
         height: 40px;
         .ch-user-info{
@@ -40,4 +34,3 @@
       }
     }
   }
-}

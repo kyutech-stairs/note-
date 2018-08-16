@@ -2,6 +2,9 @@ $(document).ready(function(){
    $('.dropdown-trigger').dropdown();
    $('.fixed-action-btn').floatingActionButton();
    $('.tooltipped').tooltip();
+   $('.collapsible').collapsible({
+     accordion: false
+   });
    $('.modal').modal();
    $('select').formSelect();
    $('.select-dropdown').prop('disabled', true);

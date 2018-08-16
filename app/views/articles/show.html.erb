@@ -12,69 +12,72 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-8 col-sm-8 col-xs-8 article-body
-      offset-xs-1 offset-sm-1 offset-md-1">
-      <div class="article-header">
-        <div class="article-header-left">
-          <span><%= user_image_for(@article.user) %></span>
-          <span><%= link_to @article.user.name, @article.user %></span>
-          <span class="time"><%= @article.updated_at.strftime('%Y年%m月%d日に更新')%></span>
-        </div>
-        <!-- 画面右上：current_userなら編集、その他はfollow_buttonを表示 -->
-        <div class="article-header-right" id="follow">
-          <% if @article.user == current_user%>
-            <%= link_to "編集", edit_article_path(@article), class: "btn btn-orange"%>
-            <%= link_to "削除", article_path(@article), method: :delete, class: "btn btn-orange"%>
-          <% else %>
-          <div class="follow-form">
-            <%= render 'follows/form', target: @article.user%>
-          </div>
-          <%end%>
-        </div>
-      </div>
-      <div class="title">
-        <h1>
-        <%= @article.title %>
-        </h1>
-      </div>
-      <div class="content">
-        <% if @article.price.min == 0 %>
-          <%= qiita_markdown(@article.content) %>
-        <% elsif current_user %>
-          <% if current_user.is_purchased?(@article) || current_user==@article.user %>
-            <%= qiita_markdown(@article.content) %>
-          <% else %>
-            <%= qiita_markdown(@article.content[0..100]+"...")%>
-            <%= render 'purchases/form'%>
-          <% end %>
-        <% else %>
-            <%= qiita_markdown(@article.content[0..100]+"...")%>
-            <%= render 'purchases/form'%>
-        <% end %>
-      </div>
-      <div class="article-footer">
-        <div class="feed">
-          <div class="feed-form">
-            <% if current_user != @article.user%>
-              <%= render 'feeds/form', article: @article %>
-            <% else %>
-              <%= render 'feeds/feeds' %>
-            <% end %>
-          </div>
-        </div>
-        <div class="social-share-button">
-          <%= social_share_button_tag(@article.title,
-            allow_sites: %w(twitter pinterest linkedin google_plus)) %>
-        </div>
-      </div>
+    <div class="col s16 valign-wrapper">
+      <span><%= user_image_for(@article.user) %></span>
+      <span class="col offset-s1"><%= link_to @article.user.name, @article.user %></span>
+      <span class="col offset-s1"><%= @article.updated_at.strftime('%Y年%m月%d日に更新')%></span>
     </div>
-    <div class="col-md-2 col-sm-2 col-xs-2">
-      <div id="reviews">
+  <!-- 画面右上：current_userなら編集、その他はfollow_buttonを表示 -->
+    <div class="col offset-s5 offset-right-s1 s2" id="follow">
+      <% if @article.user == current_user%>
+        <%= link_to "編集", edit_article_path(@article), class: "btn btn-orange"%>
+        <%= link_to "削除", article_path(@article), method: :delete, class: "btn btn-orange"%>
+      <% else %>
+      <div class="follow-form">
+        <%= render 'follows/form', target: @article.user%>
+      </div>
+      <%end%>
+    </div>
+  </div>
+  <div class="row">
+    <h2>
+      <%= @article.title %>
+    </h2>
+  </div>
+  <div class="row">
+    <% if @article.price.min == 0 %>
+      <%= qiita_markdown(@article.content) %>
+    <% elsif current_user %>
+      <% if current_user.is_purchased?(@article) || current_user==@article.user %>
+        <%= qiita_markdown(@article.content) %>
+      <% else %>
+        <%= qiita_markdown(@article.content[0..200]+"...")%>
+        <%= render 'purchases/form'%>
+      <% end %>
+    <% else %>
+        <%= qiita_markdown(@article.content[0..200]+"...")%>
+        <%= render 'purchases/form'%>
+    <% end %>
+  </div>
+  <div class="row">
+    <%= social_share_button_tag(@article.title, allow_sites: %w(twitter pinterest linkedin google_plus)) %>
+  </div>
+  <ul class="collapsible expandable">
+    <li>
+      <div class="collapsible-header"><i class="material-icons">filter_drama</i>Review</div>
+      <div class="collapsible-body" id="reviews"><%= render 'reviews/reviews'%></div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">place</i>Comment</div>
+      <div class="collapsible-body comment-index"><%= render @article.comments %></div>
+    </li>
+    <% if current_user %>
+      <li>
+        <div class="collapsible-header"><i class="material-icons">whatshot</i>Comment New</div>
+        <div class="collapsible-body comment-form"><%= render 'comments/form'  %></div>
+      </li>
+    <% end %>
+  </ul>
+
+
+
+
+    <!-- <div class="row">
+      <div class="col" id="reviews">
         <%= render 'reviews/reviews'%>
       </div>
-    </div>
-    <div class="col-md-8 col-sm-8 col-xs-8 comments
-      offset-xs-1 offset-sm-1 offset-md-1">
+    </div> -->
+    <div class="col comments">
       <div class="comment-index">
         <%= render @article.comments %>
       </div>
@@ -92,4 +95,4 @@
       <% end %>
     <% end %>
   </div>
-<%= javascript_pack_tag 'star_reviews' %> 
+<%= javascript_pack_tag 'star_reviews' %>
