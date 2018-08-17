@@ -70,7 +70,13 @@
     <% end %>
     <li>
       <div class="collapsible-header valign-wrapper"><i class="material-icons">insert_comment</i>Comment List</div>
-      <div class="collapsible-body comment-index"><%= render @article.comments %></div>
+      <div class="collapsible-body comment-index">
+        <% if @article.comments.any? %>
+          <%= render @article.comments %>
+        <% else %>
+          コメントはまだありません
+          <% end%>
+      </div>
     </li>
     <% if current_user %>
       <li>
