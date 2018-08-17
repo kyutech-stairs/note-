@@ -1,8 +1,15 @@
 <%= form_tag(article_comments_path(@article), id: "comment-form", data: {remote: true}) do  %>
   <input type="hidden" value="<%= @article.id%>" name="comment[article_id]">
-  <textarea id="" name="comment[content]" v-model="comment"
-   :rows="rows" placeholder="コメント"></textarea>
-  <button v-show="comment" v-on:click="send" class="btn btn-orange">コメント</button>
+  <div class="row">
+    <div class="col s20 input-field">
+      <textarea id="textarea1" class="materialize-textarea" name="comment[content]"
+      v-model="comment" :rows="rows"></textarea>
+      <label for="textarea1">Comment</label>
+    </div>
+    <div class="col s2 offset-s2">
+      <button v-show="comment" v-on:click="send" class="btn"><i class="material-icons">edit</i></button>
+    </div>
+  </div>
 <% end %>
  <script type="text/javascript">
    var vm = new Vue({
