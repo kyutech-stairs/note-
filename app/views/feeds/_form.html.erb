@@ -1,20 +1,20 @@
 <% if current_user %>
   <% if current_user.liking?(article) %>
     <%= link_to article_feed_path(current_user.feeds.find_by(article_id: article.id), article_id: article.id), method: :delete, remote: true do %>
-      <i class="material-icons large_icon like_cancel">sentiment_very_satisfied</i>
+      <i class="material-icons medium like_cancel">sentiment_very_satisfied</i>
     <%end%>
   <% else %>
     <%= link_to article_feeds_path(article, params: { feed: "like" }), method: :post, remote: true  do%>
-      <i class="material-icons large_icon">sentiment_very_satisfied</i>
+      <i class="material-icons medium">sentiment_very_satisfied</i>
     <% end %>
   <% end %>
   <% if current_user.bads?(article) %>
     <%= link_to article_feed_path(current_user.feeds.find_by(article_id: article.id), article_id: article.id), method: :delete, remote: true do %>
-      <i class="material-icons large_icon bad_cancel">sentiment_very_dissatisfied</i>
+      <i class="material-icons medium bad_cancel">sentiment_very_dissatisfied</i>
     <% end %>
   <% else %>
     <%= link_to article_feeds_path(article, params: { feed: "bad" }), method: :post, remote: true do %>
-      <i class="material-icons large_icon">sentiment_very_dissatisfied</i>
+      <i class="material-icons medium">sentiment_very_dissatisfied</i>
     <% end %>
   <% end %>
 <% end %>

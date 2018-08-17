@@ -52,47 +52,35 @@
   <div class="row">
     <%= social_share_button_tag(@article.title, allow_sites: %w(twitter pinterest linkedin google_plus)) %>
   </div>
-  <ul class="collapsible expandable">
+</div>
+
+<footer class="page-footer">
+  <ul class="collapsible expandable comments">
     <li>
-      <div class="collapsible-header"><i class="material-icons">filter_drama</i>Review</div>
+      <div class="collapsible-header valign-wrapper"><i class="material-icons">toc</i>Review List</div>
       <div class="collapsible-body" id="reviews"><%= render 'reviews/reviews'%></div>
     </li>
+    <% if current_user %>
+      <% if current_user.is_purchased?(@article) %>
+        <li>
+          <div class="collapsible-header valign-wrapper"><i class="material-icons">create</i>Review New</div>
+          <div class="collapsible-body"><%= render 'reviews/form', article: @article %></div>
+        </li>
+      <% end %>
+    <% end %>
     <li>
-      <div class="collapsible-header"><i class="material-icons">place</i>Comment</div>
+      <div class="collapsible-header valign-wrapper"><i class="material-icons">insert_comment</i>Comment List</div>
       <div class="collapsible-body comment-index"><%= render @article.comments %></div>
     </li>
     <% if current_user %>
       <li>
-        <div class="collapsible-header"><i class="material-icons">whatshot</i>Comment New</div>
-        <div class="collapsible-body comment-form"><%= render 'comments/form'  %></div>
+        <div class="collapsible-header valign-wrapper"><i class="material-icons">edit</i>Comment New</div>
+        <div class="collapsible-body"><%= render 'comments/form'  %></div>
       </li>
     <% end %>
   </ul>
+</footer>
 
 
 
-
-    <!-- <div class="row">
-      <div class="col" id="reviews">
-        <%= render 'reviews/reviews'%>
-      </div>
-    </div> -->
-    <div class="col comments">
-      <div class="comment-index">
-        <%= render @article.comments %>
-      </div>
-      <div class="comment-form">
-        <% if current_user %>
-          <%= render 'comments/form'  %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-  <div>
-    <% if current_user %>
-      <% if current_user.is_purchased?(@article) %>
-        <%= render 'reviews/form', article: @article %>
-      <% end %>
-    <% end %>
-  </div>
 <%= javascript_pack_tag 'star_reviews' %>

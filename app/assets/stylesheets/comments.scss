@@ -1,36 +1,44 @@
+.collapsible-body{
+  .row{
+    .input-field{
+      textarea{
+        color: #ca9531;
+        // Focused input style
+        &:focus:not([readonly]) {
+          border-bottom: 1px solid #ca9531;
+          box-shadow: 0 1px 0 0 #ca9531;
+        }
 
-  .comment-form{
-    textarea{
-      width: 100%;
-      border: 1px solid #ccc;
-      float: left;
-      margin-bottom: 2vh;
-      overflow-y: hidden;
-    }
-    button{
-      float: right;
-    }
-  }
-  .comment-index{
-    clear: left;
-    .comment{
-      .comment-header{
-        height: 40px;
-        .ch-user-info{
-          display: inline-block;
-        }
-        .ch-comment-info{
-          display: inline-block;
-          float: right;
-          height: 20px;
-          margin: 10px 0;
+        // Focused label style
+        &:focus:not([readonly])+label {
+          color: #ca9531;
         }
       }
-      .comment-body{
-        padding: 5px;
+    }
+  }
+}
+
+
+.comment-index{
+  clear: left;
+  .comment{
+    .comment-header{
+      height: 40px;
+      .ch-user-info{
+        display: inline-block;
+      }
+      .ch-comment-info{
+        display: inline-block;
+        float: right;
+        height: 20px;
         margin: 10px 0;
-        border: 1px solid #ccc;
-        border-radius: 5px;
       }
     }
+    .comment-body{
+      padding: 5px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
   }
+}
