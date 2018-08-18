@@ -3,6 +3,7 @@ class Article < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :bads, dependent: :destroy
+  has_many :feeds, dependent: :destroy
   has_one :price, dependent: :destroy
   accepts_nested_attributes_for :price
   validates :price, presence: true
@@ -28,5 +29,12 @@ class Article < ApplicationRecord
         price.now_price = tmp_p
       end
     end
+  end
+
+  def like_count
+    feeds.where(like: true).size
+  end
+  def bad_count
+    feeds.where(bad: true).size
   end
 end

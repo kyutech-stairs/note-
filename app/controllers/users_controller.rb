@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @articles = @user.articles.order("created_at DESC").page(params[:article]).per(12)
-    @favorites = Article.where(id: @user.likes.map(&:article_id)).order("created_at DESC").page(params[:favorite]).per(12)
+    @favorites = Article.where(id: @user.feeds.where(like: true).map(&:article_id)).order("created_at DESC").page(params[:favorite]).per(12)
     respond_to do |format|
       format.js
       format.html
