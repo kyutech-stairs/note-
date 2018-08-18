@@ -15,5 +15,5 @@
 //= require vue
 //= require social-share-button
 //= require marked
-//= require turbolinks
-//= require_tree .
+//= require ./article.js
+//= require ./materialize.min.js
