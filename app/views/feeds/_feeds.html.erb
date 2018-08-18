@@ -1,10 +1,5 @@
-<div>
-  <div>
-    <span>like</span>
-    <%= @article.like_count %>
-  </div>
-  <div>
-    <span>bad</span>
-    <%= @article.bad_count %>
-  </div>
-</div>
+<i class="material-icons medium like_cancel">thumb_up_alt</i>
+<%= @article.like_count %>
+
+<i class="material-icons medium bad_cancel">thumb_down_alt</i>
+<%= @article.bad_count %>
