@@ -1,49 +1,39 @@
 //static-pages
 .article-one{
-    min-width: 280px;
-    min-height: 280px;
-    .card{
-      .card-image{
-        background-color: black;
-        .header-image{
-          opacity: 0.7;
-          -webkit-transition: all 0.3s;
-          -moz-transition: all 0.3s;
-          -ms-transition: all 0.3s;
-          -o-transition: all 0.3s;
-          transition: all 0.3s;
-          &:hover{
-            opacity: 1.0;
-          }
+  min-width: 280px;
+  min-height: 280px;
+  .card{
+    .card-image{
+      background-color: black;
+      .header-image{
+        opacity: 0.7;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        -ms-transition: all 0.3s;
+        -o-transition: all 0.3s;
+        transition: all 0.3s;
+        &:hover{
+          opacity: 1.0;
         }
       }
-      .card-content{
-        .icons{
-          display: inline;
-          .like{
-            color: orange;
-          }
-          .bad{
-            color: blue;
-          }
-          .purchase{
-            color: black;
-          }
-        }
+    }
+    .card-content{
+      .icons{
+        display: inline;
       }
-      .card-action{
-        padding: 0;
-        min-height: 50px;
-        .row{
-          margin: 0 auto;
-          img{
-            margin-top: 1vh;
-          }
+    }
+    .card-action{
+      padding: 0;
+      min-height: 50px;
+      .row{
+        margin: 0 auto;
+        img{
+          margin-top: 1vh;
         }
       }
     }
   }
-
+}
 
 //article_new
 .file_btn{
@@ -102,54 +92,12 @@
   }
 }
 
-.article-body{
-  padding: 3vh 3vw;
-  // background-color: $back-white;
-  .title{
-    font-size: 3.5rem;
-    margin: 30px  0 10vh 0;
-  }
-  .content{
-    line-height: 2em;
-    h2, h3, h4, h5, h6 {
-      margin-top: 50px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid #ccc;
-      font-weight: bold;
-    }
-  }
-  .article-header{
-    margin-bottom: 60px;
-    padding: 3vh 0;
-    .article-header-left{
-      float: left;
-      a{
-        color: black;
-        margin-left: 10px;
-      }
-      .time{
-        // color: $char-light-gray;
-        margin-left: 20px;
-      }
-    }
-    .article-header-right{
-      float: right;
-    }
-  }
-  .article-footer{
-    margin-top: 80px;
-    margin-bottom: 30px;
-  }
-
-}
 
 .sidebar{
   position: fixed;
   left: 30px;
   overflow-x: hidden;
-  .like-form{
 
-  }
 }
 
 .modal{
@@ -157,6 +105,20 @@
     .controls{
       width: 90%;
       margin: 0 auto;
+      .article_title{
+        font-size: 20px;
+        border-bottom: 1px solid #40c4ff;
+      }
+      .now_price{
+        label{
+          font-size: 15px;
+        }
+        p{
+          padding-left: 3vw;
+          font-size: 18px;
+          border-bottom: 1px solid #40c4ff;
+        }
+      }
       .margin-yen{
         width: 90%;
         margin: 0 auto;
