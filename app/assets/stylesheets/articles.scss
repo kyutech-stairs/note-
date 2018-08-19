@@ -97,7 +97,13 @@
   position: fixed;
   left: 30px;
   overflow-x: hidden;
-
+  z-index: 996;
+}
+.collapsible{
+  position: relative;
+  width: 100%;
+  bottom: 0px;
+  z-index: 1000;
 }
 
 .modal{
