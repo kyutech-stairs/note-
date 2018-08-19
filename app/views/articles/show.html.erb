@@ -12,13 +12,13 @@
 
 <div class="container">
   <div class="row">
-    <div class="col s16 offset-right-s4 valign-wrapper">
+    <div class="col s14 offset-right-s4 valign-wrapper">
       <span><%= user_image_for(@article.user) %></span>
       <span class="col offset-s1"><%= link_to @article.user.name, @article.user %></span>
       <span class="col offset-s1"><%= @article.updated_at.strftime('%Y年%m月%d日に更新')%></span>
     </div>
   <!-- 画面右上：current_userなら編集、その他はfollow_buttonを表示 -->
-    <div class="col s4" id="follow">
+    <div class="col s6" id="follow">
       <% if @article.user == current_user%>
         <div class="flex">
           <%= link_to "編集", edit_article_path(@article), class: "btn"%>
