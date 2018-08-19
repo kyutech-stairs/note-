@@ -13,6 +13,8 @@ $(document).ready(function(){
    //price modal
    $('select').formSelect();
    $('.select-dropdown').prop('disabled', true);
+   //profile tabs
+   $('.tabs').tabs();
 
   //price modalのselectbox
    $('input[type="checkbox"]').change(function() {
