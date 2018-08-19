@@ -15,21 +15,22 @@ $(document).ready(function(){
    $('.select-dropdown').prop('disabled', true);
 
 
-   $(window).scroll(function() { //スクロールしたら処理を開始する
-        var scroll = $(window).scrollTop() + $(window).height();
-        var footer = $("footer").offset().top;
-        if (scroll > footer+300) {
-            $(".sidebar").css({
-                "position": "absolute",
-                "top": footer-100,
-            });
-        } else {
-            $(".sidebar").css({　
-                "position": "fixed",
-                "top": "",
-            });
-        }
-    });
+   // $(window).scroll(function() { //スクロールしたら処理を開始する
+   //      var scroll = $(window).scrollTop() + $(window).height();
+   //      var footer = $("footer").offset().top;
+   //       var absoluteBottom = $("footer").outerHeight();
+   //      if (scroll > footer+300) {
+   //          $(".sidebar").css({
+   //              "position": "absolute",
+   //              "top": footer-100,
+   //          });
+   //      } else {
+   //          $(".sidebar").css({　
+   //              "position": "fixed",
+   //              "top": "",
+   //          });
+   //      }
+   //  });
 
   //price modalのselectbox
    $('input[type="checkbox"]').change(function() {
