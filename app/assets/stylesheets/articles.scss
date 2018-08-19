@@ -92,7 +92,7 @@
   }
 }
 
-
+//article show
 .sidebar{
   position: fixed;
   left: 30px;
@@ -104,6 +104,11 @@
   width: 100%;
   bottom: 0px;
   z-index: 1000;
+}
+.flex{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
 .modal{
