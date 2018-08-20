@@ -3,12 +3,12 @@
     <%= form_for(current_user.active_follows.find_by(following_id: target.id),
                  html: { method: :delete }, remote: true) do |f| %>
       <div><%= hidden_field_tag :following_id, target.id %></div>
-      <%= f.submit "フォローを外す", class: "btn btn-secondary form-control" %>
+      <%= f.submit "フォローを外す", class: "btn" %>
     <% end %>
   <% else %>
     <%= form_for(current_user.active_follows.build, remote: true) do |f| %>
       <div><%= hidden_field_tag :following_id, target.id %></div>
-      <%= f.submit "フォローする", class: "btn btn-primary form-control" %>
+      <%= f.submit "フォローする", class: "btn", style: "background-color: grey" %>
     <% end %>
   <% end %>
 <% end %>
