@@ -1,0 +1,21 @@
+<button class="btn modal-trigger" data-target="confi_modal">削除</button>
+<div class="modal" id="confi_modal">
+  <div class="modal-header row valign-wrapper">
+    <h5 class="modal-title col s14 offset-s9">
+      本当に削除しますか？
+    </h5>
+    <button type="button" class="modal-close btn-flat col s1">
+      <span aria-hidden="true">&#215;</span><span class="sr-only"></span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="controls">
+      <div class="row">
+        <p class="article_title col offset-s2 s22"><%= @article.title%></p>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <%= link_to "削除", article_path(@article), method: :delete, class: "btn"%>
+    </div>
+  </div>
+</div>

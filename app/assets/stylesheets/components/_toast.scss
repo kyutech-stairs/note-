@@ -22,26 +22,24 @@
 .toast {
   @extend .z-depth-1;
   border-radius: 2px;
-  top: 35px;
   width: auto;
-  margin-top: 10px;
   position: relative;
   max-width:100%;
   height: auto;
   min-height: $toast-height;
   line-height: 1.5em;
-  background-color: $toast-color;
+  background-color: $collapsible-body-color;
   padding: 10px 25px;
   font-size: 1.1rem;
   font-weight: 300;
-  color: $toast-text-color;
+  color: $collapsible-body-font-color;
   display: flex;
   align-items: center;
   justify-content: space-between;
   cursor: default;
 
   .toast-action {
-    color: $toast-action-color;
+    color: $collapsible-body-font-color;
     font-weight: 500;
     margin-right: -25px;
     margin-left: 3rem;
@@ -54,5 +52,19 @@
   @media #{$small-and-down} {
     width: 100%;
     border-radius: 0;
+  }
+}
+
+.toast-notice{
+  background-color: #d9ecdb;
+  .toast_green{
+    color: #2a552a;
+  }
+}
+
+.toast-alert{
+  background-color: #f3d8da;
+  .toast_red{
+    color: #692326;
   }
 }

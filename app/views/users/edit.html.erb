@@ -1,22 +1,50 @@
 <div class="container">
-  <div class="users-form">
+  <div class="row">
     <h2>プロフィール編集</h2>
-    <%= form_for(@user) do |f| %>
-      <div class="field">
-        <%= f.label :name, "ニックネーム", class: "form-label" %>
-        <%= f.text_field :name, placeholder: "ニックネーム", class: "form-control"%>
-      </div>
-      <div class="field-profile">
-        <%= f.label :profile, "自己紹介", class: "form-label" %>
-        <%= f.text_area :profile, placeholder: "自己紹介", class: "form-control profile"%>
-      </div>
-      <div class="field">
-        <%= f.file_field :image, accept: 'image/jpg,image/jpeg,image/png,image/gif',
-          id: "image-field"  %>
-      </div>
-      <div class="actions">
-        <%= f.submit "更新", class: "btn btn-primary form-control"%>
-      </div>
-    <% end %>
   </div>
+  <%= form_for(@user, html: {id: "profile_editor"}) do |f| %>
+    <div class="row">
+      <div class="input-field col s24">
+        <input id="user_name" type="text" v-model="user_name" name="user[name]" value="<%=@user.name%>">
+        <label for="user_name">ニックネーム</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s24">
+        <input id="user_profile" type="text" v-model="user_profile" name="user[profile]" value="<%=@user.profile%>">
+        <label for="user_profile">プロフィール</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="file-field input-field">
+        <div class="col s2">
+          <div class="btn-floating">
+            <i class="material-icons">add_a_photo
+              <%= f.file_field :image, accept: 'image/jpg,image/jpeg,image/png,image/gif', id: "image-field"  %>
+            </i>
+          </div>
+        </div>
+        <div class="file-path-wrapper">
+          <div class="col s10">
+            <input class="file-path validate" type="text">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <button :disabled="user_name.length==0 || user_profile.length==0" class="btn right">更新</button>
+    </div>
+  <% end %>
 </div>
+
+
+<script type="text/javascript">
+  var vm = new Vue({
+     el: "#profile_editor",
+     data: {
+       user_name: "<%= j @user.name %>",
+       user_profile: "<%= j @user.profile %>",
+     },
+   });
+  window.vm = vm;
+</script>

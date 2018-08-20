@@ -5,7 +5,7 @@ module UsersHelper
     if user.image.file.nil?
       image_tag("NoImage.jpg", alt: "default", size: "#{size}x#{size}", class: "icon_image #{cls}")
     else
-      image_tag(user.image, alt: user.email, size: "#{size}x#{size}", class: "icon_image #{cls}")
+      image_tag(user.image, alt: user.email, size: "#{size}x#{size}", class: "icon_image #{cls}", style: "border-radius: 50%;")
     end
   end
 end

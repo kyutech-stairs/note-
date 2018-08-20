@@ -1,61 +1,56 @@
-<div class="row users-show">
-  <div class="col-md-3 col-xs-3 col-sm-3">
-    <div class="user-info">
-      <div class="user-info-image">
-        <%= user_image_for(@user, size: 100) %>
+<div class="row">
+  <div class="col s6">
+    <div class="row">
+      <%= user_image_for(@user, size: 100) %>
+    </div>
+    <div class="row">
+      <h3><%= @user.name %></h3>
+    </div>
+    <div class="row">
+      <%= @user.profile %>
+    </div>
+    <div class="row">
+      <div class="col s12">
+        <label>フォロー</label>
+        <p style="padding-left: 4vw;"><%= @user.following.count%></p>
       </div>
-      <div class="profile">
-        <div class="user-name">
-          <h3><%= @user.name %></h3>
-        </div>
-        <div class="user-profile">
-          <%= @user.profile %>
-        </div>
-      </div>
-      <div class="follow">
-        <ul class="following" style="list-style: none;">
-          <li>フォロー</li>
-          <li class="following-count"><%= @user.following.count%></li>
-        </ul>
-        <ul class="follower" style="list-style: none;">
-          <li>フォロワー</li>
-          <li class="follower-count"><%= @user.followers.count%></li>
-        </ul>
-        <% if current_user&&current_user?(@user) %>
-          <%= link_to '編集', edit_user_path(@user), class: "btn btn-orange" %>
-        <%else%>
-          <div class="follow-form">
-            <%= render 'follows/form', target: @user%>
-          </div>
-        <% end %> 
+      <div class="col s12">
+        <label>フォロワー</label>
+        <p style="padding-left: 4vw;"><%= @user.followers.count%></p>
       </div>
     </div>
+    <div class="row">
+      <% if current_user&&current_user?(@user) %>
+        <%= link_to '編集', edit_user_path(@user), class: "btn" %>
+      <%else%>
+        <div class="follow-form">
+          <%= render 'follows/form', target: @user%>
+        </div>
+     <% end %>
+   </div>
   </div>
-  <div class="col-md-9 col-sm-9 col-xs-9 users-articles">
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
-      <li class="nav-item">
-        <a class="nav-link active" id="post-tab" data-toggle="tab" href="#post-article-tab" role="tab" aria-controls="post" aria-selected="true">投稿記事</a>
+  <div class="col s18">
+    <ul class="tabs">
+      <li class="tab col s8">
+        <a href="#post-article-tab">投稿記事</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" id="favorite-tab" data-toggle="tab" href="#favorite-article-tab" role="tab" aria-controls="favorite" aria-selected="false">お気に入り</a>
+      <li class="tab col s8">
+        <a href="#favorite-article-tab">いいね</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" id="purchase-tab" data-toggle="tab" href="#purchase-article-tab" role="tab" aria-controls="purchase" aria-selected="false">購入記事</a>
+      <li class="tab col s8">
+        <a href="#purchase-article-tab">購入記事</a>
       </li>
     </ul>
-    <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade show active" id="post-article-tab" role="tabpanel"
-            aria-labelledby="home-tab">
-        <%= render 'articles'%>
-      </div>
-      <div class="tab-pane fade" id="favorite-article-tab" role="tabpanel" aria-labelledby="profile-tab">
-        <%= render 'favorites' %>
-      <div class="tab-pane fade" id="purchase-article-tab" role="tabpanel" aria-labelledby="contact-tab">
-        <% if @purchases.any?%>
-          <%= render 'purchases' %>
-        <% end %>
-      </div>
+    <div class="col s24" id="post-article-tab">
+      <%= render 'articles'%>
     </div>
-
+    <div class="col s24" id="favorite-article-tab">
+      <%= render 'favorites' %>
+    </div>
+    <div class="col s24" id="purchase-article-tab">
+      <% if @purchases.any?%>
+        <%= render 'purchases' %>
+      <% end %>
+    </div>
   </div>
 </div>
