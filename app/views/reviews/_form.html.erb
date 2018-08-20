@@ -1,9 +1,12 @@
 <div class="write-review">
-  <%= render 'reviews/article_modal', article: article %>
-    <%= form_for [@article, @review] do |f| %>
+  <div class="row">
+    <p style="border-bottom: 1px solid;"><%= article.title %></p>
+    <!-- <%= render 'reviews/article_modal', article: article %> -->
+  </div>
+  <%= form_for [@article, @review] do |f| %>
     <input type="hidden" value="<%= article.id%>" name="article_id">
     <input type="hidden" value="">
-    <div id="star-rate">
+    <div class="row" id="star-rate">
       <% if @review.star %>
         <star-rating :star-size="20" :rating="<%= @review.star %>" @rating-selected="setRating">
         </star-rating>
@@ -15,15 +18,21 @@
         <input type="hidden" v-bind:value="rating" name="star">
       </div>
     </div>
-    <div class="review-title">
-      <label for="title">titie</label></br>
-      <input type="text" name="title" placeholder="タイトル" value="<%= @review.title%>">
-    </div>
-    <div class="review-content">
-      <label for="content">content</label></br>
-      <textarea name="content" placeholder="レビュー内容"><%= @review.content %></textarea></br>
-    </div>
-    <input type="submit" class="btn btn-primary">
+    <div class="row">
+      <div class="col s20">
+        <div class="input-field col s24">
+          <input id="review_title" type="text" name="title" value="<%= @review.title%>">
+          <label for="review_title">Title</label>
+        </div>
+        <div class="input-field col s24">
+          <textarea id="review_content" class="materialize-textarea" name="content" ><%= @review.content %></textarea>
+          <label for="review_content">Content</label>
+        </div>
+      </div>
+      <div class="col s4 center-align">
+        <input type="submit" class="btn">
+      </div>
+  </div>
   <% end %>
 </div>
 <%= javascript_pack_tag 'star' %>
