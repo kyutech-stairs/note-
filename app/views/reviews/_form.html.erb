@@ -1,7 +1,6 @@
 <div class="write-review">
   <div class="row">
     <p style="border-bottom: 1px solid;"><%= article.title %></p>
-    <!-- <%= render 'reviews/article_modal', article: article %> -->
   </div>
   <%= form_for [@article, @review] do |f| %>
     <input type="hidden" value="<%= article.id%>" name="article_id">

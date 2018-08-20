@@ -17,28 +17,3 @@
     }
   }
 }
-
-
-.comment-index{
-  clear: left;
-  .comment{
-    .comment-header{
-      height: 40px;
-      .ch-user-info{
-        display: inline-block;
-      }
-      .ch-comment-info{
-        display: inline-block;
-        float: right;
-        height: 20px;
-        margin: 10px 0;
-      }
-    }
-    .comment-body{
-      padding: 5px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-  }
-}
