@@ -79,16 +79,16 @@ GEM
       responders
       warden (~> 1.2.3)
     erubi (1.7.1)
-    escape_utils (1.2.1)
+    escape_utils (1.1.1)
     execjs (2.7.0)
     ffi (1.9.25)
     formatador (0.2.5)
     gemoji (3.0.0)
-    github-linguist (6.2.0)
-      charlock_holmes (~> 0.7.6)
-      escape_utils (~> 1.2.0)
+    github-linguist (4.8.18)
+      charlock_holmes (~> 0.7.3)
+      escape_utils (~> 1.1.0)
       mime-types (>= 1.19)
-      rugged (>= 0.25.1)
+      rugged (>= 0.23.0b)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     greenmat (3.2.2.4)
@@ -105,7 +105,7 @@ GEM
     guard-minitest (2.4.4)
       guard-compat (~> 1.2)
       minitest (>= 3.0)
-    html-pipeline (2.8.0)
+    html-pipeline (2.8.4)
       activesupport (>= 2)
       nokogiri (>= 1.4)
     i18n (1.0.1)
@@ -178,15 +178,14 @@ GEM
     puma (3.11.4)
     pygments.rb (1.2.1)
       multi_json (>= 1.0.0)
-    qiita-markdown (0.10.0)
-      activesupport
+    qiita-markdown (0.26.0)
+      addressable
       gemoji
-      github-linguist
-      greenmat (>= 3.2.0.2, < 4)
+      github-linguist (~> 4.0)
+      greenmat (= 3.2.2.4)
       html-pipeline (~> 2.0)
       mem
-      pygments.rb
-      rugged (>= 0.21.1b2)
+      pygments.rb (~> 1.0)
       sanitize
     rack (2.0.5)
     rack-proxy (0.6.4)
@@ -228,12 +227,11 @@ GEM
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
     rmagick (2.16.0)
-    rouge (3.1.1)
     ruby-progressbar (1.9.0)
     ruby_dep (1.5.0)
     rubyzip (1.2.1)
-    rugged (0.27.2)
-    sanitize (4.6.5)
+    rugged (0.27.4)
+    sanitize (4.6.6)
       crass (~> 1.0.2)
       nokogiri (>= 1.4.4)
       nokogumbo (~> 1.4)
@@ -301,10 +299,9 @@ DEPENDENCIES
   carrierwave (= 1.2.2)
   coffee-rails (~> 4.2)
   devise (= 4.4.3)
-  github-linguist (= 6.2.0)
+  github-linguist (= 4.8.18)
   guard (= 2.13.0)
   guard-minitest (= 2.4.4)
-  html-pipeline (= 2.8.0)
   jbuilder (~> 2.5)
   jquery-rails (= 4.3.1)
   kaminari
@@ -316,11 +313,10 @@ DEPENDENCIES
   minitest-reporters (= 1.1.14)
   pry-rails
   puma (~> 3.7)
-  qiita-markdown (= 0.10.0)
+  qiita-markdown (= 0.26.0)
   rails (~> 5.1.6)
   rails-controller-testing (= 1.0.2)
   rmagick (= 2.16.0)
-  rouge
   sass-rails (~> 5.0)
   selenium-webdriver
   social-share-button
