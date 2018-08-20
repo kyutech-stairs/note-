@@ -18,36 +18,36 @@
 
 
 <%= form_for(@article, html: {class: "article_form", id: "editor"}) do |f| %>
-<div class="row">
-  <div class="input-field col s24">
-    <input id="title_form" type="text" v-model="title" name="article[title]" value="<%=@article.title%>">
-    <label for="title_form">Title</label>
-  </div>
-</div>
-<div class="row">
-  <div class="content z-depth-2 col s11 offset-s1">
-    <textarea v-model="content" name="article[content]" placeholder="記事を入力" id="content"><%= @article.content %></textarea>
-  </div>
-  <div class="preview z-depth-2 col s11 offset-s1">
-    <div class="preview-wrapper">
-      <div v-if="content">
-        <div v-html="mark(content)" ></div>
-      </div>
-      <div class="preview-placeholder" v-else style="color: gray;">プレビュー</div>
+  <div class="row">
+    <div class="input-field col s24">
+      <input id="title_form" type="text" v-model="title" name="article[title]" value="<%=@article.title%>">
+      <label for="title_form">Title</label>
     </div>
   </div>
-</div>
-<div class="modal_wrapper">
-  <!-- モーダル部分 -->
-  <% if controller.action_name=="new" || controller.action_name=='create' %>
-    <button :disabled="content.length==0 || title.length==0"
-      class="btn-large waves-effect waves-light modal-trigger"  data-target="price-modal">
-      価格設定</button>
-      <%= render 'price_modal', f: f %>
-  <% else %>
-    <button type="submit" class="btn">再投稿</button>
-  <%end%>
-</div>
+  <div class="row">
+    <div class="content z-depth-2 col s11 offset-s1">
+      <textarea v-model="content" name="article[content]" placeholder="記事を入力" id="content"><%= @article.content %></textarea>
+    </div>
+    <div class="preview z-depth-2 col s11 offset-s1">
+      <div class="preview-wrapper">
+        <div v-if="content">
+          <div v-html="mark(content)" ></div>
+        </div>
+        <div class="preview-placeholder" v-else style="color: gray;">プレビュー</div>
+      </div>
+    </div>
+  </div>
+  <div class="modal_wrapper">
+    <!-- モーダル部分 -->
+    <% if controller.action_name=="new" || controller.action_name=='create' %>
+      <button :disabled="content.length==0 || title.length==0"
+        class="btn-large waves-effect waves-light modal-trigger"  data-target="price-modal">
+        価格設定</button>
+        <%= render 'price_modal', f: f %>
+    <% else %>
+      <button type="submit" class="btn-large waves-effect waves-light right">再投稿</button>
+    <%end%>
+  </div>
 <%end%>
 
 
