@@ -1,7 +1,7 @@
 .collapsible-body{
   .row{
     .input-field{
-      textarea{
+      textarea, input{
         color: #ca9531;
         // Focused input style
         &:focus:not([readonly]) {
