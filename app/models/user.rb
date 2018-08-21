@@ -61,4 +61,8 @@ class User < ApplicationRecord
   def purchased
     purchases.where(is_purchased: true)
   end
+  
+  def search(keyword)
+    where("name like :keyword", keyword: keyword)
+  end
 end
