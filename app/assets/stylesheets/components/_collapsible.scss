@@ -52,13 +52,7 @@
   }
 
   .collapsible-header {
-    &:focus {
-      outline: 0
-    }
-
     display: block;
-    cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
     background-color: $collapsible-body-color;
     border-bottom: 0px;
     padding-bottom: 0px;
