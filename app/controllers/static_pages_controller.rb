@@ -6,5 +6,7 @@ class StaticPagesController < ApplicationController
 
   end
   def search
+    @users = User.search(params[:keyword])
+    @articles = User.search(params[:keyword])
   end
 end
