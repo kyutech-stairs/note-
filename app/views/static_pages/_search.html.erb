@@ -1,4 +1,8 @@
-<%= form_tag search_path() do |f| %>
-  <input type="text" name="keyword">
-  <input type="submit">
+<%= form_tag '/search', method: :get do |f| %>
+  <li>
+    <input type="text" name="keyword">
+  </li>
+  <li>
+    <input type="submit" value="検索">
+  </li>
 <% end %>

@@ -63,8 +63,10 @@ class User < ApplicationRecord
   end
   
   def self.search(key)
-    if key
+    if key!=""
       self.where("name like '%#{key}%'")
+    else
+      nil
     end
   end
 end
