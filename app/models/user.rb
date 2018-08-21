@@ -58,4 +58,7 @@ class User < ApplicationRecord
   def is_purchased?(article)
     purchases.where(is_purchased: true).map(&:article_id).include?(article.id)
   end
+  def purchased
+    purchases.where(is_purchased: true)
+  end
 end
