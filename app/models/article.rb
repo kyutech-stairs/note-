@@ -37,4 +37,7 @@ class Article < ApplicationRecord
   def bad_count
     feeds.where(bad: true).size
   end
+  def purchases_count
+    purchases.where(is_purchased: true).size
+  end
 end
