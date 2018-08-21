@@ -42,8 +42,10 @@ class Article < ApplicationRecord
   end
 
   def self.search(key)
-    if key
+    if key != ""
       self.where("title like '%#{key}%' or content like '%#{key}%' ")
+    else
+      nil
     end
   end
 end
