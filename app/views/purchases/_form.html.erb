@@ -1,4 +1,7 @@
-<button class="btn waves-effect waves-light modal-trigger" data-target="myModal">続きを見る</button>
+<div id="for_time">
+
+
+<%= link_to '続きをみる', article_prev_path(@article), method: :post, remote: true, class: "btn waves-effect waves-light modal-trigger", "data-target": "myModal", "v-on:click": "time_init" %>
 <div class="modal" id="myModal">
   <div class="modal-header row valign-wrapper">
     <h5 class="modal-title col s14 offset-s9">
@@ -11,20 +14,23 @@
   <div class="modal-body">
     <div class="controls">
       <div class="row">
-        <p class="article_title"><%= @article.title%></p>
+        <p class="article_title"><%= @article.title %></p>
       </div>
       <div class="row">
         <div class="col s8 now_price">
           <label>現在価格</label>
-          <p><%= display_in_yen(@article.price.min) %></p>
+          <p><%= display_in_yen(@article.price.now_price) %></p>
         </div>
+        {{time}}
       </div>
     </div>
     <div class="modal-footer">
       <%= form_tag(article_purchases_path(article_id: @article.id), method: :post) do %>
-        <input type="hidden" value="<%= @article.price.min%>" name="price">
         <input type="submit" value="購入する" class="btn">
       <% end %>
     </div>
   </div>
 </div>
+</div>
+
+<%= javascript_pack_tag 'time' %>
