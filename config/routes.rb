@@ -19,5 +19,7 @@ Rails.application.routes.draw do
     resources :feeds, only: [:create, :destroy]
   end
   resources :follows, only: [:create, :destroy]
+  get '/search', to: 'static_pages#search'
+  post '/search', to: 'static_pages#search'
   root 'static_pages#index'
 end
