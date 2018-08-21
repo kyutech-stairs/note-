@@ -1,6 +1,7 @@
 <div id="for_time">
 
-<button class="btn waves-effect waves-light modal-trigger" data-target="myModal" v-on:click="time_init">続きを見る</button>
+
+<%= link_to 'a', article_prev_path(@article), method: :post, remote: true, class: "btn waves-effect waves-light modal-trigger", "data-target": "myModal", "v-on:click": "time_init" %>
 <div class="modal" id="myModal">
   <div class="modal-header row valign-wrapper">
     <h5 class="modal-title col s14 offset-s9">
@@ -13,22 +14,18 @@
   <div class="modal-body">
     <div class="controls">
       <div class="row">
-        <p class="article_title"><%= @article.title%></p>
+        <p class="article_title"><%= @article.title %></p>
       </div>
       <div class="row">
         <div class="col s8 now_price">
           <label>現在価格</label>
-          <p><%= display_in_yen(@article.price.min) %></p>
+          <p><%= display_in_yen(@article.price.now_price) %></p>
         </div>
-        <div id="time-count">
-          <input type="hidden" name="time" v-model="time">
-          {{ time }}
-        </div>
+        {{time}}
       </div>
     </div>
     <div class="modal-footer">
       <%= form_tag(article_purchases_path(article_id: @article.id), method: :post) do %>
-        <input type="hidden" value="<%= @article.price.min%>" name="price">
         <input type="submit" value="購入する" class="btn">
       <% end %>
     </div>
@@ -36,26 +33,4 @@
 </div>
 </div>
 
-   <script type="text/javascript">
-     var time = new Vue({
-       el: "#for_time",
-       data: {
-         time: 0
-       },
-       methods: {
-         time_init: function(){
-           this.time = 60
-         }
-       }
-     })
-     var countdown = function(){
-       if ( time.time > 0 ){
-         time.time--;
-       }else{
-         $("#myModal").fadeOut();
-       }
-     }
-     setInterval(function(){
-       countdown()
-     }, 1000)
-   </script>
+<%= javascript_pack_tag 'time' %>
