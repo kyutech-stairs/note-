@@ -65,10 +65,10 @@ class ArticlesController < ApplicationController
 
   private
   def article_params
-    params.require(:article).permit(:title, :content, price_attributes: [:min, :max, :rate])
+    params.require(:article).permit(:title, :content, :image, price_attributes: [:min, :max, :rate])
   end
   def article_update_params
-    params.require(:article).permit(:title, :content)
+    params.require(:article).permit(:title, :content, :image)
   end
   def correct_user
     if current_user
