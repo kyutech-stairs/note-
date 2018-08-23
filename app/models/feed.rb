@@ -4,6 +4,7 @@ class Feed < ApplicationRecord
   
   validate :like_or_bad
   validate :myself
+  validate :no_feed_without_purchase
   
   def like_or_bad
     if like && bad
@@ -16,5 +17,12 @@ class Feed < ApplicationRecord
       errors.add(:user, "cant evaluation your own article")
     end
   end
-
+  
+  def no_feed_without_purchase
+    user = User.find(user_id)
+    article = Article.find(article_id)
+    unless user.is_purchased?(article)
+      errors.add(:article, "cant feed without purchase")
+    end
+  end
 end

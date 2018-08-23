@@ -45,8 +45,6 @@ ActiveRecord::Schema.define(version: 20180820080554) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["follower_id", "following_id"], name: "index_follows_on_follower_id_and_following_id", unique: true
-    t.index ["follower_id"], name: "index_follows_on_follower_id"
-    t.index ["following_id"], name: "index_follows_on_following_id"
   end
 
   create_table "prices", force: :cascade do |t|
@@ -54,18 +52,19 @@ ActiveRecord::Schema.define(version: 20180820080554) do
     t.integer "max", default: 0
     t.integer "min", default: 0
     t.integer "rate", default: 0
+    t.integer "now_price", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "now_price", default: 0
   end
 
   create_table "purchases", force: :cascade do |t|
     t.integer "user_id"
     t.integer "article_id"
     t.boolean "is_purchased", default: false
-    t.integer "price_id"
+    t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id", "article_id"], name: "index_purchases_on_user_id_and_article_id", unique: true
   end
 
   create_table "reviews", force: :cascade do |t|
