@@ -13,10 +13,12 @@ Rails.application.routes.draw do
   resources :file_uploaders, only: [:create]
   resources :articles, :except => [:index] do
     resources :purchases, only: :create
+    post '/prev', to: 'purchases#prev'
     resources :comments, only: [:create, :destroy]
     resources :reviews, only: [:create, :destroy, :update]
     resources :feeds, only: [:create, :destroy]
   end
   resources :follows, only: [:create, :destroy]
+  get '/search', to: 'static_pages#search'
   root 'static_pages#index'
 end

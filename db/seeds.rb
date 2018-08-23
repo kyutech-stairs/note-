@@ -1,10 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 User.create!(email: "sample@gmail.com",
             password: "password",
             password_confirmation: "password",
@@ -15,6 +8,14 @@ User.create!(email: "example@gmail.com",
             password_confirmation: "password",
             name: "金子",
             profile: "気まぐれクックです。")
+30.times do |n|
+  User.create!(email: "example#{n}@gmail.com",
+              password: "password",
+              password_confirmation: "password",
+              name: "サンプル#{n}",
+              profile: "I am sample"
+              )
+end
 Article.create!(title: "Hello World",
                 content: "# Hi Im Java.
                           ```
@@ -63,3 +64,41 @@ Article.create(title: title,
               content: content,
               user_id: 1,
               price: Price.new(min: 100, max: 200, rate: "low", now_price: 100))
+title = "いまさらだけどGitを基本から分かりやすくまとめてみた"
+content = "
+# はじめに
+Gitをそこそこ使いこなすにあたって必要な基礎知識やコマンドをまとめました。
+Gitは少しかじったけど挫折したくらいの人が対象レベルになるかと思います。
+当方、Subversionをまともに触ったことないゆとり世代なので集中管理型との違いとかはよく分かりません。
+一部諸事情のため、XXXXXで情報を隠蔽しています。
+この記事長いです。。。"
+
+Article.create!(title: title,
+               content: content,
+               user_id: 2,
+               price: Price.new(min: 100, max: 200, rate: "low", now_price: 100))
+Article.create!(title: "プログラマが知っているとよい色使い(安全色)",
+               content: content,
+               user_id: 2,
+               price: Price.new(min: 100, max: 200, rate: "low", now_price: 100))
+
+Article.create!(title: "夏の終わりの悩める10代に向けた投稿を「#8月31日の夜に」のハッシュタグで募集します。",
+               content: content,
+               user_id: 2,
+               price: Price.new(min: 100, max: 200, rate: "low", now_price: 100))
+Article.create!(title: "僕が考える世界を平和にする方法",
+               content: content,
+               user_id: 2,
+               price: Price.new(min: 100, max: 200, rate: "low", now_price: 100))
+Article.create!(title: "仕事やってて気づいたことメモ",
+               content: content,
+               user_id: 2,
+               price: Price.new(min: 100, max: 200, rate: "low", now_price: 100))
+Article.create!(title: "marchily を正式リリースいたしました！",
+               content: content,
+               user_id: 2,
+               price: Price.new(min: 100, max: 200, rate: "low", now_price: 100))
+Article.create!(title: "あなたにとってサッカーは楽しいものですか？",
+               content: content,
+               user_id: 2,
+               price: Price.new(min: 100, max: 200, rate: "low", now_price: 100))

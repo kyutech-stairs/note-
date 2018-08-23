@@ -10,6 +10,7 @@
   <div class="nav-wrapper">
     <%= link_to "Trucle", root_path, class: "brand-logo"%>
     <ul class="right hide-on-med-and-down">
+      <li><%= render 'static_pages/search'%></li>
       <% if user_signed_in? %>
         <li><%= link_to '投稿', new_article_path%></li>
         <li>

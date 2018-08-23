@@ -53,6 +53,17 @@ class User < ApplicationRecord
   end
 
   def is_purchased?(article)
-    purchases.map(&:article_id).include?(article.id)
+    purchases.where(is_purchased: true).map(&:article_id).include?(article.id)
+  end
+  def purchased
+    purchases.where(is_purchased: true)
+  end
+  
+  def self.search(key)
+    if key!=""
+      self.where("name like '%#{key}%'")
+    else
+      nil
+    end
   end
 end
