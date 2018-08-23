@@ -52,5 +52,5 @@ class ImageUploader < CarrierWave::Uploader::Base
       narrow = img.columns > img.rows ? img.rows : img.columns
       img.crop(Magick::CenterGravity, narrow, narrow)
     end
-end
+  end
 end
