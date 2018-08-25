@@ -49,3 +49,18 @@
     }
   }
 }
+
+.search_form{
+  margin-right: 2vw;
+  input{
+    color: white;
+  }
+  button{
+    height: 50px;
+    background-color: #ffb300;
+    border: none;
+    i{
+      color: white;
+    }
+  }
+}
