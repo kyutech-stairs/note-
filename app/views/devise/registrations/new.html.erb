@@ -1,34 +1,36 @@
 <div class="container">
   <div class="users-form">
-    <h2>note+ へようこそ</h2>
+    <h2>Trucle へようこそ</h2>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
+      <div class="row">
+        <div class="input-field">
+          <%= f.text_field :name, autofocus: true, autocomplete: "name", id: "new_name_form" %>
+          <label for="new_name_form">Name</label>
+        </div>
 
-      <div class="field">
-        <%= f.text_field :name, autofocus: true, autocomplete: "name", 
-          class: "form-control", placeholder: "ニックネーム" %>
+        <div class="input-field">
+          <%= f.email_field :email, autocomplete: "email", id: "new_email_form"%>
+          <label for="new_email_form">Mail Adress</label>
+        </div>
+
+        <div class="input-field">
+          <%= f.password_field :password, autocomplete: "off", id: "new_password_form" %>
+          <label for="new_password_form">Password</label>
+        </div>
+
+        <div class="input-field">
+          <%= f.password_field :password_confirmation, autocomplete: "off" , id: "password_confirmation" %>
+          <label for="password_confirmation">Password Confirmation</label>
+        </div>
       </div>
 
-      <div class="field">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", 
-          class: "form-control", placeholder: "メールアドレス" %>
-      </div>
-
-      <div class="field">
-        <%= f.password_field :password, autocomplete: "off", 
-          class: "form-control", placeholder: "パスワード" %>
-      </div>
-
-      <div class="field">
-        <%= f.password_field :password_confirmation, autocomplete: "off" ,
-          class: "form-control", placeholder: "パスワード確認" %>
-      </div>
-
-      <div class="actions">
-        <%= f.submit "新規登録", class: "form-control btn btn-primary" %>
+      <div class="row">
+        <%= f.submit "新規登録", class: "btn" %>
       </div>
     <% end %>
+
 
     <%= render "devise/shared/links" %>
   </div>
