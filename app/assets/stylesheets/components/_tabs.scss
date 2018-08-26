@@ -85,11 +85,13 @@
 
 .welcome_header{
   .tabs{
-    background-color: $collapsible-body-color;
+    // background-color: $collapsible-body-color;
+    background-color: $primary-color;
     a {
       &:focus,
       &:focus.active {
-        background-color: $collapsible-body-color;
+        // background-color: $collapsible-body-color;
+          background-color: $primary-color;
       }
     }
     .tab{
