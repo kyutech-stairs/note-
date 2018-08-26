@@ -7,13 +7,19 @@
 }
 
 .welcome_header{
-  background-color: $collapsible-body-color;
-  color: $collapsible-body-font-color;
+  // background-color: $collapsible-body-color;
+  // color: $collapsible-body-font-color;
+  background-color: $primary-color;
+  color: white;
   width: 100%;
   height: 400px;
   display: inline-block;
-  h5{
-    font-size: 35px;
+  h4{
+    font-size: 38px;
+    font-weight: bold;
+  }
+  p{
+    font-size: 18px;
   }
   .welcome_body{
     margin-bottom: 0px;

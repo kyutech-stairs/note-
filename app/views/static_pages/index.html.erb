@@ -1,10 +1,12 @@
-<div class="container_home">
+
   <% unless current_user %>
     <div class="welcome_header">
       <div class="row welcome_body">
         <div id="welcome1" style="display: block">
           <div class="col s12 center-align">
-            <h5><ruby>創造力<rt>クリエイティブ</rt></ruby>に<ruby>価値<rt>バリュー</rt></ruby>を</h5>
+            <div class="col offset-s4 s20 left-align">
+              <h4><ruby>創造力<rt>クリエイティブ</rt></ruby>に<ruby>価値<rt>バリュー</rt></ruby>を</h4>
+            </div>
             <div class="col offset-s4 s20 left-align">
               <p>なんて書こうかな。どうしよっかな。いやこれどうする？逆に。いううううううう。っていうか上の文言いい感じでダサくて好き</p>
             </div>
@@ -15,7 +17,9 @@
         </div>
         <div id="welcome2">
           <div class="col s12 center-align">
-            <h5>いい感じの価値をみんなでつけようぜ的な</h5>
+            <div class="col offset-s4 s20 left-align">
+              <h4>いい感じの価値をみんなでつけようぜ的な</h4>
+            </div>
             <div class="col offset-s4 s20 left-align">
               <p>なんて書こうかな。どうしよっかな。いやこれどうする？逆に。いううううううう。っていうか上の文言いい感じでダサくて好き</p>
             </div>
@@ -33,7 +37,7 @@
       </div>
     </div>
   <% end %>
-  
+  <div class="container_home">
   <div class="row">
     <% if @articles.any? %>
       <%= render @articles %>
