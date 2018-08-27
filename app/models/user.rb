@@ -61,4 +61,12 @@ class User < ApplicationRecord
   def purchased
     purchases.where(is_purchased: true)
   end
+  
+  def self.search(key)
+    if key!=""
+      self.where("name like '%#{key}%'")
+    else
+      nil
+    end
+  end
 end
