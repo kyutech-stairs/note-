@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20180824083106) do
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "reply_id"
   end
 
   create_table "feeds", force: :cascade do |t|
