@@ -74,7 +74,7 @@ class ArticlesController < ApplicationController
     if current_user
       user = current_user.articles.find_by(id: params[:id])
       redirect_to root_path if user.nil?
-    else 
+    else
       redirect_to new_user_session_path
     end
   end
