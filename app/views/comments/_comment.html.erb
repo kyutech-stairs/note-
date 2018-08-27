@@ -1,27 +1,78 @@
-<div style="border-bottom: 1px solid;">
-  <div class="row">
-    <div class="col s20 valign-wrapper">
-      <div class="col s2">
-      <%= link_to user_image_for(comment.user, option={class:"icon-image", size: "35"}), comment.user %>
+<% if comment.reply_id==nil%>
+  <div class="reply-form" style="border-bottom: 1px solid;">
+    <% if comment.user_id==current_user.id %>
+      <div class="row">
+        <div class="col s20 valign-wrapper">
+          <div class="col s2">
+            <%= link_to user_image_for(comment.user, option={class:"icon-image", size: "35"}), comment.user %>
+          </div>
+          <div class="col s6">
+            <%= link_to comment.user.name, comment.user %>
+          </div>
+          <div class="col s6 offset-s1 offset-right-s9">
+            <%= date_format(comment.created_at) %>
+          </div>
+        </div>
+        <div class="col s4">
+          <% if current_user %>
+            <%= link_to "削除", article_comment_path(comment, article_id: @article.id), method: :delete, class: "btn", remote: true %>
+          <% end %>
+        </div>
       </div>
-      <div class="col s6">
-        <%= link_to comment.user.name, comment.user %>
+      <div class="row">
+        <div class="col s23 offset-s1">
+          <%= comment.content %>
+        </div>
       </div>
-      <div class="col s6 offset-s1 offset-right-s9">
-        <%= date_format(comment.created_at) %>
+    <% elsif @article.user_id==current_user.id %>
+      <%= render 'comments/reply_form', comment: comment %>
+    <% else %>
+      <div class="row">
+        <div class="col s20 valign-wrapper">
+          <div class="col s2">
+            <%= link_to user_image_for(comment.user, option={class:"icon-image", size: "35"}), comment.user %>
+          </div>
+          <div class="col s6">
+            <%= link_to comment.user.name, comment.user %>
+          </div>
+          <div class="col s6 offset-s1 offset-right-s9">
+            <%= date_format(comment.created_at) %>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="col s4">
-      <% if current_user %>
-        <% if comment.user_id==current_user.id %>
-          <%= link_to "削除", article_comment_path(comment, article_id: @article.id), method: :delete, class: "btn", remote: true %>
-        <% end %>
+      <div class="row">
+        <div class="col s23 offset-s1">
+          <%= comment.content %>
+        </div>
+      </div>
+    <% end %>
+    <% @article.comments.each do |reply| %>
+      <% if comment.id==reply.reply_id%>
+        <div class="row">
+          <div class="col s1 offset-s1">
+            <i class="material-icons">subdirectory_arrow_right</i>
+          </div>
+          <div class="col s2">
+            <%= link_to user_image_for(reply.user, option={class:"icon-image", size: "35"}), reply.user %>
+          </div>
+          <div class="col s4">
+            <%= link_to reply.user.name, reply.user %>
+          </div>
+          <div class="col s4">
+            <%= date_format(reply.created_at) %>
+          </div>
+          <div class="col offset-s8 s4">
+            <% if current_user %>
+              <% if reply.user_id==current_user.id %>
+                <%= link_to "削除", article_comment_path(reply, article_id: @article.id), method: :delete, class: "btn", remote: true %>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="col offset-s4 s20">
+            <%= reply.content %>
+          </div>
+        </div>
       <% end %>
-    </div>
+    <% end %>
   </div>
-  <div class="row">
-    <div class="col s24">
-      <p><%= comment.content %></p>
-    </div>
-  </div>
-</div>
+<% end %>
