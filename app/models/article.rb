@@ -40,4 +40,12 @@ class Article < ApplicationRecord
   def purchases_count
     purchases.where(is_purchased: true).size
   end
+
+  def self.search(key)
+    if key != ""
+      self.where("title like '%#{key}%' or content like '%#{key}%' ")
+    else
+      nil
+    end
+  end
 end

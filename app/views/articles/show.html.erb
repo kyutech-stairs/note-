@@ -1,7 +1,7 @@
 <div class="sidebar">
   <div class="feed">
     <div class="feed-form">
-      <% if current_user != @article.user%>
+      <% if current_user != @article.user && current_user.is_purchased?(@article)%>
         <%= render 'feeds/form', article: @article %>
       <% else %>
         <%= render 'feeds/feeds' %>
