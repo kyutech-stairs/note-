@@ -1,7 +1,56 @@
+.ribbon_area {
+    position: absolute;
+    top: -6px;
+    right: 7px;
+    width: 89px;
+    height: 91px;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+.ribbon{
+    display: inline-block;
+    position: absolute;
+    padding: 7px 0;
+    left: -23px;
+    top: 22px;
+    width: 160px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 16px;
+    // background: #ffa520;
+    background: #40c4ff;
+    color: #fff;
+    letter-spacing: 0.05em;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.ribbon:before,.ribbon:after{
+    position: absolute;
+    content: "";
+    // border-top: 4px solid #b2751b;
+    border-top: 4px solid #0277bd;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    bottom: -4px;
+}
+
+.ribbon:before{
+    left: 14px;
+}
+
+.ribbon:after{
+  	right: 18px;
+}
+
 //static-pages
 .article-one{
   min-width: 280px;
   min-height: 280px;
+  position: relative;
   .card{
     .card-image{
       background-color: black;
