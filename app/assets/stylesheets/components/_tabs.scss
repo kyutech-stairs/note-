@@ -83,6 +83,22 @@
   }
 }
 
+.welcome_header{
+  .tabs{
+    // background-color: $collapsible-body-color;
+    background-color: $primary-color;
+    a {
+      &:focus,
+      &:focus.active {
+        // background-color: $collapsible-body-color;
+          background-color: $primary-color;
+      }
+    }
+    .tab{
+      border-bottom: 1px solid $tabs-underline-color;
+    }
+  }
+}
 // Fixed Sidenav hide on smaller
 @media #{$medium-and-down} {
   .tabs {
