@@ -1,8 +1,10 @@
-<%= form_tag '/search', method: :get do |f| %>
-  <li>
-    <input type="text" name="keyword">
-  </li>
-  <li>
-    <input type="submit" value="検索">
-  </li>
-<% end %>
+<div class="search_form">
+  <%= form_tag '/search', method: :get do |f| %>
+    <li>
+      <input type="text" name="keyword"　style="color: white;">
+    </li>
+    <li style="height: 60px;">
+      <button type="submit"><i class="material-icons">search</i></button>
+    </li>
+  <% end %>
+</div>

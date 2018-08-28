@@ -1,7 +1,48 @@
-<div class="row">
-  <% if @articles.any? %>
-    <%= render @articles %>
+
+  <% unless current_user %>
+    <div class="welcome_header">
+      <div class="row welcome_body">
+        <div id="welcome1" style="display: block">
+          <div class="col s12 center-align">
+            <div class="col offset-s4 s20 left-align">
+              <h4><ruby>創造力<rt>クリエイティブ</rt></ruby>に<ruby>価値<rt>バリュー</rt></ruby>を</h4>
+            </div>
+            <div class="col offset-s4 s20 left-align">
+              <p>なんて書こうかな。どうしよっかな。いやこれどうする？逆に。いううううううう。っていうか上の文言いい感じでダサくて好き</p>
+            </div>
+          </div>
+          <div class="col s12 center-align">
+            <%= image_tag("welcome5.png") %>
+          </div>
+        </div>
+        <div id="welcome2">
+          <div class="col s12 center-align">
+            <div class="col offset-s4 s20 left-align">
+              <h4>いい感じの価値をみんなでつけようぜ的な</h4>
+            </div>
+            <div class="col offset-s4 s20 left-align">
+              <p>なんて書こうかな。どうしよっかな。いやこれどうする？逆に。いううううううう。っていうか上の文言いい感じでダサくて好き</p>
+            </div>
+          </div>
+          <div class="col s12 center-align">
+            <%= image_tag("welcome1.png") %>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin-top: 0px;">
+        <ul class="tabs">
+          <li class="tab col offset-s10 s2"><a class="active" href="#welcome1"></a></li>
+          <li class="tab col s2"><a href="#welcome2"></a></li>
+        </ul>
+      </div>
+    </div>
   <% end %>
+  <div class="container_home">
+  <div class="row">
+    <% if @articles.any? %>
+      <%= render @articles %>
+    <% end %>
+  </div>
 </div>
 <div class="paginate">
   <%= paginate @articles%>

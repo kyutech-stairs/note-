@@ -1,0 +1,46 @@
+<ul class="collapsible">
+<li>
+  <div class="collapsible-header">
+    <div class="row">
+      <div class="col s20 valign-wrapper">
+        <div class="col s2">
+          <%= link_to user_image_for(comment.user, option={class:"icon-image", size: "35"}), comment.user %>
+        </div>
+        <div class="col s6">
+          <%= link_to comment.user.name, comment.user %>
+        </div>
+        <div class="col s6 offset-s1 offset-right-s9">
+          <%= date_format(comment.created_at) %>
+        </div>
+      </div>
+      <div class="col s4">
+        <% if current_user %>
+          <i class="material-icons">expand_more</i>
+        <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s23 offset-s1">
+        <%= comment.content %>
+      </div>
+    </div>
+  </div>
+  <div class="collapsible-body">
+    <%= form_tag(article_comments_path(@article), data: {remote: true}) do  %>
+      <input type="hidden" value="<%= @article.id%>" name="comment[article_id]">
+      <input type="hidden" value="<%= comment.id%>" name="comment[reply_id]">
+      <div class="controls">
+        <div class="row">
+          <div class="col offset-s2 s18 input-field">
+            <textarea id="textarea2" class="materialize-textarea" name="comment[content]"></textarea>
+            <label for="textarea2">Reply</label>
+          </div>
+          <div class="col s3 offset-s1">
+            <input type="submit" class="btn" value="返信">
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</li>
+</ul>

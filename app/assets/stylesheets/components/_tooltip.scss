@@ -4,7 +4,7 @@
   z-index: 2000;
   background-color: transparent;
   border-radius: 2px;
-  color:  #fff;
+  color: #757575;
   min-height: 36px;
   line-height: 120%;
   opacity: 0;
@@ -13,9 +13,11 @@
   overflow: hidden;
   left: 0;
   top: 0;
+  margin-top: 60px;
   pointer-events: none;
   visibility: hidden;
-  background-color: #323232;
+  background-color: white;
+  @extend .z-depth-1;
 }
 
 .backdrop {

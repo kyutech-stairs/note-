@@ -107,3 +107,82 @@ Article.create!(title: "あなたにとってサッカーは楽しいもので�
                user_id: 2,
                image: Rails.root.join("db/fixtures/development/images/peace.jpg").open,
                price: Price.new(min: 100, max: 200, rate: "low", now_price: 100))
+
+5.times do |num|
+  Purchase.create!(user_id: num+3,
+                  article_id: 48,
+                  is_purchased: true,
+                  price: 100)
+  if num % 2 == 0
+    Feed.create!(user_id: num+3,
+                article_id: 48,
+                like: true)
+  else
+    Feed.create!(user_id: num+3,
+                article_id: 48,
+                bad: true)
+  end
+end
+6.times do |num|
+  Purchase.create!(user_id: num+3,
+                  article_id: 47,
+                  is_purchased: true,
+                  price: 100)
+  if num % 2 == 0
+    Feed.create!(user_id: num+3,
+                article_id: 47,
+                like: true)
+  else
+    Feed.create!(user_id: num+3,
+                article_id: 47,
+                bad: true)
+  end
+end
+
+8.times do |num|
+  Purchase.create!(user_id: num+3,
+                  article_id: 46,
+                  is_purchased: true,
+                  price: 100)
+  if num % 2 == 0
+    Feed.create!(user_id: num+3,
+                article_id: 46,
+                like: true)
+  else
+    Feed.create!(user_id: num+3,
+                article_id: 46,
+                bad: true)
+  end
+end
+
+9.times do |num|
+  Purchase.create!(user_id: num+3,
+                  article_id: 45,
+                  is_purchased: true,
+                  price: 100)
+  if num % 2 == 0
+    Feed.create!(user_id: num+3,
+                article_id: 45,
+                like: true)
+  else
+    Feed.create!(user_id: num+3,
+                article_id: 45,
+                bad: true)
+  end
+end
+
+3.times do |num|
+  Purchase.create!(user_id: num+3,
+                  article_id: 44,
+                  is_purchased: true,
+                  price: 100)
+  if num % 2 == 0
+    Feed.create!(user_id: num+3,
+                article_id: 44,
+                like: true)
+  else
+    Feed.create!(user_id: num+3,
+                article_id: 44,
+                bad: true)
+  end
+end

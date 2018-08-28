@@ -6,41 +6,46 @@ module ArticlesHelper
 
   def tooltip_h
     html = "<p>Headers</p><br/>
-            「#」,「##」....<br/><br/>
-            <div style=&quot;border-left: 5px solid #dddddd; padding: 5px;&quot;>
-              <p>プレビュー</p><h3 style=&quot;border-bottom: 1px solid #9e9e9e;&quot;>見出しh3</h3>
-              <p>###見出しh3</p>
+            <label>Text</label>
+            <div style=&quot; padding: 5px;&quot;>
+              <p>#####Header5　　　　</p>
+            </div>
+            <label>Preview</label>
+            <div style=&quot; padding: 5px;&quot;>
+              <h5;>Header5</h5>
             </div>"
     html.html_safe
   end
 
   def tooltip_code
     html =  "<p>Code</p><br/>
-            <div style=&quot;border-left: 5px solid #dddddd; padding: 5px;&quot;>
-            (空行)<br/>
-            ```ruby:qiita.rb<br/>
+            <label>Text</label>
+            <div style=&quot; padding: 5px;&quot;>
+            ```<br/>
               function hello(){<br/>
               　return &quot;hello world!&quot;;<br/>
               }<br/>
-            ```<br/>
-            (空行)</div>"
+            ```</div>"
     html.html_safe
   end
 
   def tooltip_link
     html = "<p>Links</p><br/>
-            [リンクテキスト](URL)<br/><br/>
-          <div style=&quot;border-left: 5px solid #dddddd; padding: 5px;&quot;>
-              <p>プレビュー</p><p style=&quot;border-bottom: 1px solid #9e9e9e; color: #65a931;&quot;>Trucle</p>
-            [Trucle](<span style=&quot;color: #65a931;&quot;>http://trucle.com/</span>)
-          </div>"
+            <label>Text</label>
+            <div style=&quot; padding: 5px;&quot;>
+              <p>[Trucle](http://trucle.com/)</p>
+            </div>
+            <label>Preview</label>
+            <div style=&quot; padding: 5px;&quot;>
+              <p>Trucle</p>
+            </div>"
     html.html_safe
   end
 
   def tooltip_list
     html =  "<p>Lists</p><br/>
-            「-」,「+」,「*」<br/><br/>
-            <div style=&quot;border-left: 5px solid #dddddd; padding: 5px;&quot;>
+            <label>Text</label>
+            <div style=&quot; padding: 5px;&quot;>
             - リスト１<br/>
             &nbsp;&nbsp;- ネスト　リスト1-1<br/>
             &nbsp;&nbsp;&nbsp;&nbsp;- ネスト　リスト1-1-1<br/>
@@ -50,16 +55,17 @@ module ArticlesHelper
 
   def tooltip_quote
     html =  "<p>Quote</p><br/>
-            「>」,「>>」<br/><br/>
-            <p>プレビュー</p>
+            <label>Text</label>
+            <div style=&quot; padding: 5px;&quot;>
+              > 本日はよろしくお願いします。<br/><br/>
+              >> こちらこそよろしくお願いします。
+            </div><br/>
+            <label>Preview</label>
             <div style=&quot;border-left: 5px solid #dddddd; padding: 5px;&quot;>
             本日はよろしくお願いします。<br/><br/>
             <div style=&quot;border-left: 5px solid #dddddd; padding: 5px;&quot;>
             こちらこそよろしくお願いします。<br/>
-            </div></div>
-            <p style=&quot;border-bottom: 1px solid #9e9e9e;&quot;></p>
-            > 本日はよろしくお願いします。<br/><br/>
-            >> こちらこそよろしくお願いします。"
+            </div></div>"
     html.html_safe
   end
 
