@@ -85,22 +85,27 @@ Article.create!(title: "プログラマが知っているとよい色使い(安�
 Article.create!(title: "夏の終わりの悩める10代に向けた投稿を「#8月31日の夜に」のハッシュタグで募集します。",
                content: content,
                user_id: 2,
+               image: Rails.root.join("db/fixtures/development/images/summer.jpg").open,
                price: Price.new(min: 100, max: 200, rate: "low", now_price: 100))
 Article.create!(title: "僕が考える世界を平和にする方法",
                content: content,
                user_id: 2,
+               image: Rails.root.join("db/fixtures/development/images/peace.jpg").open,
                price: Price.new(min: 100, max: 200, rate: "low", now_price: 100))
 Article.create!(title: "仕事やってて気づいたことメモ",
                content: content,
                user_id: 2,
+               image: Rails.root.join("db/fixtures/development/images/work.jpg").open,
                price: Price.new(min: 100, max: 200, rate: "low", now_price: 100))
 Article.create!(title: "marchily を正式リリースいたしました！",
                content: content,
                user_id: 2,
+               image: Rails.root.join("db/fixtures/development/images/marchily.png").open,
                price: Price.new(min: 100, max: 200, rate: "low", now_price: 100))
 Article.create!(title: "あなたにとってサッカーは楽しいものですか？",
                content: content,
                user_id: 2,
+               image: Rails.root.join("db/fixtures/development/images/soccer.jpg").open,
                price: Price.new(min: 100, max: 200, rate: "low", now_price: 100))
 
 5.times do |num|
