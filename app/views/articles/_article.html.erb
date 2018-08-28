@@ -1,4 +1,4 @@
-<div class="col s6 article-one"  id="article-<%= article.id %>">
+<div class="col s8 article-one"  id="article-<%= article.id %>">
   <div class="card sticky-action hoverable">
      <div class="card-image">
        <%= link_to display_header_image(article), article%>
@@ -36,7 +36,7 @@
      </div>
      <div class="card-reveal">
       <span class="card-title"><%= link_to article.title.truncate(38), article, id: "article-title"%><i class="material-icons right">close</i></span>
-      <p><%= article.content.truncate(100) %></p>
+      <p><%= qiita_markdown(article.content.truncate(100)) %></p>
     </div>
   </div>
 </div>

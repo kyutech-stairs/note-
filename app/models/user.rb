@@ -18,7 +18,6 @@ class User < ApplicationRecord
   has_many :reviews
   validates :name, presence: true
   has_many :feeds, dependent: :destroy
-
   def like(article)
     if feed = feeds.find_by(article_id: article.id)
       feed.update_attributes(like: true, bad: false)

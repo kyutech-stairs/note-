@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180823055134) do
+ActiveRecord::Schema.define(version: 20180824083106) do
 
   create_table "articles", force: :cascade do |t|
     t.text "title"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20180823055134) do
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "reply_id"
   end
 
   create_table "feeds", force: :cascade do |t|
@@ -45,6 +46,16 @@ ActiveRecord::Schema.define(version: 20180823055134) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["follower_id", "following_id"], name: "index_follows_on_follower_id_and_following_id", unique: true
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer "notice_id"
+    t.integer "notified_by_id"
+    t.integer "article_id"
+    t.integer "type"
+    t.boolean "read", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "prices", force: :cascade do |t|
