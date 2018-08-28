@@ -69,4 +69,11 @@ module ArticlesHelper
     html.html_safe
   end
 
+  def display_header_image(article)
+    if article.image.file
+      image_tag(article.image.header, alt: "header", class: "header-image")
+    else
+      image_tag("sample-1.jpg", alt: "default", class: "header-image")
+    end
+  end
 end

@@ -1,7 +1,7 @@
 <div class="col s8 article-one"  id="article-<%= article.id %>">
   <div class="card sticky-action hoverable">
      <div class="card-image">
-       <%= link_to image_tag("sample-1.jpg", class: "header-image"), article%>
+       <%= link_to display_header_image(article), article%>
        <span class="card-title activator"><%= link_to article.title.truncate(35), article, id: "article-title"%><i class="material-icons right">more_vert</i></span>
      </div>
      <div class="card-content">
