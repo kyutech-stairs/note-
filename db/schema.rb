@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20180823055134) do
-=======
-ActiveRecord::Schema.define(version: 20180815121155) do
->>>>>>> 72946c4aa53d7924d43a977e92f31c34f4c00329
 
   create_table "articles", force: :cascade do |t|
     t.text "title"
@@ -31,7 +27,6 @@ ActiveRecord::Schema.define(version: 20180815121155) do
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "reply_id"
   end
 
   create_table "feeds", force: :cascade do |t|
