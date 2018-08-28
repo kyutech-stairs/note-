@@ -5,7 +5,6 @@
   border-radius: 2px;
   line-height: 40px;
 }
-
 .welcome_header{
   // background-color: $collapsible-body-color;
   // color: $collapsible-body-font-color;
@@ -68,5 +67,10 @@
     i{
       color: white;
     }
+  }
+}
+nav{
+  #dropdown1{
+   width: 150px !important; 
   }
 }
