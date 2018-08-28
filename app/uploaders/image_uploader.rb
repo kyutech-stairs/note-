@@ -29,8 +29,13 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   # do something
   # end
 
+  version :thumb do
+    process :create_square
+  end
+  version :header do
+    process :create_header
+  end
   # Create different versions of your uploaded files:
-  process :create_square
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
@@ -51,6 +56,12 @@ class ImageUploader < CarrierWave::Uploader::Base
     manipulate! do |img|
       narrow = img.columns > img.rows ? img.rows : img.columns
       img.crop(Magick::CenterGravity, narrow, narrow)
+    end
+  end
+  def create_header
+    manipulate! do |img|
+      narrow = img.columns > img.rows ? img.rows : img.columns
+      img.crop(Magick::CenterGravity, narrow, narrow * 3 / 4)
     end
   end
 end
