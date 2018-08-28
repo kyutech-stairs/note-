@@ -6,12 +6,9 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :articles, dependent: :destroy
   has_many :purchases, dependent: :destroy
-  has_many :likes, dependent: :destroy
   mount_uploader :image, ImageUploader
   has_many :articles, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :likes, dependent: :destroy
-  has_many :bads, dependent: :destroy
   #followする
   has_many :active_follows, class_name: "Follow", foreign_key: "follower_id", dependent: :destroy
   has_many :following, through: :active_follows
