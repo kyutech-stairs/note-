@@ -100,12 +100,12 @@ Article.create!(title: "仕事やってて気づいたことメモ",
 Article.create!(title: "marchily を正式リリースいたしました！",
                content: content,
                user_id: 2,
-               image: Rails.root.join("db/fixtures/development/images/marchily.jpg").open,
+               image: Rails.root.join("db/fixtures/development/images/marchily.png").open,
                price: Price.new(min: 100, max: 200, rate: "low", now_price: 100))
 Article.create!(title: "あなたにとってサッカーは楽しいものですか？",
                content: content,
                user_id: 2,
-               image: Rails.root.join("db/fixtures/development/images/peace.jpg").open,
+               image: Rails.root.join("db/fixtures/development/images/soccer.jpg").open,
                price: Price.new(min: 100, max: 200, rate: "low", now_price: 100))
 
 5.times do |num|
