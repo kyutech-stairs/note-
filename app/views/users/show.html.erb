@@ -11,11 +11,11 @@
     </div>
     <div class="row">
       <div class="col s12">
-        <label>フォロー</label>
+        <a class="modal-trigger follow_list_link" href="#follow_list">フォロー</a>
         <p style="padding-left: 4vw;"><%= @user.following.count%></p>
       </div>
       <div class="col s12">
-        <label>フォロワー</label>
+        <a class="modal-trigger follow_list_link" href="#follower_list">フォロワー</a>
         <p style="padding-left: 4vw;"><%= @user.followers.count%></p>
       </div>
     </div>
@@ -54,3 +54,6 @@
     </div>
   </div>
 </div>
+
+<%= render 'follow_list_modal' %>
+<%= render 'follower_list_modal' %>
