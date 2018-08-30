@@ -7,16 +7,16 @@
       <h3><%= @user.name %></h3>
     </div>
     <div class="row">
-      <%= @user.profile %>
+      <p><%= @user.profile %></p>
     </div>
     <div class="row">
       <div class="col s12">
         <a class="modal-trigger follow_list_link" href="#follow_list">フォロー</a>
-        <p style="padding-left: 4vw;"><%= @user.following.count%></p>
+        <p style="padding-left: 4vw; color: #616161;"><%= @user.following.count%></p>
       </div>
       <div class="col s12">
         <a class="modal-trigger follow_list_link" href="#follower_list">フォロワー</a>
-        <p style="padding-left: 4vw;"><%= @user.followers.count%></p>
+        <p style="padding-left: 4vw; color: #616161;"><%= @user.followers.count%></p>
       </div>
     </div>
     <div class="row">
