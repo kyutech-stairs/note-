@@ -11,7 +11,7 @@
   background-color: $primary-color;
   color: white;
   width: 100%;
-  height: 400px;
+  min-height: 400px;
   display: inline-block;
   h4{
     font-size: 38px;
@@ -71,6 +71,6 @@
 }
 nav{
   #dropdown1{
-   width: 150px !important; 
+   width: 150px !important;
   }
 }
