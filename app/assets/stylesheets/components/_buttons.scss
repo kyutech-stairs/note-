@@ -82,6 +82,17 @@
   }
 }
 
+.btn-brown{
+  background-color: #cc8f00;
+  &:focus {
+    background-color: darken(#cc8f00, 10%);
+  }
+  &:hover {
+    background-color: lighten(#cc8f00, 5%);
+    @extend .z-depth-1-half;
+  }
+}
+
 // Floating button
 .btn-floating {
   &:hover {

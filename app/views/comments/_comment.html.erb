@@ -15,7 +15,7 @@
         </div>
         <div class="col s4">
           <% if current_user %>
-            <%= link_to "削除", article_comment_path(comment, article_id: @article.id), method: :delete, class: "btn", remote: true %>
+            <%= link_to "削除", article_comment_path(comment, article_id: @article.id), method: :delete, class: "btn btn-brown", remote: true %>
           <% end %>
         </div>
       </div>
@@ -64,7 +64,7 @@
           <div class="col offset-s8 s4">
             <% if current_user %>
               <% if reply.user_id==current_user.id %>
-                <%= link_to "削除", article_comment_path(reply, article_id: @article.id), method: :delete, class: "btn", remote: true %>
+                <%= link_to "削除", article_comment_path(reply, article_id: @article.id), method: :delete, class: "btn btn-brown", remote: true %>
               <% end %>
             <% end %>
           </div>
