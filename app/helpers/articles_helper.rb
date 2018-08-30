@@ -5,7 +5,9 @@ module ArticlesHelper
   end
 
   def tooltip_h
-    html = "<p>Headers</p><br/>
+    html = "<div style=&quot; border-bottom: 1px solid; &quot;>
+              <p>Headers</p>
+            </div><br/>
             <label>Text</label>
             <div style=&quot; padding: 5px;&quot;>
               <p>#####Header5　　　　</p>
@@ -18,19 +20,29 @@ module ArticlesHelper
   end
 
   def tooltip_code
-    html =  "<p>Code</p><br/>
+    html =  "<div style=&quot; border-bottom: 1px solid; &quot;>
+              <p>Code</p>
+            </div><br/>
             <label>Text</label>
             <div style=&quot; padding: 5px;&quot;>
             ```<br/>
               function hello(){<br/>
+              　return &quot;hello world!&quot;;　　<br/>
+              }<br/>
+            ```</div>
+            <label>Preview</label>
+            <div style=&quot; padding: 5px; background-color: #394548; color: #e3e3e3; &quot;>
+              function hello(){<br/>
               　return &quot;hello world!&quot;;<br/>
               }<br/>
-            ```</div>"
+            </div>"
     html.html_safe
   end
 
   def tooltip_link
-    html = "<p>Links</p><br/>
+    html = "<div style=&quot; border-bottom: 1px solid; &quot;>
+              <p>Links</p>
+            </div><br/>
             <label>Text</label>
             <div style=&quot; padding: 5px;&quot;>
               <p>[Trucle](http://trucle.com/)</p>
@@ -42,19 +54,28 @@ module ArticlesHelper
     html.html_safe
   end
 
-  def tooltip_list
-    html =  "<p>Lists</p><br/>
+  def tooltip_emphasis
+    html =  "<div style=&quot; border-bottom: 1px solid; &quot;>
+              <p>Emphasis　　　　　　</p>
+            </div><br/>
             <label>Text</label>
             <div style=&quot; padding: 5px;&quot;>
-            - リスト１<br/>
-            &nbsp;&nbsp;- ネスト　リスト1-1<br/>
-            &nbsp;&nbsp;&nbsp;&nbsp;- ネスト　リスト1-1-1<br/>
-            &nbsp;&nbsp;&nbsp;&nbsp;- ネスト　リスト1-1-2</div>"
+              <p>*Hello*</p>
+              <p>**Hello**</p>
+            </div>
+            <label>Preview</label>
+            <div style=&quot; padding: 5px;&quot;>
+              <em>Hello</em><br/><br/>
+              <strong>Hello</strong>
+            </div>"
+
     html.html_safe
   end
 
   def tooltip_quote
-    html =  "<p>Quote</p><br/>
+    html =  "<div style=&quot; border-bottom: 1px solid; &quot;>
+              <p>Quote</p>
+            </div><br/>
             <label>Text</label>
             <div style=&quot; padding: 5px;&quot;>
               > 本日はよろしくお願いします。<br/><br/>
