@@ -28,6 +28,7 @@ vendor/bundle
 /public/images
 /public/packs
 /public/packs-test
+/public/uploads/*
 /node_modules
 yarn-debug.log*
 .yarn-integrity
