@@ -81,7 +81,7 @@ class ArticlesController < ApplicationController
   end
   def create_notifications
     current_user.followers.each do |follower|
-      current_user.active_notices.create(notice: follower, article: @article, message: "#{current_user.name}さんが新しい記事「#{@article.title}」を投稿しました")
+      current_user.active_notices.create(notice: follower, article: @article, message: "#{current_user.name}さんが新しい記事「#{@article.title.truncate(15)}」を投稿しました")
     end
   end
 end

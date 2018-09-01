@@ -6,6 +6,7 @@
   <li class="divider"></li>
   <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete%></li>
 </ul>
+<%= render 'layouts/notifications' %>
 <nav>
   <div class="nav-wrapper">
     <%= link_to "Trucle", root_path, class: "brand-logo"%>
@@ -13,6 +14,9 @@
       <li><%= render 'static_pages/search'%></li>
       <% if user_signed_in? %>
         <li><%= link_to '投稿', new_article_path%></li>
+        <li>
+          <a class="dropdown-trigger" href=""  data-target="notifications">通知<i class="material-icons right">notifications</i></a>
+        </li>
         <li>
           <a class="dropdown-trigger" href=""  data-target="dropdown1">設定<i class="material-icons right">arrow_drop_down</i></a>
         </li>
