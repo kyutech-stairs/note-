@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :create, :update]
   before_action :correct_user, only: [:edit, :update, :destroy]
+  after_action :create_notifications, only: :create
 
   def new
     @article = Article.new
@@ -76,6 +77,11 @@ class ArticlesController < ApplicationController
       redirect_to root_path if user.nil?
     else
       redirect_to new_user_session_path
+    end
+  end
+  def create_notifications
+    current_user.followers.each do |follower|
+      current_user.active_notices.create(notice: follower, article: @article, message: "#{current_user.name}さんが新しい記事「#{@article.title}」を投稿しました")
     end
   end
 end
