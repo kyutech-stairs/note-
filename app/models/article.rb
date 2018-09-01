@@ -13,6 +13,7 @@ class Article < ApplicationRecord
   validates :content, presence: true
   mount_uploader :image, ImageUploader
 
+  has_many :notifications, dependent: :destroy
 
   def update_price
     if price.min >= 100 && price.rate != "free"
