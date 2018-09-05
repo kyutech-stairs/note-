@@ -78,6 +78,10 @@ GEM
       railties (>= 4.1.0, < 6.0)
       responders
       warden (~> 1.2.3)
+    dotenv (2.5.0)
+    dotenv-rails (2.5.0)
+      dotenv (= 2.5.0)
+      railties (>= 3.2, < 6.0)
     erubi (1.7.1)
     escape_utils (1.1.1)
     execjs (2.7.0)
@@ -299,6 +303,7 @@ DEPENDENCIES
   carrierwave (= 1.2.2)
   coffee-rails (~> 4.2)
   devise (= 4.4.3)
+  dotenv-rails
   github-linguist (= 4.8.18)
   guard (= 2.13.0)
   guard-minitest (= 2.4.4)
@@ -330,4 +335,4 @@ DEPENDENCIES
   webpacker
 
 BUNDLED WITH
-   1.16.2
+   1.16.4
