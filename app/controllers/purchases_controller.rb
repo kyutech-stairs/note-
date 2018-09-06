@@ -1,14 +1,19 @@
 class PurchasesController < ApplicationController
   before_action :authenticate_user!
   def create
-    debugger
+    Payjp.api_key = PAY_SEC_KEY
     @purchase = current_user.purchases.find_by(article_id: params[:article_id])
     @article = Article.find(params[:article_id])
     unless @purchase
       set_flash(:alert, "購入に失敗")
       redirect_to @article
     end
-    if Time.now - @purchase.updated_at <= 60
+    if Time.now - @purchase.updated_at <= 180
+      charge = Payjp::Charge.create(
+        :amount => @purchase.price,
+        :card => params[:payjpToken],
+        :currency => 'jpy',
+      )
       if @purchase.update(is_purchased: true)
         if @article.purchases_count % Price.rates[@article.price.rate] == 0
           @article.update_price
@@ -23,6 +28,33 @@ class PurchasesController < ApplicationController
       set_flash(:alert, "時間が超過しています。")
       redirect_to @article
     end
+
+    rescue Payjp::CardError => e
+      # Since it's a decline, Payjp::CardError will be caught
+      body = e.json_body
+      err  = body[:error]
+    rescue Payjp::InvalidRequestError => e
+      # Invalid parameters were supplied to Payjp's API
+      body = e.json_body
+      set_flash(:alert, body[:error][:message])
+      redirect_to @article
+    rescue Payjp::AuthenticationError => e
+      # Authentication with Payjp's API failed
+      # (maybe you changed API keys recently)
+      body = e.json_body
+      err  = body[:error]
+    rescue Payjp::APIConnectionError => e
+      # Network communication with Payjp failed
+      body = e.json_body
+      err  = body[:error]
+    rescue Payjp::PayjpError => e
+      # Display a very generic error to the user, and maybe send
+      # yourself an email
+      body = e.json_body
+      err  = body[:error]
+    rescue => e
+      body = e.json_body
+      err  = body[:error]
   end
 
   # 購入前に、購入内容を確定させる（価格が変動するため）

@@ -1,0 +1,3 @@
+<%= form_tag(article_purchases_path(article_id: @article.id), id: "charge-form", method: :post) do %>
+<script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_a7193a608c6832ffb4d6bd63"></script>
+<% end %>

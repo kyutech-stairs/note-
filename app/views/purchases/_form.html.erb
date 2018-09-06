@@ -2,6 +2,7 @@
 
 
 <%= link_to '続きをみる', article_prev_path(@article), method: :post, remote: true, class: "btn waves-effect waves-light modal-trigger", "data-target": "myModal", "v-on:click": "time_init" %>
+
 <div class="modal" id="myModal">
   <div class="modal-header row valign-wrapper">
     <h5 class="modal-title col s14 offset-s9">
@@ -24,16 +25,11 @@
         {{time}}
       </div>
       <div class="row">
-        <%= render 'purchases/form'%>
+        <%= render 'purchases/card_form'%>
       </div>
-    </div>
-    <div class="modal-footer">
-      <%= form_tag(article_purchases_path(article_id: @article.id), method: :post) do %>
-        <input type="submit" value="購入する" class="btn">
-      <% end %>
     </div>
   </div>
 </div>
-</div>
 
+</div>
 <%= javascript_pack_tag 'time' %>

@@ -1,0 +1,18 @@
+<script type="text/javascript" src="https://js.pay.jp/"></script>
+<script type="text/javascript">Payjp.setPublicKey('<%= PAY_PUB_KEY %>');</script>
+<%= form_tag(article_purchases_path(article_id: @article.id), id: "charge-form", "@submit.prevent": "Submit", method: :post) do %>
+<span class="charge-errors"></span>
+  <h4>支払い</h4>
+  <label>カード番号</label>
+  <input type="text" class="number" name="number" maxlength="16" placeholder="カード番号" v-model="card.number">
+
+  <label>CVC</label>
+  <input type="text" class="cvc" name="cvc" maxlength="3" placeholder="CVC" v-model="card.cvc">
+
+  <label>有効期限</label>
+  <input type="text" class="exp_month" name="exp_month" maxlength="2" placeholder="月" v-model="card.exp_month">
+  <input type="text" class="exp_year" name="exp_year" maxlength="4" placeholder="年" v-model="card.exp_year">
+  <div class="modal-footer">
+    <button type="submit" class="btn">購入</button>
+  </div>
+<% end %>
