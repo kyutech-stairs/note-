@@ -39,4 +39,6 @@ class CommentsController < ApplicationController
     @comment = current_user.comments.find_by(id: params[:id])
     redirect_to root_path if @comment.nil?
   end
+
+  
 end
