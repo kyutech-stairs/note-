@@ -23,6 +23,9 @@
         </div>
         {{time}}
       </div>
+      <div class="row">
+        <%= render 'purchases/form'%>
+      </div>
     </div>
     <div class="modal-footer">
       <%= form_tag(article_purchases_path(article_id: @article.id), method: :post) do %>

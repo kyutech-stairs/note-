@@ -13,6 +13,7 @@ var time = new Vue({
 var countdown = function(){
   if ( time.time > 0 ){
     time.time--;
+    console.log("aaa")
   }else{
     $("#myModal").fadeOut();
   }

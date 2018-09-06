@@ -1,0 +1,55 @@
+<%= form_tag(article_purchases_path(article_id: @article.id), id: "charge-form", method: :post) do %>
+  <span class="charge-errors"></span>
+
+  <h4>支払い</h4>
+  <label>カード番号</label>
+  <input type="text" class="number" name="number" maxlength="16" placeholder="カード番号" value="4242424242424242">
+
+  <label>CVC</label>
+  <input type="text" class="cvc" name="cvc" maxlength="3" placeholder="CVC" value="111">
+
+  <label>有効期限</label>
+  <input type="text" class="exp_month" name="exp_month" maxlength="2" placeholder="月" value="12">
+  <input type="text" class="exp_year" name="exp_year" maxlength="4" placeholder="年" value="2019">
+
+  <input type="submit" value="送信">
+<% end %>
+<script type="text/javascript" src="https://js.pay.jp/"></script>
+<script type="text/javascript">
+(function() {
+  var form = $("#charge-form"),
+      number = form.find('input[name="number"]'),
+      cvc = form.find('input[name="cvc"]'),
+      exp_month = form.find('input[name="exp_month"]'),
+      exp_year = form.find('input[name="exp_year"]');
+
+  $("#charge-form").find('input[type="submit"]').on(function() {
+    form.find("input[type=submit]").prop("disabled", true);
+    console.log("aaabbb")
+    var card = {
+        number: number.value,
+        cvc: cvc.value,
+        exp_month: exp_month.value,
+        exp_year: exp_year.value
+    };
+    Payjp.setPublicKey("pk_test_a7193a608c6832ffb4d6bd63");
+    Payjp.createToken(card, function(s, response) {
+      if (response.error) {
+        form.find('.payment-errors').text(response.error.message);
+        form.find('button').prop('disabled', false);
+      }
+      else {
+        $(".number").removeAttr("name");
+        $(".cvc").removeAttr("name");
+        $(".exp_month").removeAttr("name");
+        $(".exp_year").removeAttr("name");
+
+        var token = response.id;
+
+        form.append($('<input type="hidden" name="payjpToken" />').val(token));
+        form.get(0).submit();
+      }
+    });
+  });
+})();
+</script>

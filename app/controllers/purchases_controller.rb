@@ -1,6 +1,7 @@
 class PurchasesController < ApplicationController
   before_action :authenticate_user!
   def create
+    debugger
     @purchase = current_user.purchases.find_by(article_id: params[:article_id])
     @article = Article.find(params[:article_id])
     unless @purchase
