@@ -1,0 +1,11 @@
+<% if current_user %>
+  <ul id="notifications" class="dropdown-content">
+    <% current_user.passive_notices.reverse.each do |notification| %>
+      <% if notification.article %>
+        <li><%= link_to notification.message, notification.article  %></li>
+      <% else %>
+        <li><%= link_to notification.message, notification.noticer %></li>
+      <% end %>
+    <% end %>
+  </ul>
+<% end %>

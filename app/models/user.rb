@@ -18,6 +18,12 @@ class User < ApplicationRecord
   has_many :reviews
   validates :name, presence: true
   has_many :feeds, dependent: :destroy
+
+  has_many :active_notices, class_name: "Notification", foreign_key: "noticer_id", dependent: :destroy
+  has_many :notices, through: :active_notices
+  has_many :passive_notices, class_name: "Notification", foreign_key: "notice_id", dependent: :destroy
+  has_many :noticer, through: :passive_notices
+
   def like(article)
     if feed = feeds.find_by(article_id: article.id)
       feed.update_attributes(like: true, bad: false)
