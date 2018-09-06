@@ -28,33 +28,12 @@ class PurchasesController < ApplicationController
       set_flash(:alert, "時間が超過しています。")
       redirect_to @article
     end
-
-    rescue Payjp::CardError => e
-      # Since it's a decline, Payjp::CardError will be caught
-      body = e.json_body
-      err  = body[:error]
-    rescue Payjp::InvalidRequestError => e
-      # Invalid parameters were supplied to Payjp's API
-      body = e.json_body
-      set_flash(:alert, body[:error][:message])
-      redirect_to @article
-    rescue Payjp::AuthenticationError => e
-      # Authentication with Payjp's API failed
-      # (maybe you changed API keys recently)
-      body = e.json_body
-      err  = body[:error]
-    rescue Payjp::APIConnectionError => e
-      # Network communication with Payjp failed
-      body = e.json_body
-      err  = body[:error]
-    rescue Payjp::PayjpError => e
-      # Display a very generic error to the user, and maybe send
-      # yourself an email
-      body = e.json_body
-      err  = body[:error]
+    
     rescue => e
       body = e.json_body
       err  = body[:error]
+      set_flash(:alert, "購入に失敗")
+      redirect_to @article
   end
 
   # 購入前に、購入内容を確定させる（価格が変動するため）

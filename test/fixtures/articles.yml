@@ -2,3 +2,8 @@ article_one:
   title: "title"
   content: "content"
   user: cheese
+
+article_toll:
+  title: "tt"
+  content: "bb"
+  user: cheese

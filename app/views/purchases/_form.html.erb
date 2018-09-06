@@ -1,7 +1,7 @@
 <div id="for_time">
 
 
-<%= link_to '続きをみる', article_prev_path(@article), method: :post, remote: true, class: "btn waves-effect waves-light modal-trigger", "data-target": "myModal", "v-on:click": "time_init" %>
+<%= link_to '続きをみる', article_prev_path(@article), method: :get, remote: true, class: "btn waves-effect waves-light modal-trigger", "data-target": "myModal", "v-on:click": "time_init" %>
 
 <div class="modal" id="myModal">
   <div class="modal-header row valign-wrapper">

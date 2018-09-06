@@ -3,3 +3,9 @@ price_one:
   min: 0
   max: 0
   rate: "free"
+price_toll:
+  article: article_toll
+  min: 100
+  max: 1000
+  now_price: 100
+  rate: "high"
