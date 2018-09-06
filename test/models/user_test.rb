@@ -45,17 +45,10 @@ class UserTest < ActiveSupport::TestCase
       @user.destroy
     end
   end
-  test "associated like should be destroyed when user are destroyed" do
+  test "associated feed should be destroyed when user are destroyed" do
     @user.save
-    @user.likes.create!(article: @article)
-    assert_difference 'Like.count', -1 do
-      @user.destroy
-    end
-  end
-  test "associated bad should be destroyed when user are destroyed" do
-    @user.save
-    @user.bads.create!(article: @article)
-    assert_difference 'Bad.count', -1 do
+    @user.feeds.create!(article: @article, like: true)
+    assert_difference 'Feed.count', -1 do
       @user.destroy
     end
   end

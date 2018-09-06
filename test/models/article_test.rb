@@ -5,6 +5,7 @@ class ArticleTest < ActiveSupport::TestCase
     @user = users(:monster)
     @article = @user.articles.build(title: "title", content: "content")
     @article.build_price
+    @other_user = users(:cheese)
   end
 
   test "should be valid" do
@@ -36,17 +37,10 @@ class ArticleTest < ActiveSupport::TestCase
       @article.destroy
     end
   end
-  test "associated like should be destroy when article are destroyed" do
+  test "associated feed should be destroy when article are destroyed" do
     @article.save
-    @article.likes.create!(user: @user)
-    assert_difference 'Like.count', -1 do
-      @article.destroy
-    end
-  end
-  test "associated bad should be destroy when article are destroyed" do
-    @article.save
-    @article.bads.create!(user: @user)
-    assert_difference 'Bad.count', -1 do
+    @article.feeds.create!(user: @other_user, like: true)
+    assert_difference 'Feed.count', -1 do
       @article.destroy
     end
   end
