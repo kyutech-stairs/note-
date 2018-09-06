@@ -13,7 +13,7 @@ class PurchaseTest < ActiveSupport::TestCase
   test "should be presence in valid range" do
     @purchase.price = 99
     assert_not @purchase.valid?
-    @purchase.price = 5001
+    @purchase.price = 10001
     assert_not @purchase.valid?
   end
   test "user should be presence" do

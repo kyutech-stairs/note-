@@ -6,8 +6,10 @@ class Purchase < ApplicationRecord
   validate :myself
 
   def myself
-    if user_id == Article.find(article_id).user_id
-      errors.add(:article, "cant purchase your own article")
+    unless article_id.nil?
+      if user_id == Article.find(article_id).user_id
+        errors.add(:article, "cant purchase your own article")
+      end
     end
   end
 end

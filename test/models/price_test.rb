@@ -34,7 +34,7 @@ class PriceTest < ActiveSupport::TestCase
   test "max range should be inclusion correct range" do
     @price.max = 1
     assert_not @price.valid?
-    @price.max=5001
+    @price.max=10001
     assert_not @price.valid?
   end
   test "price validation method should be correctly" do

@@ -14,13 +14,16 @@ class Feed < ApplicationRecord
   
   def myself
     if user_id == Article.find(article_id).user_id
-      errors.add(:user, "cant evaluation your own article")
+      errors.add(:user, "cant feed your own article")
     end
   end
   
   def no_feed_without_purchase
-    user = User.find(user_id)
     article = Article.find(article_id)
+    if article.price.min==0
+      return
+    end
+    user = User.find(user_id)
     unless user.is_purchased?(article)
       errors.add(:article, "cant feed without purchase")
     end

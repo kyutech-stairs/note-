@@ -18,11 +18,13 @@ class Price < ApplicationRecord
     end
   end
   def now_price_validation
-    if min >= 100
-      if now_price < min
-        errors.add(:now_price, "now price は min 以上でなくてはなりません")
-      elsif now_price > max
-        errors.add(:now_price, "now price は max 以下でなくてはなりません")
+    unless min.nil?
+      if min >= 100
+        if now_price < min
+          errors.add(:now_price, "now price は min 以上でなくてはなりません")
+        elsif now_price > max
+          errors.add(:now_price, "now price は max 以下でなくてはなりません")
+        end
       end
     end
   end
