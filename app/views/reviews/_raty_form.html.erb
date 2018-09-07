@@ -1,0 +1,13 @@
+<div class="field" id="star">
+</div>
+
+
+<script>
+$('#star').raty({
+  size     : 1,
+  starOff:  '<%= asset_path('star_off.png') %>',
+  starOn : '<%= asset_path('star_on.png') %>',
+  scoreName: 'review[star]' 
+});
+</script>
+
