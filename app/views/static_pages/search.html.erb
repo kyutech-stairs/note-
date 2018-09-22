@@ -1,18 +1,10 @@
 <div class="container_home">
-  <div class="row">
-    <% if @users %>
-      <%= render @users %>
-      </div>
-      <div class="paginate">
-        <%= paginate @users, params_name: :user %>
-      </div>
-    <% end %>
-  <div class="row">
-    <% if @articles %>
+  <% if @articles %>
+    <div class="row">
       <%= render @articles %>
-      </div>
-      <div class="paginate">
-        <%= paginate @articles, params_name: :article  %>
-      </div>
-    <% end %>
+    </div>
+    <div class="paginate">
+      <%= paginate @articles, params_name: :article  %>
+    </div>
+  <% end %>
 </div>

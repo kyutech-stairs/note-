@@ -1,0 +1,26 @@
+<div class="row valign-wrapper" style="margin: 1vh">
+  <div class="col s1 offset-s1">
+    <i class="material-icons">subdirectory_arrow_right</i>
+  </div>
+  <div class="col s2">
+    <%= link_to user_image_for(reply.user, option={class:"icon-image", size: "35"}), reply.user %>
+  </div>
+  <div class="col s4">
+    <%= link_to reply.user.name, reply.user %>
+  </div>
+  <div class="col s4">
+    <%= date_format(reply.created_at) %>
+  </div>
+  <div class="col offset-s8 s4">
+    <% if current_user %>
+      <% if reply.user_id==current_user.id %>
+        <%= link_to "削除", article_comment_path(reply, article_id: @article.id), method: :delete, class: "btn btn-brown", remote: true %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+<div class="row" style="margin: 3vh">
+  <div class="col offset-s4 s20">
+    <%= reply.content %>
+  </div>
+</div>

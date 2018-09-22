@@ -1,7 +1,7 @@
 <ul class="collapsible">
 <li>
   <div class="collapsible-header">
-    <div class="row">
+    <div class="row" style="margin-bottom: 1vh; margin-top:3vh;">
       <div class="col s20 valign-wrapper">
         <div class="col s2">
           <%= link_to user_image_for(comment.user, option={class:"icon-image", size: "35"}), comment.user %>
@@ -15,11 +15,11 @@
       </div>
       <div class="col s4">
         <% if current_user %>
-          <i class="material-icons">expand_more</i>
+          <i class="material-icons">reply</i>
         <% end %>
       </div>
     </div>
-    <div class="row">
+    <div class="row" style="margin-top: 4vh; margin-bottom: 3vh;">
       <div class="col s23 offset-s1">
         <%= comment.content %>
       </div>
@@ -30,7 +30,7 @@
       <input type="hidden" value="<%= @article.id%>" name="comment[article_id]">
       <input type="hidden" value="<%= comment.id%>" name="comment[reply_id]">
       <div class="controls">
-        <div class="row">
+        <div class="row" style="margin-top:0; margin-bottom:0;">
           <div class="col offset-s2 s18 input-field">
             <textarea id="textarea2" class="materialize-textarea" name="comment[content]"></textarea>
             <label for="textarea2">Reply</label>
