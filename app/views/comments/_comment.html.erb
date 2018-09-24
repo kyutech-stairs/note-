@@ -1,34 +1,6 @@
 <% if comment.reply_id==nil%>
-  <div class="reply-form" style="border-bottom: 1px solid;">
-    <% if comment.user_id==current_user.id %>
-    <div style="padding:1rem;">
-      <div class="row" style="margin-bottom: 1vh; margin-top:3vh">
-        <div class="col s20 valign-wrapper">
-          <div class="col s2">
-            <%= link_to user_image_for(comment.user, option={class:"icon-image", size: "35"}), comment.user %>
-          </div>
-          <div class="col s6">
-            <%= link_to comment.user.name, comment.user %>
-          </div>
-          <div class="col s6 offset-s1 offset-right-s9">
-            <%= date_format(comment.created_at) %>
-          </div>
-        </div>
-        <div class="col s4">
-          <% if current_user %>
-            <%= link_to "削除", article_comment_path(comment, article_id: @article.id), method: :delete, class: "btn btn-brown", remote: true %>
-          <% end %>
-        </div>
-      </div>
-      <div class="row" style="margin-top: 3vh; margin-bottom: 3vh;">
-        <div class="col s23 offset-s1">
-          <%= comment.content %>
-        </div>
-      </div>
-    </div>
-    <% else %>
-      <%= render 'comments/reply_form', comment: comment %>
-    <% end %>
+  <div class="reply-form" style="border-bottom: 1px solid #ffe082;">
+    <%= render 'comments/reply_form', comment: comment %>
     <% if any_reply?(comment) %>
       <div class="grad-wrap">
         <input id="trigger-<%= comment.id %>" class="grad-trigger" type="checkbox">

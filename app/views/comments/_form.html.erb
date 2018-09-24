@@ -2,7 +2,7 @@
   <input type="hidden" value="<%= @article.id%>" name="comment[article_id]">
   <div class="row">
     <div class="col s20 input-field">
-      <textarea id="textarea1" class="materialize-textarea" name="comment[content]"
+      <textarea id="textarea1" autofocus class="materialize-textarea" name="comment[content]"
       v-model="comment" :rows="rows"></textarea>
       <label for="textarea1">Comment</label>
     </div>

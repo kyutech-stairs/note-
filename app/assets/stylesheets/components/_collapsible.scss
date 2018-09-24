@@ -1,3 +1,6 @@
+$brown-color: #ca9531;
+$orange-color: #ffab00;
+
 .collapsible {
   border-top: 1px solid $collapsible-border-color;
   border-right: 1px solid $collapsible-border-color;
@@ -35,11 +38,20 @@
   display: none;
   border-bottom: 1px solid $collapsible-border-color;
   background-color: $collapsible-body-color;
-  color: $collapsible-body-font-color;
+  color: $brown-color;
   box-sizing: border-box;
   padding: 2rem;
   padding-top: 1rem;
   margin-top: 0px;
+  .user-name{
+    a{
+      color: $brown-color;
+      font-size: 0.9rem;
+    }
+  }
+  .comment-content{
+    color: $collapsible-body-font-color;
+  }
 }
 
 .reply-form{

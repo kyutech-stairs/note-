@@ -1,11 +1,25 @@
-<div class="review-one" style="border: 1px solid;">
-  <div id="star-result-<%= review.id %>" class="star-size">
-  </div>
-  <div class="review-title">
-    <%= review.title %>
-  </div>
-  <div class="review-content">
-    <%= review.content%>
+<div class="review-one" style="border-bottom: 1px solid #ffe082;">
+  <div class="row">
+    <div class="col s24" style="display: flex;">
+      <div id="star-result-<%= review.id %>" class="star-size"></div>
+      <div class="review_title">
+        <%= review.title %>
+      </div>
+    </div>
+    <div class="col s24 valign-wrapper" style="display: flex;">
+      <div class="review_user">
+        <%= link_to user_image_for(review.user, option={class:"icon-image", size: "16"}), review.user %>
+      </div>
+      <div class="user-name review_user">
+        <%= link_to review.user.name, review.user %>
+      </div>
+      <div class="review_user">
+        <%= date_format(review.updated_at) %>
+      </div>
+    </div>
+    <div class="col offset-s1 s23 review_content">
+      <%= review.content%>
+    </div>
   </div>
 </div>
  <script>

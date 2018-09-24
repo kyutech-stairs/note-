@@ -1,27 +1,40 @@
 <ul class="collapsible">
 <li>
   <div class="collapsible-header">
-    <div class="row" style="margin-bottom: 1vh; margin-top:3vh;">
-      <div class="col s20 valign-wrapper">
-        <div class="col s2">
-          <%= link_to user_image_for(comment.user, option={class:"icon-image", size: "35"}), comment.user %>
-        </div>
-        <div class="col s6">
+    <div class="row" style="margin-bottom: 1vh; margin-top:2vh;">
+      <div class="col s16 valign-wrapper" style="display: flex;">
+        <%= link_to user_image_for(comment.user, option={class:"icon-image", size: "20"}), comment.user %>
+        <div class="col offset-s1 user-name">
           <%= link_to comment.user.name, comment.user %>
         </div>
-        <div class="col s6 offset-s1 offset-right-s9">
+        <div class="col offset-s1" style="font-size: 0.7rem;">
           <%= date_format(comment.created_at) %>
         </div>
       </div>
-      <div class="col s4">
-        <% if current_user %>
-          <i class="material-icons">reply</i>
-        <% end %>
-      </div>
+      <% if comment.user_id==current_user.id %>
+        <div class="col offset-s4 s1">
+          <% if current_user %>
+            <i class="material-icons reply-icon">reply</i>
+          <% end %>
+        </div>
+        <div class="col s1 offset-right-s2">
+          <% if current_user %>
+            <%= link_to article_comment_path(comment, article_id: @article.id), method: :delete, remote: true do %>
+              <i class="material-icons reply-icon">delete_forever</i>
+            <% end %>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="col offset-s4 s4">
+          <% if current_user %>
+            <i class="material-icons reply-icon">reply</i>
+          <% end %>
+        </div>
+      <% end %>
     </div>
-    <div class="row" style="margin-top: 4vh; margin-bottom: 3vh;">
+    <div class="row" style="margin-top: 1vh; margin-bottom: 2vh;">
       <div class="col s23 offset-s1">
-        <%= comment.content %>
+        <span class="comment-content"><%= comment.content %></span>
       </div>
     </div>
   </div>
@@ -32,7 +45,7 @@
       <div class="controls">
         <div class="row" style="margin-top:0; margin-bottom:0;">
           <div class="col offset-s2 s18 input-field">
-            <textarea id="textarea2" class="materialize-textarea" name="comment[content]"></textarea>
+            <textarea id="textarea2" autofocus class="materialize-textarea" name="comment[content]"></textarea>
             <label for="textarea2">Reply</label>
           </div>
           <div class="col s3 offset-s1">

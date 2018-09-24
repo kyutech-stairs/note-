@@ -1,17 +1,20 @@
+$brown-color: #ca9531;
+$orange-color: #ffab00;
+
 .collapsible-body{
   .row{
     .input-field{
       textarea, input{
-        color: #ca9531;
+        color: $orange-color;
         // Focused input style
         &:focus:not([readonly]) {
-          border-bottom: 1px solid #ca9531;
-          box-shadow: 0 1px 0 0 #ca9531;
+          border-bottom: 1px solid $orange-color;
+          box-shadow: 0 1px 0 0 $orange-color;
         }
 
         // Focused label style
         &:focus:not([readonly])+label {
-          color: #ca9531;
+          color: $orange-color;
         }
       }
     }

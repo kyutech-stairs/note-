@@ -14,12 +14,11 @@
 
 <div class="container">
   <div class="row">
-    <div class="col s14 offset-right-s4 valign-wrapper">
+    <div class="col s18 valign-wrapper">
       <span><%= user_image_for(@article.user) %></span>
-      <span class="col offset-s1"><%= link_to @article.user.name, @article.user %></span>
-      <span class="col offset-s1"><%= @article.updated_at.strftime('%Y年%m月%d日に更新')%></span>
+      <span class="col offset-s1"><%= link_to @article.user.name, @article.user, style:"color: #ffca28; font-size: 1.2rem;" %></span>
+      <span class="col offset-s1" style="color: #616161;"><%= @article.updated_at.strftime('%Y年%m月%d日に更新')%></span>
     </div>
-  <!-- 画面右上：current_userなら編集、その他はfollow_buttonを表示 -->
     <div class="col s6" id="follow">
       <% if @article.user == current_user%>
         <div class="flex">

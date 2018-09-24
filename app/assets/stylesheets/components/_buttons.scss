@@ -1,3 +1,6 @@
+$brown-color: #cc8f00;
+$orange-color: #ffab00;
+
 @mixin btn_color($color: #fff) {
   background-color: lighten($color, 4%);
   @extend .z-depth-1-half;
@@ -83,12 +86,12 @@
 }
 
 .btn-brown{
-  background-color: #cc8f00;
+  background-color: $orange-color;
   &:focus {
-    background-color: darken(#cc8f00, 10%);
+    background-color: darken($orange-color, 10%);
   }
   &:hover {
-    background-color: lighten(#cc8f00, 5%);
+    background-color: lighten($orange-color, 5%);
     @extend .z-depth-1-half;
   }
 }
