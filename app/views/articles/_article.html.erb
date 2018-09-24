@@ -31,10 +31,10 @@
           <div class="col s4">
             <%= link_to user_image_for(article.user), article.user %>
           </div>
-          <div class="col offset-s1 s9">
+          <div class="col offset-s1 s11">
             <%= link_to article.user.name, article.user, class: "user-name" %>
           </div>
-          <div class="col s10">
+          <div class="col s8">
             <%= date_format(article.created_at) %>
           </div>
         </div>
