@@ -44,7 +44,7 @@ $orange-color: #ffab00;
   padding-top: 1rem;
   margin-top: 0px;
   .user-name{
-    a{
+    a:not(.bad_review){
       color: $brown-color;
       font-size: 0.9rem;
     }

@@ -215,8 +215,13 @@
       margin-top: 1vh;
       color:$collapsible-body-font-color;
     }
-
-
+    .review_content_bad{
+      margin-top: 1vh;
+      color:$secondary-color;
+    }
+    .bad_review{
+      color:$secondary-color-dark;
+    }
 }
 
 .star-size{
