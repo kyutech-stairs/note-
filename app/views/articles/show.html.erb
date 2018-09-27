@@ -21,25 +21,37 @@
     </div>
     <div class="col s6" id="follow">
       <% if @article.user == current_user%>
-        <div class="flex">
+        <div class="flex right">
           <%= link_to "編集", edit_article_path(@article), class: "btn"%>
           <%= render 'articles/confi_modal'%>
         </div>
       <% else %>
-      <div class="follow-form">
+      <div class="follow-form right">
         <%= render 'follows/form', target: @article.user%>
       </div>
       <%end%>
     </div>
   </div>
   <div class="row">
-    <h4>
+    <h4 style="font-weight:bold;">
       <%= @article.title %>
     </h4>
   </div>
   <div class="row" style="text-align: center;">
     <%= image_tag @article.image, style: "width: 95%; " %>
   </div>
+
+  <!-- <% if have_header_image?(@article) %>
+    <div class="article_image_frame">
+      <%= image_tag @article.image, class:"article_image" %>
+      <span class="article-title"><%= @article.title %></span>
+    </div>
+  <% else %>
+    <div class="row">
+      <h4 style="font-weight:bold;"><%= @article.title %></h4>
+    </div>
+  <% end %> -->
+
   <div class="row qiita-markdown">
     <% if @article.price.min == 0 %>
       <%= qiita_markdown(@article.content) %>

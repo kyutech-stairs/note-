@@ -100,9 +100,9 @@ module ArticlesHelper
               >> こちらこそよろしくお願いします。
             </div><br/>
             <label>Preview</label>
-            <div style=&quot;border-left: 5px solid #dddddd; padding: 5px;&quot;>
+            <div style=&quot;border-left: 5px solid #ffca28; padding: 5px;&quot;>
             本日はよろしくお願いします。<br/><br/>
-            <div style=&quot;border-left: 5px solid #dddddd; padding: 5px;&quot;>
+            <div style=&quot;border-left: 5px solid #ffca28; padding: 5px;&quot;>
             こちらこそよろしくお願いします。<br/>
             </div></div>"
     html.html_safe
@@ -124,6 +124,11 @@ module ArticlesHelper
             </div>"
     html.html_safe
   end
+
+  def have_header_image?(article)
+    article.image.to_s.include?(".")
+  end
+
 
   def display_header_image(article)
     if article.image.file
