@@ -16,7 +16,7 @@ class User < ApplicationRecord
   has_many :passive_follows, class_name: "Follow", foreign_key: "following_id", dependent: :destroy
   has_many :followers, through: :passive_follows
   has_many :reviews
-  validates :name, presence: true
+  validates :name, presence: true, length: { maximum: 12 }
   has_many :feeds, dependent: :destroy
 
   has_many :active_notices, class_name: "Notification", foreign_key: "noticer_id", dependent: :destroy
@@ -63,7 +63,7 @@ class User < ApplicationRecord
   def purchased
     purchases.where(is_purchased: true)
   end
-  
+
   def self.search(key)
     if key!=""
       self.where("name like '%#{key}%'")
