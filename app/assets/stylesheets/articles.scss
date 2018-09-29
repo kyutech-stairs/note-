@@ -52,6 +52,7 @@
 .article-one{
   min-width: 280px;
   min-height: 280px;
+  max-height: 356px;
   position: relative;
   .card{
     &:hover > .card-image{
@@ -63,7 +64,7 @@
       background-color: black;
       img{
         min-height: 210px;
-        height: 31vh;
+        height: 30vh;
       }
       .header-image{
         opacity: 0.7;
@@ -83,12 +84,11 @@
       }
     }
     .card-action{
-      padding: 0;
-      min-height: 50px;
+      min-height: 40px;
       .row{
         margin: 0 auto;
         img{
-          margin-top: 1vh;
+          margin-top:5px;
         }
       }
     }

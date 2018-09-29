@@ -7,11 +7,14 @@ class ArticlesController < ApplicationController
     @article = Article.new
     @article.build_price
   end
+
   def edit
     @article = Article.find(params[:id])
   end
+
   def show
     @article = Article.find(params[:id])
+    impressionist(@article, nil, :unique => [:session_hash])
     @reviews = @article.reviews.page(params[:page]).per(5)
     @reviews_feeds = @article.reviews.page(params[:page]).per(5).search_by_star(params[:search])
     @review = @article.reviews.find_by(user_id: current_user)

@@ -1,13 +1,19 @@
 <% unless current_user %>
   <%= render 'welcome_header' %>
 <% end %>
-<div class="container_home">
   <div class="row">
-    <% if @articles.any? %>
-      <%= render @articles %>
-    <% end %>
+    <div class="col s17">
+      <% if @articles.any? %>
+        <%= render @articles %>
+      <% end %>
+      <div class="paginate">
+        <%= paginate @articles%>
+      </div>
+    </div>
+    <div class="col offset-s1 s6">
+      <h4 style="color:#ffab00; font-weight:bold;">Hot Articles</h4>
+      <% @most_viewed.each do |most_viewed| %>
+        <%= render 'hot_articles', most_viewed: most_viewed %>
+      <% end %>
+    </div>
   </div>
-</div>
-<div class="paginate">
-  <%= paginate @articles%>
-</div>
