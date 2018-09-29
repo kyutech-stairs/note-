@@ -41,6 +41,7 @@ class ReviewsController < ApplicationController
     redirect_to root_path if !@review
   end
   def create_before_purchase
-    redirect_to root_path unless current_user.is_purchased?(Article.find(params[:article_id]))
+    article = Article.find_by(params[:id])
+    redirect_to root_path unless current_user.is_purchased?(Article.find(params[:article_id])) || article.price.rate=='free'
   end
 end

@@ -170,7 +170,8 @@
   display: flex;
 
 }
-.container{
+.article_container{
+  z-index: 990;
   .article_image_frame{
     position:relative;
     // background-color: black;
