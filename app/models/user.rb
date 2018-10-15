@@ -16,13 +16,16 @@ class User < ApplicationRecord
   has_many :passive_follows, class_name: "Follow", foreign_key: "following_id", dependent: :destroy
   has_many :followers, through: :passive_follows
   has_many :reviews
-  validates :name, presence: true
   has_many :feeds, dependent: :destroy
 
   has_many :active_notices, class_name: "Notification", foreign_key: "noticer_id", dependent: :destroy
   has_many :notices, through: :active_notices
   has_many :passive_notices, class_name: "Notification", foreign_key: "notice_id", dependent: :destroy
   has_many :noticer, through: :passive_notices
+
+  validates :name, presence: true
+  validates :sales, presence: true
+  validates :sales_summary, presence: true
 
   def like(article)
     if feed = feeds.find_by(article_id: article.id)
@@ -70,5 +73,13 @@ class User < ApplicationRecord
     else
       nil
     end
+  end
+  def amount_sells
+    Purchase.where(article_id: articles.map(&:id))
+  end
+  def update_sales(price)
+    percent = 0.9 # 手数料10%
+    self.sales += (price * percent).ceil
+    self.sales_summary += (price * percent).ceil
   end
 end
