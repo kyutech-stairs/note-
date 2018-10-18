@@ -44,7 +44,7 @@
     <div class="preview z-depth-2 col s11 offset-s1">
       <div class="preview-wrapper">
         <div v-if="content">
-          <div v-html="mark(content)" ></div>
+          <div class="qiita-markdown"  v-html="mark(content)" ></div>
         </div>
         <div class="preview-placeholder" v-else style="color: gray;">プレビュー</div>
       </div>
