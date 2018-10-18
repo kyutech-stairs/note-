@@ -1,0 +1,20 @@
+<div class="hvr-float">
+  <div class="card horizontal hoverable">
+    <div class="card-image col s12" style="padding: 0;">
+      <%= link_to display_header_image(most_viewed), most_viewed%>
+    </div>
+    <div class="card-stacked col s12">
+      <div class="card-content">
+        <%= link_to most_viewed.title.truncate(20), most_viewed%>
+      </div>
+      <div class="card-action flex valign-wrapper">
+        <div class="col s1">
+          <%= link_to user_image_for(most_viewed.user, option={class:"icon-image", size: "18"}), most_viewed.user %>
+        </div>
+        <div class="col offset-s2 s21">
+          <span style="font-size: 0.8rem;"><%= link_to most_viewed.user.name, most_viewed.user %></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

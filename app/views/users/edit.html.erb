@@ -5,13 +5,13 @@
   <%= form_for(@user, html: {id: "profile_editor"}) do |f| %>
     <div class="row">
       <div class="input-field col s24">
-        <input id="user_name" type="text" v-model="user_name" name="user[name]" value="<%=@user.name%>">
-        <label for="user_name">ニックネーム</label>
+        <input id="user_name" maxlength='12' type="text" v-model="user_name" name="user[name]" value="<%=@user.name%>">
+        <label for="user_name">ニックネーム(12文字)</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s24">
-        <input id="user_profile" type="text" v-model="user_profile" name="user[profile]" value="<%=@user.profile%>">
+        <textarea id="user_profile" class="materialize-textarea" type="text" v-model="user_profile" name="user[profile]"><%=@user.profile%></textarea>
         <label for="user_profile">プロフィール</label>
       </div>
     </div>

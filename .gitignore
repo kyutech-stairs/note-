@@ -29,9 +29,9 @@ vendor/bundle
 /public/packs
 /public/packs-test
 /public/uploads/*
+/public/social-share-button/*
 /node_modules
 yarn-debug.log*
 .yarn-integrity
 
 .DS_Store
-

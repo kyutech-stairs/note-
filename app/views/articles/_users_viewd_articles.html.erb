@@ -1,0 +1,12 @@
+<div class="hvr-float">
+  <div class="card horizontal hoverable">
+    <div class="card-image col s12" style="padding: 0;">
+      <%= link_to display_header_image(most_viewed), most_viewed%>
+    </div>
+    <div class="card-stacked col s12">
+      <div class="card-content" style="padding:1vw;">
+        <%= link_to most_viewed.title.truncate(20), most_viewed%>
+      </div>
+    </div>
+  </div>
+</div>

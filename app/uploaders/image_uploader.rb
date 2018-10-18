@@ -24,7 +24,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   process resize_to_limit: [1000,1000]
   #保存形式
   process convert: 'jpg'
-  
+
   # def scale(width, height)
   #   # do something
   # end

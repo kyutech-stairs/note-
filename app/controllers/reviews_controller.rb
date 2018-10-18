@@ -10,9 +10,9 @@ class ReviewsController < ApplicationController
   def create
     @review = current_user.reviews.build(review_params)
     if @review.save
-      set_flash(:notice, "reviewを作成しました")
+      set_flash(:notice, "レビューが作成されました")
     else
-      set_flash(:alert, "失敗")
+      set_flash(:alert, "作成に失敗しました")
     end
     @article = @review.article
     redirect_to @article
@@ -21,18 +21,18 @@ class ReviewsController < ApplicationController
   def destroy
      @review.destroy
   end
-  
+
   def update
     if @review.update_attributes(review_params)
-      set_flash(:notice, "reviewを更新しました")
-    else 
-      set_flash(:alert, "失敗")
+      set_flash(:notice, "レビューが更新されました")
+    else
+      set_flash(:alert, "更新に失敗しました")
     end
     @article = @review.article
     redirect_to @article
   end
-  
-  private 
+
+  private
   def review_params
     params.permit(:star, :title, :content, :article_id)
   end
@@ -41,6 +41,7 @@ class ReviewsController < ApplicationController
     redirect_to root_path if !@review
   end
   def create_before_purchase
-    redirect_to root_path unless current_user.is_purchased?(Article.find(params[:article_id]))
+    article = Article.find_by(params[:id])
+    redirect_to root_path unless current_user.is_purchased?(Article.find(params[:article_id])) || article.price.rate=='free'
   end
 end

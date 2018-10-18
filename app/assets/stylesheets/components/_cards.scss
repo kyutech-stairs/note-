@@ -21,7 +21,8 @@
 
   .card-title {
     font-size: 18px;
-    font-weight: 300;
+    font-weight: 100;
+    //-webkit-font-smoothing: antialiased;
     &.activator {
       cursor: pointer;
     }
@@ -67,10 +68,12 @@
 
   // Horizontal Cards
   &.horizontal {
+    height:120px;
+    width:22.5vw;
     &.small, &.medium, &.large {
       .card-image {
         height: 100%;
-        max-height: none;
+        max-height: 100px;
         overflow: visible;
 
         img {
@@ -86,6 +89,7 @@
       img {
         border-radius: 2px 0 0 2px;
         max-width: 100%;
+        height:100%;
         width: auto;
       }
     }
@@ -97,7 +101,19 @@
       position: relative;
 
       .card-content {
+        padding: 0.5vw;
+        font-size: 1rem;
         flex-grow: 1;
+        a{
+          color:#616161;
+        }
+      }
+      .card-action{
+        padding-left: 0;
+        padding-right: 0;
+        img{
+          margin-top:5px;
+        }
       }
     }
   }
@@ -144,12 +160,12 @@
       bottom: 0;
       left: 0;
       max-width: 100%;
-      padding: 1vh $card-padding;
+      padding: $card-padding;
     }
   }
 
   .card-content {
-    padding: 2vh $card-padding;
+    padding: 1.2vh $card-padding;
     border-radius: 0 0 2px 2px;
 
     p {
@@ -173,7 +189,7 @@
     background-color: inherit; // Use inherit to inherit color classes
     border-top: 1px solid rgba(160,160,160,.2);
     position: relative;
-    padding: 1vh $card-padding;
+    padding: 0.5vh 2px;
 
     a:not(.btn):not(.btn-large):not(.btn-floating) {
       color: $primary-color;
