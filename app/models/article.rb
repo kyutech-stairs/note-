@@ -21,7 +21,7 @@ class Article < ApplicationRecord
       r = Price.rates[price.rate]
       # 100 is not decided yet. 100 is fluctuation range
       flu_p = 100 / r
-      tmp_p = likes.count * flu_p + purchases.count * flu_p - bads.count * flu_p * 2 + price.min
+      tmp_p = like_count * flu_p + purchases.count * flu_p - bad_count * flu_p * 2 + price.min
       if tmp_p > price.max
         price.now_price = price.max
       elsif tmp_p < price.min
