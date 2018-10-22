@@ -1,49 +1,19 @@
-
-  <% unless current_user %>
-    <div class="welcome_header">
-      <div class="row welcome_body">
-        <div id="welcome1" style="display: block">
-          <div class="col s12 center-align">
-            <div class="col offset-s4 s20 left-align">
-              <h4><ruby>創造力<rt>クリエイティブ</rt></ruby>に<ruby>価値<rt>バリュー</rt></ruby>を</h4>
-            </div>
-            <div class="col offset-s4 s20 left-align">
-              <p>なんて書こうかな。どうしよっかな。いやこれどうする？逆に。いううううううう。っていうか上の文言いい感じでダサくて好き</p>
-            </div>
-          </div>
-          <div class="col s12 center-align">
-            <%= image_tag("welcome5.png") %>
-          </div>
-        </div>
-        <div id="welcome2">
-          <div class="col s12 center-align">
-            <div class="col offset-s4 s20 left-align">
-              <h4>いい感じの価値をみんなでつけようぜ的な</h4>
-            </div>
-            <div class="col offset-s4 s20 left-align">
-              <p>なんて書こうかな。どうしよっかな。いやこれどうする？逆に。いううううううう。っていうか上の文言いい感じでダサくて好き</p>
-            </div>
-          </div>
-          <div class="col s12 center-align">
-            <%= image_tag("welcome1.png") %>
-          </div>
-        </div>
-      </div>
-      <div class="row" style="margin-top: 0px;">
-        <ul class="tabs col offset-s10 s4">
-          <li class="tab col s12"><a class="active" href="#welcome1"></a></li>
-          <li class="tab col s12"><a href="#welcome2"></a></li>
-        </ul>
+<% unless current_user %>
+  <%= render 'welcome_header' %>
+<% end %>
+  <div class="row">
+    <div class="col s17">
+      <% if @articles.any? %>
+        <%= render @articles %>
+      <% end %>
+      <div class="paginate">
+        <%= paginate @articles%>
       </div>
     </div>
-  <% end %>
-  <div class="container_home">
-  <div class="row">
-    <% if @articles.any? %>
-      <%= render @articles %>
-    <% end %>
+    <div class="col offset-s1 s6">
+      <h4 style="color:#ffab00; font-weight:bold;">Hot Articles</h4>
+      <% @most_viewed.each do |most_viewed| %>
+        <%= render 'hot_articles', most_viewed: most_viewed %>
+      <% end %>
+    </div>
   </div>
-</div>
-<div class="paginate">
-  <%= paginate @articles%>
-</div>

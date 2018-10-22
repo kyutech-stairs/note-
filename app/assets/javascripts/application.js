@@ -17,3 +17,4 @@
 //= require marked
 //= require ./article.js
 //= require ./materialize.min.js
+//= require ./jquery.raty.js

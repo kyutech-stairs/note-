@@ -40,5 +40,5 @@ class CommentsController < ApplicationController
     redirect_to root_path if @comment.nil?
   end
 
-  
+
 end

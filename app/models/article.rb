@@ -1,4 +1,5 @@
 class Article < ApplicationRecord
+   is_impressionable counter_cache: true
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_many :feeds, dependent: :destroy

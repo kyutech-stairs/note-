@@ -1,0 +1,25 @@
+<div class="row valign-wrapper" style="margin: 1vh">
+  <div class="col offset-s3 s16 valign-wrapper" style="display:flex;">
+    <%= link_to user_image_for(reply.user, option={class:"icon-image", size: "20"}), reply.user %>
+    <div class="col offset-s1 user-name">
+      <%= link_to reply.user.name, reply.user %>
+    </div>
+    <div class="col offset-s1" style="font-size: 0.7rem;">
+      <%= date_format(reply.created_at) %>
+    </div>
+  </div>
+  <div class="col offset-s1 s4">
+    <% if current_user %>
+      <% if reply.user_id==current_user.id %>
+      <%= link_to article_comment_path(reply, article_id: @article.id), method: :delete, remote: true do %>
+        <i class="material-icons reply-icon">delete_forever</i>
+      <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+<div class="row" style="margin: 1vh">
+  <div class="col offset-s4 s20">
+    <span class="comment-content"><%= reply.content %></span>
+  </div>
+</div>

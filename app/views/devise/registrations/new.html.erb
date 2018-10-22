@@ -6,8 +6,8 @@
       <%= devise_error_messages! %>
       <div class="row">
         <div class="input-field">
-          <%= f.text_field :name, autofocus: true, autocomplete: "name", id: "new_name_form" %>
-          <label for="new_name_form">Name</label>
+          <%= f.text_field :name, autofocus: true, maxlength:'12', autocomplete: "name", id: "new_name_form" %>
+          <label for="new_name_form">Name(12文字)</label>
         </div>
 
         <div class="input-field">

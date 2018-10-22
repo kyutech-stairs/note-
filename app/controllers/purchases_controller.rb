@@ -5,7 +5,7 @@ class PurchasesController < ApplicationController
     @purchase = current_user.purchases.find_by(article_id: params[:article_id])
     @article = Article.find(params[:article_id])
     unless @purchase
-      set_flash(:alert, "購入に失敗")
+      set_flash(:alert, "購入に失敗しました")
       redirect_to @article
     end
     if Time.now - @purchase.updated_at <= 180
@@ -72,7 +72,7 @@ class PurchasesController < ApplicationController
     if @purchase.update_attributes(price: @article.price.now_price, updated_at: Time.now)
     end
   end
-  private 
+  private
   def purchase_params
     params.permit(:article_id, :price)
   end

@@ -1,3 +1,5 @@
+@import "components/variables";
+
 .ribbon_area {
     position: absolute;
     top: -6px;
@@ -19,7 +21,7 @@
     font-size: 18px;
     line-height: 16px;
     // background: #ffa520;
-    background: #40c4ff;
+    background: $secondary-color;
     color: #fff;
     letter-spacing: 0.05em;
     -webkit-transform: rotate(45deg);
@@ -50,13 +52,19 @@
 .article-one{
   min-width: 280px;
   min-height: 280px;
+  max-height: 356px;
   position: relative;
   .card{
+    &:hover > .card-image{
+      .header-image{
+        opacity: 1.0;
+      }
+    }
     .card-image{
       background-color: black;
       img{
         min-height: 210px;
-        height: 31vh;
+        height: 30vh;
       }
       .header-image{
         opacity: 0.7;
@@ -76,12 +84,11 @@
       }
     }
     .card-action{
-      padding: 0;
-      min-height: 50px;
+      min-height: 40px;
       .row{
         margin: 0 auto;
         img{
-          margin-top: 1vh;
+          margin-top:5px;
         }
       }
     }
@@ -148,6 +155,7 @@
 //article show
 .sidebar{
   position: fixed;
+  // width: 11vw;
   left: 30px;
   overflow-x: hidden;
   z-index: 996;
@@ -160,9 +168,33 @@
 }
 .flex{
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+
 }
+.article_container{
+  z-index: 990;
+  .article_image_frame{
+    position:relative;
+    // background-color: black;
+    background: linear-gradient(black 96%, white);
+    margin: 2vh 6vw;
+
+    .article_image{
+      opacity: 0.6;
+      width:100%;
+      height:100%;
+    }
+    .article-title{
+      position: absolute;
+      bottom:4vh;
+      left: 3vw;
+      font-size: 34px;
+      font-weight: bold;
+      color: #ffffff;
+    }
+  }
+}
+
+
 
 .modal{
   .modal-body{
@@ -171,7 +203,7 @@
       margin: 0 auto;
       .article_title{
         font-size: 20px;
-        border-bottom: 1px solid #40c4ff;
+        border-bottom: 1px solid $secondary-color;
       }
       .now_price{
         label{
@@ -180,7 +212,7 @@
         p{
           padding-left: 3vw;
           font-size: 18px;
-          border-bottom: 1px solid #40c4ff;
+          border-bottom: 1px solid $secondary-color;
         }
       }
       .margin-yen{
@@ -191,4 +223,70 @@
       }
     }
   }
+}
+
+
+.review-one{
+    .review_title{
+      font-weight: bold;
+      margin-left: 1vw;
+    }
+    .review_user{
+      margin-left: 1vw;
+      font-size: 12px;
+    }
+    .review_content{
+      margin-top: 1vh;
+      color:$collapsible-body-font-color;
+    }
+    .review_content_bad{
+      margin-top: 1vh;
+      color:$secondary-color;
+    }
+    .bad_review{
+      color:$secondary-color-dark;
+    }
+}
+
+.star-size{
+  img{
+    height: 20px;
+  }
+}
+
+
+.grad-btn{
+  // color: #b27d00;
+  color: #ffab00;
+  &:before {
+    content: "返信を表示する";
+  }
+}
+.grad-item {
+  position: relative;
+  overflow: hidden;
+  height: 5px;
+  &:before {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.9) 50%, rgba(255,255,255,0.9) 50%, #fff 100%);
+    background: linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.9) 50%, rgba(255,255,255,0.9) 50%, #fff 100%);
+    content: "";
+  }
+}
+.grad-trigger {
+  display: none;
+}
+.grad-trigger:checked ~ .grad-btn::before {
+  content: "閉じる";
+}
+.grad-trigger:checked ~ .grad-item {
+  height: auto;
+}
+.grad-trigger:checked ~ .grad-item::before {
+  display: none;
 }

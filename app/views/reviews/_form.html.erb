@@ -3,22 +3,15 @@
     <p style="border-bottom: 1px solid;"><%= article.title %></p>
   </div>
   <%= form_for [@article, @review] do |f| %>
-    <input type="hidden" value="<%= article.id%>" name="article_id">
-    <input type="hidden" value="">
-    <div class="row" id="star-rate">
-      <% if @review.star %>
-        <star-rating :star-size="20" :rating="<%= @review.star %>" @rating-selected="setRating">
-        </star-rating>
-      <% else %>
-        <star-rating :star-size="20" v-model="rating">
-        </star-rating>
-      <% end %>
-      <div v-if="rating">
-        <input type="hidden" v-bind:value="rating" name="star">
-      </div>
-    </div>
+
     <div class="row">
       <div class="col s20">
+        <div class="input-field col s24">
+          <div id="star" class="star-size">
+            <%= f.label :star %>
+            <%= f.hidden_field :star, id: :star %></br>
+          </div>
+        </div>
         <div class="input-field col s24">
           <input id="review_title" type="text" name="title" value="<%= @review.title%>">
           <label for="review_title">Title</label>
@@ -34,4 +27,13 @@
   </div>
   <% end %>
 </div>
-<%= javascript_pack_tag 'star' %>
+
+  <script>
+  $('#star').raty({
+    size     : 32,
+    starOff: '<%= asset_path('star_off.png') %>',
+    starOn : '<%= asset_path('star_on.png') %>',
+    scoreName: 'star',
+    score: <%= @review.star||= 0 %>
+  });
+  </script>

@@ -1,3 +1,6 @@
+$brown-color: #cc8f00;
+$orange-color: #ffab00;
+
 @mixin btn_color($color: #fff) {
   background-color: lighten($color, 4%);
   @extend .z-depth-1-half;
@@ -83,12 +86,12 @@
 }
 
 .btn-brown{
-  background-color: #cc8f00;
+  background-color: $orange-color;
   &:focus {
-    background-color: darken(#cc8f00, 10%);
+    background-color: darken($orange-color, 10%);
   }
   &:hover {
-    background-color: lighten(#cc8f00, 5%);
+    background-color: lighten($orange-color, 5%);
     @extend .z-depth-1-half;
   }
 }
@@ -100,35 +103,48 @@
     @extend .z-depth-1-half;
   }
   &.red{
-    background-color: #f44336;
+    background-color: #ff5252;
     &:hover {
-      @include btn_color(#f44336);
+      @include btn_color(#ff5252);
     }
   }
   &.yellow{
-    background-color: #ffeb3b;
+    background-color: #ffd740;
     &:hover {
-      @include btn_color(#ffeb3b);
+      @include btn_color(#ffd740);
     }
   }
   &.green{
-    background-color: #4caf50;
+    background-color: #69f0ae;
     &:hover {
-      @include btn_color(#4caf50);
+      @include btn_color(#69f0ae);
     }
   }
   &.blue{
-    background-color: #2196f3;
+    background-color: #448aff;
     &:hover {
-      @include btn_color(#2196f3);
+      @include btn_color(#448aff);
     }
   }
   &.orange{
-    background-color: #ff9800;
+    background-color: #ffab40;
     &:hover {
-      @include btn_color(#ff9800);
+      @include btn_color(#ffab40);
     }
   }
+  &.purple{
+    background-color: #7c4dff;
+    &:hover {
+      @include btn_color(#7c4dff);
+    }
+  }
+  &.indigo{
+    background-color: #536dfe;
+    &:hover {
+      @include btn_color(#536dfe);
+    }
+  }
+
   &:before {
     border-radius: 0;
   }

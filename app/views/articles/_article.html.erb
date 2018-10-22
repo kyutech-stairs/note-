@@ -1,4 +1,4 @@
-<div class="col s8 article-one"  id="article-<%= article.id %>">
+<div class="col s8 article-one hvr-float"  id="article-<%= article.id %>">
   <% if article.price.min==0 %>
     <div class="ribbon_area">
      <span class="ribbon">FREE</span>
@@ -29,13 +29,13 @@
      <div class="card-action">
         <div class="row valign-wrapper">
           <div class="col s4">
-            <%= link_to user_image_for(article.user), article.user %>
+            <%= link_to user_image_for(article.user, option= {size: "25"}), article.user %>
           </div>
-          <div class="col offset-s1 s9">
-            <%= link_to article.user.name, article.user, class: "user-name" %>
+          <div class="col s14">
+            <span style="font-size: 1vw;"><%= link_to article.user.name, article.user, class: "user-name" %></span>
           </div>
-          <div class="col s10">
-            <%= date_format(article.created_at) %>
+          <div class="col s8">
+            <span style="font-size: 0.9vw;"><%= date_format(article.created_at) %></span>
           </div>
         </div>
      </div>
